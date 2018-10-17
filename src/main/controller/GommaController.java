@@ -7,8 +7,8 @@ import main.model.Gomma;
 import main.service.GommaService;
 
 public class GommaController implements Controller {
+	
 	private GommaService gommaService;
-
 
     @Override
     public void doControl(Request request) {
@@ -31,6 +31,5 @@ public class GommaController implements Controller {
 	                break;
 	        }
         MainDispatcher.getInstance().callView("Gomma", request);
-
     }
 }

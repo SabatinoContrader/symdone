@@ -21,21 +21,23 @@ public class HomeView implements View {
         System.out.println("");
         System.out.println("-------MENU-------");
         System.out.println("");
-        System.out.println("1) Inserisci gomma");
-        System.out.println("2) Visualizza gomme disponibili");
+        System.out.println("1) Seleziona sintomo ");
         System.out.println("3) Logout");
+        System.out.print(".> ");
         this.choice = Integer.parseInt(getInput());
     }
 
     public void submit() {
         if (choice < 1 || choice > 3)
             MainDispatcher.getInstance().callAction("Home", "doControl", null);
-        else if (choice == 3)
-            MainDispatcher.getInstance().callAction("Login", "doControl", null);
-        else {
-            Request request = new Request();
+        else if (choice == 1) {
+        	Request request = new Request();
             request.put("choice", choice);
-            MainDispatcher.getInstance().callAction("Gomma", "doControl", request);
+            MainDispatcher.getInstance().callAction("Sintomo", "doControl", request);
+        }else {
+        	Request request = new Request();
+            request.put("choice", choice);
+            MainDispatcher.getInstance().callAction("Home", "doControl", request);
         }
     }
 
