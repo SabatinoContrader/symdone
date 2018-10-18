@@ -3,17 +3,23 @@ package main.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 import main.ConnectionSingleton;
+import main.controller.GestoreEccezioni;
+import main.controller.Request;
 import main.model.Sintomo;
 
 
 
 public class SintomoDAO {
 	
-	private final String QUERY_ALL = "SELECT * FROM sympthom_type";
+	String campo = "";
 	
+	private final String QUERY_ALL = "SELECT * FROM sympthom_type";
+	private final String QUERY_INSERT = "INSERT INTO sympthom_type (idSympthom_type,sympthom_name) VALUES (?,?)";
+	private final String QUERY_UPDATE = "";
 	public SintomoDAO() {		
 	}
 	
@@ -32,13 +38,45 @@ public class SintomoDAO {
 				
 			}
 				
-		}catch (Exception e){
-                e.printStackTrace();
+		}catch (SQLException e){
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
             //System.out.println("Errore nella ricerca dei prodotti!!");
 			}
 			
 	    return allSintomi;
 	    
 	}
+	
+	public boolean insertSypthom(Sintomo sintomo) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
+            preparedStatement.setInt(1, sintomo.getIdSintomo());
+            preparedStatement.setString(2, sintomo.getTipoSintomo());
+            preparedStatement.execute();
+            return true;
+		}
+		catch (SQLException e){
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+			return false;
+		}		
+		
+	}
 
+	public boolean updateSypthom(Request request) {
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			campo=(String)request.get("campo");
+        	PreparedStatement preparedStatement = connection.prepareStatement("update syndone set " + campo + "=? where idsympthom_type=?");
+            preparedStatement.setString(1, (String)request.get("recipiente"));
+            preparedStatement.setInt(2, (Integer)request.get("idSympthom_type"));
+            preparedStatement.execute();
+            return true;
+		}
+		catch(SQLException e){
+			GestoreEccezioni.getInstance().gestisciEccezione(e);
+			return false;
+		}	
+	}
+	
 }
