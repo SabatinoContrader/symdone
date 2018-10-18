@@ -7,7 +7,7 @@ import main.controller.Request;
 
 public class UpdateSintomoView implements View{
 	
-	private Request request;
+	
 	
     public UpdateSintomoView () {
     	
@@ -21,19 +21,19 @@ public class UpdateSintomoView implements View{
 	public void showOptions() {
 		
 		int idSintomo=0;
-    	try {
+    	//try {
     		System.out.println("Inserisci l'id riferito al Sintomo da aggiornare:");
     		idSintomo=Integer.parseInt(getInput());
-    	}catch(Exception e) {        
-    		System.out.println("L'ID del SINTOMO deve essere un intero");
-    	}
+    	/*}catch(Exception e) {        
+    		   System.out.println("L'ID del SINTOMO deve essere un intero");
+    	}*/
     	
-    	System.out.println("Inserisci il numero del campo che vuoi modificare:");
+    	System.out.println("Inserisci il numero colonna del campo che vuoi modificare:");
     	int num=Integer.parseInt(getInput());
     	String campo="";
         
 	    switch(num) {
-		     case 1: campo="sympthom_type";
+		     case 1: campo="sympthom_name";
 		             break;
 		     case 2: campo="descrizione";
 		             break;
@@ -42,11 +42,12 @@ public class UpdateSintomoView implements View{
 	    System.out.println("Inserisci il nuovo campo "+ campo +" dei Sintomi:");
 	    String newCampo = getInput();
 	    
-	    this.request = new Request();
-	    this.request.put("idAsset", idSintomo);
-	    this.request.put("newCampo", newCampo);
-	    this.request.put("campo", campo);
-	    this.request.put("choice", "updateSintomo");
+	    Request request = new Request();
+	    request.put("idSintomo", idSintomo);
+	    request.put("newCampo", newCampo);
+	    request.put("campo", campo);
+	    request.put("choice", "updateSintomo");
+	    MainDispatcher.getInstance().callAction("Sintomo", "doControl", request);
     }
 
 	@Override

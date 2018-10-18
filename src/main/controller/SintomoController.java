@@ -11,54 +11,48 @@ import main.service.SintomoService;
 public class SintomoController implements Controller{
 	
 	private SintomoService sintomoService;
+	private String message;
 
 	@Override
 	public void doControl(Request request) {
 		
 		this.sintomoService = new SintomoService();
         String choice = request.get("choice").toString();
+        this.message = "";
         
         switch (choice) {
 	            case "read":
 	            	List<Sintomo> sintomo = sintomoService.getAllSympthom();
 	            	request.put("listaSintomi", sintomo);
-	                //request.put("mode", "allSintomi");
 	                MainDispatcher.getInstance().callView("SintomoRead", request);
 	                break;
 	            case "readSintomo":
-	        		MainDispatcher.getInstance().callView("Sintomo", null);
+	        		MainDispatcher.getInstance().callView("Sintomo", request);
 	            	break;
 	            case "insert":
 	            	MainDispatcher.getInstance().callView("InsertSintomo", request);
 	            	break;
 	            case "insertSintomo":
 	            	if (this.sintomoService.insertSypthom((Sintomo)request.get("insertSintomo"))) {
-	            		System.out.println("Sintomo inserito con successo...!!!");
-	            		System.out.println();
-	            		System.out.println();
+	            		this.message = "Sintomo inserito con successo...";            		
 	            	}
 	            	else {
-	            		System.out.println("Errore durante l'inserimento del Sintomo...!!!");
-	            		System.out.println();
-	            		System.out.println();
+	            		this.message = "Errore durante l'inserimento del Sintomo...!!!";
 	            	}
-	            	
-	            	MainDispatcher.getInstance().callView("Sintomo", null);
+	            	request.put("message", this.message);
+	            	MainDispatcher.getInstance().callView("Sintomo", request);
 	            	break;
 	            case "update":
 	            	MainDispatcher.getInstance().callView("UpdateSintomo", request);
 	            	break;
 	            case "updateSintomo":
 	            	if (sintomoService.updateSypthom(request)) {
-	            		System.out.println("Sintomo modificato con successo...!!!");
-	            		System.out.println();
-	            		System.out.println();
+	            		this.message = "Sintomo inserito con successo..."; 
 	            	}
 	            	else {
-	            		System.out.println("Errore durante l'aggiornamento del Sintomo...!!!");
-	            		System.out.println();
-	            		System.out.println();
+	            		this.message = "Errore durante la modifica del Sintomo...!!!";
 	            	}
+	            	request.put("message", this.message);
 	        		MainDispatcher.getInstance().callView("Sintomo", request);
 	            	break;
 	            	

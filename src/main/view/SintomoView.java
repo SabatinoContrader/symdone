@@ -13,9 +13,12 @@ public class SintomoView implements View{
 	
 	private int choice;
     private Request requestChoice;
+  
 
     public void showResults(Request request) {
-
+    	if (request.get("message") != null) {
+    		System.out.println(request.get("message"));
+    	}	        
     }
 
     public void showOptions() {

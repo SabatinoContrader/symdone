@@ -19,7 +19,6 @@ public class SintomoDAO {
 	
 	private final String QUERY_ALL = "SELECT * FROM sympthom_type";
 	private final String QUERY_INSERT = "INSERT INTO sympthom_type (idSympthom_type,sympthom_name) VALUES (?,?)";
-	private final String QUERY_UPDATE = "";
 	public SintomoDAO() {		
 	}
 	
@@ -67,9 +66,9 @@ public class SintomoDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			campo=(String)request.get("campo");
-        	PreparedStatement preparedStatement = connection.prepareStatement("update syndone set " + campo + "=? where idsympthom_type=?");
-            preparedStatement.setString(1, (String)request.get("recipiente"));
-            preparedStatement.setInt(2, (Integer)request.get("idSympthom_type"));
+        	PreparedStatement preparedStatement = connection.prepareStatement("update sympthom_type set " + campo + "=? where idsympthom_type=?");
+            preparedStatement.setString(1, (String)request.get("newCampo"));
+            preparedStatement.setInt(2, (Integer)request.get("idSintomo"));
             preparedStatement.execute();
             return true;
 		}
