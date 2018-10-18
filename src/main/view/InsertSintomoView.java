@@ -13,6 +13,7 @@ public class InsertSintomoView implements View{
 	@Override
 	public void showResults(Request request) {
 		this.request = request;
+		        
 	}
 
 	@Override

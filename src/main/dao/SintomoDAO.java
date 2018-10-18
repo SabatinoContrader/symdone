@@ -17,8 +17,10 @@ public class SintomoDAO {
 	
 	String campo = "";
 	
-	private final String QUERY_ALL = "SELECT * FROM sympthom_type";
-	private final String QUERY_INSERT = "INSERT INTO sympthom_type (idSympthom_type,sympthom_name) VALUES (?,?)";
+	private final String QUERY_ALL = "SELECT * FROM sympthom";
+	private final String QUERY_INSERT = "INSERT INTO sympthom (idSympthom,sympthom_name,sympthom_desc) VALUES (?,?,?)";
+	private final String QUERY_DEL = "delete from sympthom where idSympthom = ?";
+
 	public SintomoDAO() {		
 	}
 	
@@ -31,8 +33,9 @@ public class SintomoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				Sintomo newSintomo = new Sintomo();
-				newSintomo.setIdSintomo(resultSet.getInt("idSympthom_type"));
+				newSintomo.setIdSintomo(resultSet.getInt("idSympthom"));
 				newSintomo.setTipoSintomo(resultSet.getString("sympthom_name"));
+				newSintomo.setDescrizione(resultSet.getString("sympthom_desc"));
 				allSintomi.add(newSintomo);
 				
 			}
@@ -52,6 +55,7 @@ public class SintomoDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
             preparedStatement.setInt(1, sintomo.getIdSintomo());
             preparedStatement.setString(2, sintomo.getTipoSintomo());
+            preparedStatement.setString(3, sintomo.getDescrizione());
             preparedStatement.execute();
             return true;
 		}
@@ -66,7 +70,7 @@ public class SintomoDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			campo=(String)request.get("campo");
-        	PreparedStatement preparedStatement = connection.prepareStatement("update sympthom_type set " + campo + "=? where idsympthom_type=?");
+        	PreparedStatement preparedStatement = connection.prepareStatement("update sympthom set " + campo + "=? where idsympthom =?");
             preparedStatement.setString(1, (String)request.get("newCampo"));
             preparedStatement.setInt(2, (Integer)request.get("idSintomo"));
             preparedStatement.execute();
@@ -78,4 +82,17 @@ public class SintomoDAO {
 		}	
 	}
 	
+	public boolean DeleteSintomo(int idSintomo) {
+    	Connection connection = ConnectionSingleton.getInstance();
+    	try {
+    		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DEL);
+            preparedStatement.setInt(1,idSintomo);
+            preparedStatement.execute();
+            return true;
+    }
+        catch (SQLException e) {
+            GestoreEccezioni.getInstance().gestisciEccezione(e);
+            return false;
+        }	
+    }
 }

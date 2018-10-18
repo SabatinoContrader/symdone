@@ -19,7 +19,7 @@ public class SintomoView implements View{
     	if (request.get("message") != null) {
     		System.out.println(request.get("message"));
     	}	        
-    }
+   	}	
 
     public void showOptions() {
         System.out.println("Benvenuto in ContraderFramework");

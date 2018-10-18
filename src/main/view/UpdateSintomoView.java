@@ -1,9 +1,11 @@
 package main.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import main.MainDispatcher;
 import main.controller.Request;
+import main.model.Sintomo;
 
 public class UpdateSintomoView implements View{
 	
@@ -15,6 +17,15 @@ public class UpdateSintomoView implements View{
 
 	@Override
 	public void showResults(Request request) {
+		if(request != null ){	 
+	          List<Sintomo> listasintomi = (List<Sintomo>) request.get("listaSintomi");
+	          System.out.println("----- Seleziona Sintomo da modificare -----");
+	          System.out.println();
+	          for(Sintomo sintomo:listasintomi){
+	                System.out.println(sintomo.getIdSintomo() + " " +sintomo.getTipoSintomo() + " " + sintomo.getDescrizione());
+	            }
+	          
+	       }
 	}
 
 	@Override

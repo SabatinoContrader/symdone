@@ -4,6 +4,7 @@ public class Sintomo {
 	
 	private int idSintomo;
 	private String tipoSintomo;
+	private String descrizione;
 	
 	public Sintomo() 
 	{		
@@ -29,6 +30,14 @@ public class Sintomo {
 
 	public void setTipoSintomo(String tipoSintomo) {
 		this.tipoSintomo = tipoSintomo;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
 	
 	

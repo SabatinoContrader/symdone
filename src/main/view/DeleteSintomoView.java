@@ -6,47 +6,49 @@ import java.util.Scanner;
 import main.MainDispatcher;
 import main.controller.Request;
 import main.model.Sintomo;
-import main.service.SintomoService;
 
-public class SintomoReadView implements View{
-	
-	private String scelta1;
-	private SintomoService sintomoService;
-	//private String mode="";
+public class DeleteSintomoView implements View {
+
 	private Request request;
 	
-	public SintomoReadView () {
-	      this.sintomoService = new SintomoService();
-	      this.request = new Request();
-	  }
-
 	@Override
 	public void showResults(Request request) {
-		if(request != null ){	        //&& request.get("mode") != null
-		      //this.mode = request.get("mode").toString();
+		// TODO Auto-generated method stub
+		if(request != null ){	 
 	          List<Sintomo> listasintomi = (List<Sintomo>) request.get("listaSintomi");
-	          System.out.println("----- Seleziona Sintomo !!!-----");
+	          System.out.println("----- Seleziona Sintomo da eliminare -----");
 	          System.out.println();
 	          for(Sintomo sintomo:listasintomi){
 	                System.out.println(sintomo.getIdSintomo() + " " +sintomo.getTipoSintomo() + " " + sintomo.getDescrizione());
 	            }
-	          
-	       }
+	          }
 	}
 
 	@Override
-	public void showOptions() {      		
-	}
+	public void showOptions() {    	
+    	System.out.println("Inserire l'id del sintomo da eliminare");
+    	System.out.println("Id:");
+    	int idSintomo = Integer.parseInt(getInput());
+    	this.request = new Request();
+    	this.request.put("deleteSintomo",idSintomo);
+    	this.request.put("choice", "deleteSintomo");
+    }
 
-	@Override
-	public String getInput() {
-		Scanner scanner = new Scanner(System.in);
+    @Override
+    public String getInput() {
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
+    	
+    	
 	}
+
+
 
 	@Override
 	public void submit() {
-		this.request.put("choice", "readSintomo");
 		MainDispatcher.getInstance().callAction("Sintomo", "doControl", this.request);
-	}	
+		
+	}
+	
+
 }

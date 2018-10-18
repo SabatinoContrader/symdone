@@ -26,4 +26,7 @@ public class SintomoService {
 		return this.sintomoDAO.updateSypthom(request); 
 	}
 	
+	public boolean DeleteSintomo(int idSintomo) {
+		return this.sintomoDAO.DeleteSintomo(idSintomo);
+	}
 }
