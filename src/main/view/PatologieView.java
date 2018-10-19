@@ -51,8 +51,8 @@ public class PatologieView implements View{
 	        }
 	        else if (choice == 5) {
 	        	this.requestChoice = new Request();
-	        	requestChoice.put("choice", choice);
-	            MainDispatcher.getInstance().callAction("HomeGeneral", "doControl", requestChoice); 
+	        	requestChoice.put("choice", "return");
+	            MainDispatcher.getInstance().callAction("Home", "doControl", this.requestChoice); 
 	            // creare questo controllore
 	        }
 	        else {  

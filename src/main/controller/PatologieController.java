@@ -46,10 +46,6 @@ public class PatologieController implements Controller {
 			MainDispatcher.getInstance().callView("Patologie", request);
 			break;
 			
-		case "return":
-			MainDispatcher.getInstance().callView("Patologie", request);
-			break;
-			
 		case "update":
 			List<Patologie> patologiem = patologieService.getAllPatologie();
 			request.put("listaPatologie", patologiem);
