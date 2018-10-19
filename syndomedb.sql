@@ -28,14 +28,7 @@ CREATE TABLE `disease` (
   `iddisease` int(11) NOT NULL AUTO_INCREMENT,
   `disease_name` varchar(45) DEFAULT NULL,
   `disease_desc` varchar(100) DEFAULT NULL,
-  `synthom_id` int(11) DEFAULT NULL,
-  `herb_id` int(11) DEFAULT NULL,
-  `medicine_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`iddisease`),
-  KEY `sympthom_id_idx` (`synthom_id`),
-  KEY `herb_id_idx` (`herb_id`),
-  CONSTRAINT `herb_id` FOREIGN KEY (`herb_id`) REFERENCES `herbs` (`idherbs`),
-  CONSTRAINT `sympthom_id` FOREIGN KEY (`synthom_id`) REFERENCES `sympthom_relation` (`id_relation`)
+  PRIMARY KEY (`iddisease`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,6 +42,50 @@ LOCK TABLES `disease` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `diseaseherbs`
+--
+
+DROP TABLE IF EXISTS `diseaseherbs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `diseaseherbs` (
+  `iddisease` int(11) NOT NULL,
+  `idherbs` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `diseaseherbs`
+--
+
+LOCK TABLES `diseaseherbs` WRITE;
+/*!40000 ALTER TABLE `diseaseherbs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `diseaseherbs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `diseasesympthom`
+--
+
+DROP TABLE IF EXISTS `diseasesympthom`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `diseasesympthom` (
+  `iddisease` int(11) NOT NULL,
+  `idsympthom` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `diseasesympthom`
+--
+
+LOCK TABLES `diseasesympthom` WRITE;
+/*!40000 ALTER TABLE `diseasesympthom` DISABLE KEYS */;
+/*!40000 ALTER TABLE `diseasesympthom` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `herbs`
 --
 
@@ -59,9 +96,7 @@ CREATE TABLE `herbs` (
   `idherbs` int(11) NOT NULL AUTO_INCREMENT,
   `herb_name` varchar(45) DEFAULT NULL,
   `herb_desc` varchar(100) DEFAULT NULL,
-  `iddisease` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idherbs`),
-  KEY `iddisease_idx` (`iddisease`)
+  PRIMARY KEY (`idherbs`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -99,79 +134,28 @@ INSERT INTO `roles` VALUES (1,'Administrator');
 UNLOCK TABLES;
 
 --
--- Table structure for table `sympthom_position`
+-- Table structure for table `sympthom`
 --
 
-DROP TABLE IF EXISTS `sympthom_position`;
+DROP TABLE IF EXISTS `sympthom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `sympthom_position` (
-  `position_id` int(11) NOT NULL AUTO_INCREMENT,
-  `position_name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`position_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sympthom_position`
---
-
-LOCK TABLES `sympthom_position` WRITE;
-/*!40000 ALTER TABLE `sympthom_position` DISABLE KEYS */;
-INSERT INTO `sympthom_position` VALUES (1,'Testa'),(2,'Occhio'),(3,'Orecchio'),(4,'Denti'),(5,'Gola'),(6,'Collo'),(7,'Petto'),(8,'Stomaco'),(9,'Spalle'),(10,'Schiena'),(11,'Braccio'),(12,'Mano'),(13,'Gamba'),(14,'Piede');
-/*!40000 ALTER TABLE `sympthom_position` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sympthom_relation`
---
-
-DROP TABLE IF EXISTS `sympthom_relation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `sympthom_relation` (
-  `id_relation` int(11) NOT NULL AUTO_INCREMENT,
-  `idSympthom_type` int(11) DEFAULT NULL,
-  `position_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_relation`),
-  KEY `position_id_idx` (`position_id`),
-  KEY `idsympthom_type_idx` (`idSympthom_type`),
-  CONSTRAINT `idsympthom_type` FOREIGN KEY (`idSympthom_type`) REFERENCES `sympthom_type` (`idsympthom_type`),
-  CONSTRAINT `position_id` FOREIGN KEY (`position_id`) REFERENCES `sympthom_position` (`position_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sympthom_relation`
---
-
-LOCK TABLES `sympthom_relation` WRITE;
-/*!40000 ALTER TABLE `sympthom_relation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sympthom_relation` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sympthom_type`
---
-
-DROP TABLE IF EXISTS `sympthom_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `sympthom_type` (
-  `idsympthom_type` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sympthom` (
+  `idsympthom` int(11) NOT NULL AUTO_INCREMENT,
   `sympthom_name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idsympthom_type`)
+  `sympthom_desc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idsympthom`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sympthom_type`
+-- Dumping data for table `sympthom`
 --
 
-LOCK TABLES `sympthom_type` WRITE;
-/*!40000 ALTER TABLE `sympthom_type` DISABLE KEYS */;
-INSERT INTO `sympthom_type` VALUES (1,'Dolore'),(2,'Bruciore'),(3,'Prurito'),(4,'Gonfiore'),(5,'Arrossamento'),(6,'Indolenzimento'),(7,'Sanguinamento'),(8,'Ematoma');
-/*!40000 ALTER TABLE `sympthom_type` ENABLE KEYS */;
+LOCK TABLES `sympthom` WRITE;
+/*!40000 ALTER TABLE `sympthom` DISABLE KEYS */;
+INSERT INTO `sympthom` VALUES (1,'Dolore',NULL),(2,'Bruciore',NULL),(3,'Prurito',NULL),(4,'Gonfiore',NULL),(5,'Arrossamento',NULL),(6,'Indolenzimento',NULL),(7,'Sanguinamento',NULL),(8,'Ematoma',NULL);
+/*!40000 ALTER TABLE `sympthom` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -212,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-17 11:14:44
+-- Dump completed on 2018-10-18 11:46:36
