@@ -43,7 +43,7 @@ public class SintomoView implements View{
         else if (choice == 5) {
         	this.requestChoice = new Request();
         	requestChoice.put("choice", choice);
-            MainDispatcher.getInstance().callAction("HomeGeneral", "doControl", requestChoice);  // creare questo controllore
+            MainDispatcher.getInstance().callAction("Home", "doControl", requestChoice);  
         }
         else {  
         	Request request = new Request();

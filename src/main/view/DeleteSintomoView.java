@@ -13,7 +13,7 @@ public class DeleteSintomoView implements View {
 	
 	@Override
 	public void showResults(Request request) {
-		// TODO Auto-generated method stub
+	
 		if(request != null ){	 
 	          List<Sintomo> listasintomi = (List<Sintomo>) request.get("listaSintomi");
 	          System.out.println("----- Seleziona Sintomo da eliminare -----");

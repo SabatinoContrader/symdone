@@ -19,7 +19,7 @@ public class SintomoDAO {
 	
 	private final String QUERY_ALL = "SELECT * FROM sympthom";
 	private final String QUERY_INSERT = "INSERT INTO sympthom (idSympthom,sympthom_name,sympthom_desc) VALUES (?,?,?)";
-	private final String QUERY_DEL = "delete from sympthom where idSympthom = ?";
+	private final String QUERY_DELETE = "delete from sympthom where idSympthom = ?";
 
 	public SintomoDAO() {		
 	}
@@ -85,7 +85,7 @@ public class SintomoDAO {
 	public boolean DeleteSintomo(int idSintomo) {
     	Connection connection = ConnectionSingleton.getInstance();
     	try {
-    		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DEL);
+    		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
             preparedStatement.setInt(1,idSintomo);
             preparedStatement.execute();
             return true;

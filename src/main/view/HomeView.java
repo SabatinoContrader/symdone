@@ -21,39 +21,40 @@ public class HomeView implements View {
         System.out.println("");
         System.out.println("-------MENU Sintomo-------");
         System.out.println("");
-        System.out.println("1) Seleziona sintomo ");
-        System.out.println("2) Inserimento sintomo ");
-        System.out.println("3) modifica sintomo ");
-        System.out.println("4) Elimina sintomo ");
+        System.out.println("1) Gestione Sintomi ");
+        System.out.println("2) Gestione patologie");
+        System.out.println("3) Gestione Erbe");
+        System.out.println("4) Ricerca Diagnosi");
         System.out.println("5) Logout");
         System.out.print(".> ");
         this.choice = Integer.parseInt(getInput());
     }
 
     public void submit() {
+    	this.requestChoice = new Request();
+    	
         if (choice < 1 || choice > 5) {
             MainDispatcher.getInstance().callAction("Home", "doControl", null);
         }
         else if (choice == 5) {
-        	this.requestChoice = new Request();
-        	requestChoice.put("choice", choice);
-            MainDispatcher.getInstance().callAction("HomeGeneral", "doControl", requestChoice);  // creare questo controllore
+        	//requestChoice.put("choice", "login");
+            MainDispatcher.getInstance().callAction("Login", "doControl", null);  
         }
-        else {  
-        	Request request = new Request();
-        	if(this.choice == 1) {
-        	    request.put("choice", "read");
-        	}
-        	else if(this.choice == 2) {
-        	    request.put("choice", "insert"); 
-            }
-        	else if(this.choice == 3){
-        	    request.put("choice", "modify");
-            }
-        	else if(this.choice == 4) {
-        	    request.put("choice", "delete");
-            }
-            MainDispatcher.getInstance().callAction("Sintomo", "doControl", request);
+        else if (choice == 1) {
+        	this.requestChoice.put("choice", "sintomi");
+            MainDispatcher.getInstance().callAction("Home", "doControl", requestChoice);
+        }
+        else if (choice == 2) {
+        	this.requestChoice.put("choice", "patologie");
+        	MainDispatcher.getInstance().callAction("Home", "doControl", this.requestChoice); 
+        }
+        else if (choice == 3) {
+        	this.requestChoice.put("choice", "erbe");
+        	MainDispatcher.getInstance().callAction("Home", "doControl", this.requestChoice);
+        }
+        else if (choice == 4) {
+        	//this.request.put("choice", "logs");
+        	//MainDispatcher.getInstance().callAction("Home", "doControl", this.request);  //sistemare con Italo
         }
     }
 

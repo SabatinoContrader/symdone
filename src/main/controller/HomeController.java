@@ -12,15 +12,25 @@ public class HomeController implements Controller {
     }
 
     public void doControl(Request request) {
-        if (request != null) {
-            String nomeUtente = request.get("nomeUtente").toString();
-            String password = request.get("password").toString();
-            if (loginService.login(nomeUtente, password))
-                MainDispatcher.getInstance().callView("Sintomo", request);
-            else
-                MainDispatcher.getInstance().callAction("Login", "doControl", request);
+    	
+    	String choice = request.get("choice").toString();
+    	
+        if (choice != null) {
+        	
+        	   switch (choice) {
+                  case "sintomi":
+            	       MainDispatcher.getInstance().callView("Sintomo", request);
+            	       break;
+                  case "patologie":
+            	       MainDispatcher.getInstance().callView("Patologie", request);
+            	       break;
+                  case "erbe":
+            	       MainDispatcher.getInstance().callView("MovimentiExportHome", request);
+            	       break;
+            }
         }
-        else MainDispatcher.getInstance().callView("Home", null);
-
+        else {
+        	MainDispatcher.getInstance().callView("Home", null);
+        }
     }
 }

@@ -27,7 +27,7 @@ public class LoginView implements View {
         Request request = new Request();
         request.put("nomeUtente", nomeUtente);
         request.put("password", password);
-        MainDispatcher.getInstance().callAction("Home", "doControl", request);
+        MainDispatcher.getInstance().callAction("Login", "doControl", request);
     }
 
 
@@ -35,9 +35,5 @@ public class LoginView implements View {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
-
-    protected void send () {
-    }
-
 
 }
