@@ -25,8 +25,11 @@ public class HomeController implements Controller {
             	       MainDispatcher.getInstance().callView("Patologie", request);
             	       break;
                   case "erbe":
-            	       MainDispatcher.getInstance().callView("MovimentiExportHome", request);
+            	       MainDispatcher.getInstance().callView("Erba", request);
             	       break;
+                  case "return":
+                	  MainDispatcher.getInstance().callView("Home", request);
+                	  break;
             }
         }
         else {

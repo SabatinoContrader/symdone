@@ -25,7 +25,7 @@ public class SintomoReadView implements View{
 		if(request != null ){	        //&& request.get("mode") != null
 		      //this.mode = request.get("mode").toString();
 	          List<Sintomo> listasintomi = (List<Sintomo>) request.get("listaSintomi");
-	          System.out.println("----- Seleziona Sintomo !!!-----");
+	          System.out.println("----- Visualizza Sintomo !!!-----");
 	          System.out.println();
 	          System.out.println();
 	          System.out.format("+--------------------------------------------+%n");
