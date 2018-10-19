@@ -17,10 +17,20 @@ public class DeleteSintomoView implements View {
 		if(request != null ){	 
 	          List<Sintomo> listasintomi = (List<Sintomo>) request.get("listaSintomi");
 	          System.out.println("----- Seleziona Sintomo da eliminare -----");
+	          System.out.println("----- Seleziona Sintomo !!!-----");
 	          System.out.println();
+	          System.out.println();
+	          System.out.format("+--------------------------------------------+%n");
+	  		  System.out.format("%3s %20s %20s %n","ID", "1. SINTOMO","2. DESCRIZIONE");
+	  		  System.out.format("+--------------------------------------------+%n");
+	  		
+	  		
 	          for(Sintomo sintomo:listasintomi){
-	                System.out.println(sintomo.getIdSintomo() + " " +sintomo.getTipoSintomo() + " " + sintomo.getDescrizione());
-	            }
+	        	    //String leftAlignFormat ="| %-4s | %-9s | %-15s |%n";
+	                System.out.format( "%3s %20s %20s %n", sintomo.getIdSintomo() , sintomo.getTipoSintomo() , sintomo.getDescrizione());
+	                //System.out.println("+--------------------------------------------+");
+	            }	
+	          System.out.println();
 	          }
 	}
 
