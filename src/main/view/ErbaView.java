@@ -46,8 +46,7 @@ public class ErbaView implements View{
         else {  
         	Request request = new Request();
         	if(this.choice == 1) {
-        	    request.put("choice", "readErba");
-        	    MainDispatcher.getInstance().callAction("Erba", "doControl", request);
+        	    request.put("choice", "read");
         	}
         	else if(this.choice == 2) {
         	    request.put("choice", "insert"); 

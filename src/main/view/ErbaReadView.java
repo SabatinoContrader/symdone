@@ -26,11 +26,11 @@ public class ErbaReadView implements View {
 		if (request != null) {
 			List<Erba> listaerba = (List<Erba>) request.get("listaErba");
 			
-			System.out.println("----- Visualizza Erba !!!-----");
+			System.out.println("----- Visualizza Erba-----");
 	        System.out.println();
 	        System.out.println();
 	        System.out.format("+--------------------------------------------+%n");
-	  		System.out.format("%3s %20s %20s %n","ID", "1. SINTOMO","2. DESCRIZIONE");
+	  		System.out.format("%3s %20s %20s %n","ID", "1. ERBA","2. DESCRIZIONE");
 	  		System.out.format("+--------------------------------------------+%n");
 	  		
 	  		
@@ -65,7 +65,7 @@ public class ErbaReadView implements View {
 	@Override
 	public void submit() {
 		Request requestType = new Request();
-		requestType.put("choice", "read");
+		requestType.put("choice", "readErba");
 		MainDispatcher.getInstance().callAction("Erba", "doControl", requestType);
 
 	}

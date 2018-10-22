@@ -19,10 +19,10 @@ public class HomeView implements View {
         System.out.println("Benvenuto in ContraderFramework");
         System.out.println("");
         System.out.println("");
-        System.out.println("-------MENU Sintomo-------");
+        System.out.println("-------MENU Generale-------");
         System.out.println("");
         System.out.println("1) Gestione Sintomi ");
-        System.out.println("2) Gestione patologie");
+        System.out.println("2) Gestione Patologie");
         System.out.println("3) Gestione Erbe");
         System.out.println("4) Ricerca Diagnosi");
         System.out.println("5) Logout");

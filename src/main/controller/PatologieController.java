@@ -26,6 +26,11 @@ public class PatologieController implements Controller {
 			MainDispatcher.getInstance().callView("PatologieRead", request);
 			break;
 
+			
+		case "readPatologie":
+			MainDispatcher.getInstance().callView("Patologie", request);
+			break;
+			
 		case "insert":
 
 			MainDispatcher.getInstance().callView("PatologieInsert", request);

@@ -21,15 +21,17 @@ public class ErbaController implements Controller {
 		switch (choice) {
 		case "read":
 
-			MainDispatcher.getInstance().callView("Erba", request);
-			break;
-
-		case "readErba":
-
 			List<Erba> erba = erbaService.getAllErbe();
 			request.put("listaErba", erba);
 			MainDispatcher.getInstance().callView("ErbaRead", request);
 			break;
+
+		case "readErba":
+
+			MainDispatcher.getInstance().callView("Erba", request);
+			break;
+		
+		
 		case "insert":
 
 			MainDispatcher.getInstance().callView("ErbaInsert", request);
@@ -40,21 +42,25 @@ public class ErbaController implements Controller {
 			Erba newHerbs = new Erba();
 			newHerbs = (Erba) request.get("newHerbs");
 			erbaService.insertErba(newHerbs);
-			MainDispatcher.getInstance().callView("Home", request);
+			MainDispatcher.getInstance().callView("Erba", request);
 
 			break;
 
 		case "update":
+			List<Erba> erba2 = erbaService.getAllErbe();
+			request.put("listaErba", erba2);
 			MainDispatcher.getInstance().callView("ErbaUpdate", request);
 			break;
 
 		case "updateErba":
+			
+		
 			if (erbaService.updateErba(request)) {
 
 				System.out.println("Erba curativa modificata con successo...!!!");
 				System.out.println();
 				System.out.println();
-				MainDispatcher.getInstance().callView("Home", request);
+				MainDispatcher.getInstance().callView("Erba", request);
 
 			} else {
 
@@ -78,7 +84,7 @@ public class ErbaController implements Controller {
 			}
 			request.put("message", this.message);
 
-			MainDispatcher.getInstance().callView("Home", request);
+			MainDispatcher.getInstance().callView("Erba", request);
 			break;
 		case "return" :
 			MainDispatcher.getInstance().callView("Home", request);

@@ -1,9 +1,11 @@
 package main.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import main.MainDispatcher;
 import main.controller.Request;
+import main.model.Erba;
 
 public class ErbaUpdateView implements View {
 
@@ -13,6 +15,24 @@ public class ErbaUpdateView implements View {
 
 	@Override
 	public void showResults(Request request) {
+		if(request != null ){	 
+			
+	          List<Erba> listaerba = (List<Erba>) request.get("listaErba");
+	          System.out.println("----- Seleziona Erba da modificare -----");
+	          System.out.println();
+	          System.out.println();
+	          System.out.format("+--------------------------------------------+%n");
+	  		  System.out.format("%3s %20s %20s %n","ID", "1. ERBA","2. DESCRIZIONE");
+	  		  System.out.format("+--------------------------------------------+%n");
+	  		
+	  		
+	          for(Erba erba:listaerba){
+	        	    //String leftAlignFormat ="| %-4s | %-9s | %-15s |%n";
+	                System.out.format("%3s %20s %20s %n", erba.getIdErba() ,erba.getNomeErba() , erba.getDescErba());
+	                //System.out.println("+--------------------------------------------+");
+	            }	
+	          System.out.println();
+	       }
 
 	}
 

@@ -22,11 +22,14 @@ public class PatologieReadView implements View {
 		List<Patologie> listaPatologie = (List<Patologie>) request.get("listaPatologie");
 		if (listaPatologie != null) {
 			//listaPatologie = (List<Patologie>) request.get("listaPatologie");
-			System.out.println("----- Elenco Patologie !!!-----");
-			System.out.println();
+			System.out.println("----- Visualizza Patologia-----");
+	        System.out.println();
+	        System.out.println();
+	        System.out.format("+--------------------------------------------+%n");
+	  		System.out.format("%3s %20s %20s %n","ID", "1. PATOLOGIA","2. DESCRIZIONE");
+	  		System.out.format("+--------------------------------------------+%n");
 			for (Patologie patologie : listaPatologie) {
-				System.out.println(patologie.getIdPatologia() + " " + patologie.getNomePatologia() + " "
-						+ patologie.getDescPatologia());
+				System.out.format("%3s %20s %20s %n",patologie.getIdPatologia(), patologie.getNomePatologia(), patologie.getDescPatologia());
 			}
 		}
 	}

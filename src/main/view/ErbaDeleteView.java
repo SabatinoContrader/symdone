@@ -15,10 +15,15 @@ public class ErbaDeleteView implements View{
 	public void showResults(Request request) {
 		if(request != null) {
 			List<Erba> listaerba = (List<Erba>) request.get("listaErba");
-			System.out.println("Seleziona Erba da eliminare ------");
-			System.out.println();
+			  System.out.println("----- Seleziona Erba da eliminare -----");
+	          System.out.println("----- Seleziona Erba !!!-----");
+	          System.out.println();
+	          System.out.println();
+	          System.out.format("+--------------------------------------------+%n");
+	  		  System.out.format("%3s %20s %20s %n","ID", "1. ERBA","2. DESCRIZIONE");
+	  		  System.out.format("+--------------------------------------------+%n");
 			for(Erba erba:listaerba) {
-				System.out.println(erba.getIdErba()+ " " + erba.getNomeErba() + " " + erba.getDescErba());
+				System.out.format( "%3s %20s %20s %n", erba.getIdErba() , erba.getNomeErba() , erba.getDescErba());;
 			}
 			
 		}
