@@ -29,7 +29,7 @@ CREATE TABLE `disease` (
   `disease_name` varchar(45) DEFAULT NULL,
   `disease_desc` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`iddisease`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `disease` (
 
 LOCK TABLES `disease` WRITE;
 /*!40000 ALTER TABLE `disease` DISABLE KEYS */;
+INSERT INTO `disease` VALUES (1,'mal di testa',NULL),(2,'febbre',NULL),(3,'tosse',NULL);
 /*!40000 ALTER TABLE `disease` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,6 +83,7 @@ CREATE TABLE `diseasesympthom` (
 
 LOCK TABLES `diseasesympthom` WRITE;
 /*!40000 ALTER TABLE `diseasesympthom` DISABLE KEYS */;
+INSERT INTO `diseasesympthom` VALUES (1,1),(1,2),(1,5),(1,7),(2,2),(2,3),(2,4),(2,6),(2,8),(3,1),(3,2),(3,5),(3,6);
 /*!40000 ALTER TABLE `diseasesympthom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +147,7 @@ CREATE TABLE `sympthom` (
   `sympthom_name` varchar(45) DEFAULT NULL,
   `sympthom_desc` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idsympthom`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 11:46:36
+-- Dump completed on 2018-10-22 15:49:32
