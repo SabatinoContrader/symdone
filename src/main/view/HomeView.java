@@ -53,8 +53,8 @@ public class HomeView implements View {
         	MainDispatcher.getInstance().callAction("Home", "doControl", this.requestChoice);
         }
         else if (choice == 4) {
-        	//this.request.put("choice", "logs");
-        	//MainDispatcher.getInstance().callAction("Home", "doControl", this.request);  //sistemare con Italo
+        	this.requestChoice.put("choice", "search");
+        	MainDispatcher.getInstance().callAction("Sintomo", "doControl", this.requestChoice);
         }
     }
 

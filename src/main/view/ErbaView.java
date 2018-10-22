@@ -41,7 +41,7 @@ public class ErbaView implements View{
         else if (choice == 5) {
         	this.requestChoice = new Request();
         	requestChoice.put("choice", "return");
-            MainDispatcher.getInstance().callAction("Home", "doControl", requestChoice);  // creare questo controllore
+            MainDispatcher.getInstance().callAction("Home", "doControl", requestChoice);  
         }
         else {  
         	Request request = new Request();

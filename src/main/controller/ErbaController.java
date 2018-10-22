@@ -80,7 +80,9 @@ public class ErbaController implements Controller {
 
 			MainDispatcher.getInstance().callView("Home", request);
 			break;
-
+		case "return" :
+			MainDispatcher.getInstance().callView("Home", request);
+			break;
 		}
 
 	}

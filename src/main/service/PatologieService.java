@@ -32,4 +32,7 @@ public class PatologieService {
 		 return this.patologieDAO.deletePatologie(idPatologie);
 	 }
 	 
+	 public List<Patologie> SearchPatologie (int idPatologie) {
+		 return this.patologieDAO.SearchPatologie(idPatologie);
+	 }
 }

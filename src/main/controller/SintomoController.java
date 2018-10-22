@@ -4,13 +4,16 @@ import java.util.List;
 
 import main.MainDispatcher;
 import main.model.Gomma;
+import main.model.Patologie;
 import main.model.Sintomo;
 import main.service.GommaService;
+import main.service.PatologieService;
 import main.service.SintomoService; 
 
 public class SintomoController implements Controller{
 	
 	private SintomoService sintomoService;
+	private PatologieService patologieService;
 	private String message;
 
 	
@@ -18,6 +21,7 @@ public class SintomoController implements Controller{
 	public void doControl(Request request) {
 		
 		this.sintomoService = new SintomoService();
+		this.patologieService = new PatologieService();
         String choice = request.get("choice").toString();
         this.message = "";
         
@@ -73,6 +77,22 @@ public class SintomoController implements Controller{
 	            	}
 	            	request.put("message", this.message);
 	            	MainDispatcher.getInstance().callView("Sintomo", request);
+	            	break;
+	            case "search":
+              	  //Request requestSearch = new Request();
+              	  List<Sintomo> sintomo4 = sintomoService.getAllSympthom();
+              	  request.put("listaSintomi", sintomo4);
+              	  MainDispatcher.getInstance().callView("Search", request);
+              	  break;
+	            case "searchDiagnosi":
+	            	int choiceDiagnosi =Integer.parseInt(request.get("Diagnosi").toString());
+	            	List<Patologie> patologia = patologieService.SearchPatologie(choiceDiagnosi);
+	               	
+	        	    request.put("listaPatologie", patologia);
+	        	    MainDispatcher.getInstance().callView("ResultDisease", request);
+	        	    break;
+	            case "return":
+	            	MainDispatcher.getInstance().callView("Home", request);
 	            	break;
 	        }
         

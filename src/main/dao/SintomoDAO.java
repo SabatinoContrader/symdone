@@ -9,6 +9,7 @@ import java.util.*;
 import main.ConnectionSingleton;
 import main.controller.GestoreEccezioni;
 import main.controller.Request;
+import main.model.Patologie;
 import main.model.Sintomo;
 
 
@@ -20,7 +21,7 @@ public class SintomoDAO {
 	private final String QUERY_ALL = "SELECT * FROM sympthom";
 	private final String QUERY_INSERT = "INSERT INTO sympthom (idSympthom,sympthom_name,sympthom_desc) VALUES (?,?,?)";
 	private final String QUERY_DELETE = "delete from sympthom where idSympthom = ?";
-
+	
 	public SintomoDAO() {		
 	}
 	
@@ -95,4 +96,8 @@ public class SintomoDAO {
             return false;
         }	
     }
-}
+	
+	
+				
+	}
+

@@ -42,8 +42,8 @@ public class SintomoView implements View{
         }
         else if (choice == 5) {
         	this.requestChoice = new Request();
-        	requestChoice.put("choice", choice);
-            MainDispatcher.getInstance().callAction("Home", "doControl", requestChoice);  
+        	this.requestChoice.put("choice", "return");
+            MainDispatcher.getInstance().callAction("Sintomo", "doControl", this.requestChoice);  
         }
         else {  
         	Request request = new Request();

@@ -79,7 +79,9 @@ public class PatologieController implements Controller {
 			request.put("message", this.message);
 			MainDispatcher.getInstance().callView("Patologie", request);
 			break;
-			
+		case "return":
+			MainDispatcher.getInstance().callView("Home", request);
+			break;
 		}	
 		
 	}

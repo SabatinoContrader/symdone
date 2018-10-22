@@ -1,14 +1,20 @@
 package main.controller;
 
+import java.util.List;
+
 import main.MainDispatcher;
+import main.model.Sintomo;
 import main.service.LoginService;
+import main.service.SintomoService;
 
 public class HomeController implements Controller {
 
     private LoginService loginService;
 
+    
     public HomeController() {
         loginService = new LoginService();
+
     }
 
     public void doControl(Request request) {
