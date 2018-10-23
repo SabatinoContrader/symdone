@@ -33,6 +33,6 @@
 	<classpathentry kind="lib" path="lib/spring-webmvc-4.3.12.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-webmvc-portlet-4.3.12.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-websocket-4.3.12.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Contrader_107/Desktop/ContraderFramework-Evo/symdone/lib/mysql-connector-java-5.1.46-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Contrader18012/Desktop/Syndone/symdone/lib/mysql-connector-java-5.1.46-bin.jar"/>
 	<classpathentry kind="output" path="out/production/ContraderFramework"/>
 </classpath>
