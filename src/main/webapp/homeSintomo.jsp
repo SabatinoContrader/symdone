@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>DIM</title>
+<title>DIM - Syndone</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,22 +21,14 @@
 <body class="text-center">
 	<form class="form-signin">
 		<h1 class="h3 mb-3 font-weight-normal">
-		SYNDONE
+		HOME SINTOMO
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeSintomo">Gestione Sintomi</a><br> 
+		href="/Home/homeDirectory">Visualizza Sintomi</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=Customers">Gestione Patologie</a><br> 
+		href="/Home/homeDirectory?scelta=Customers">Inserisci Sintomo</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Gestione Erbe</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Gestione Medici</a><br>
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Gestione SintomoSet</a><br>
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Ricerca Patologie</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
+		href=" ">Indietro</a><br>
 	</form>
 
 </body>

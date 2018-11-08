@@ -90,7 +90,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/logoutControl", method = RequestMethod.GET)
 	public String logoutControl(HttpServletRequest request, Model model ) {
-		this.session.invalidate();
+		//this.session.invalidate();
 		return "index";
 	}
 	
