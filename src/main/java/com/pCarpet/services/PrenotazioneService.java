@@ -78,14 +78,6 @@ public class PrenotazioneService {
     		AP=AssetConverter.converToEntity(this.assetService.getAsset(idasset));
     		
         		
-        		if(UP.getStato().getFlag()==1)
-        			l.add(String.valueOf(UP.getIduser()));
-        		else
-        			l.add(String.valueOf(UP.getIduser()+" (Deleted)"));
-        		
-        		
-        		l.add(UP.getRagioneSociale());
-        		
         		if(AP.getFlag()==1)
         			l.add(String.valueOf(AP.getIdasset()));
         		else

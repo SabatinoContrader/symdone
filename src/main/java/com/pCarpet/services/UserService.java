@@ -55,11 +55,6 @@ public class UserService {
         List<User> ll=new LinkedList<User>();
        
         
-        for(User u:listU) {
-        	if(u.getStato().getFlag()==1) {
-        		ll.add(u);
-        	}
-        }
         List<UserDTO> listDTO=new ArrayList<>();
         
         for(User u: ll) 
@@ -119,7 +114,6 @@ public class UserService {
     	Stato a = new Stato();
     	a.setFlag(2);
     	a.setValore("eliminato");
-    	u.setStato(a);
     	this.userRepository.save(u);
     	
     	

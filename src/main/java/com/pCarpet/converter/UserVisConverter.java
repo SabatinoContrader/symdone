@@ -17,10 +17,6 @@ public class UserVisConverter{
 		
 		userDTO.setIduser(entity.getIduser());
 		userDTO.setUsername(entity.getUsername());
-		userDTO.setRagioneSociale(entity.getRagioneSociale());
-		userDTO.setPartitaiva(entity.getPartitaiva());
-		userDTO.setStato(StatoConverter.convertToDTO(entity.getStato()));
-		
 		return userDTO;
 	}
 	

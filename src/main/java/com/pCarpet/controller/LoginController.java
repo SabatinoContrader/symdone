@@ -68,21 +68,14 @@ public class LoginController {
 		String ruolo = this.userService.login(username, password);
 		if (ruolo!="") {
 			//session.setAttribute("user", this.user);
-			if (ruolo.equals("segretaria")) {
-				
-				
-//				JsonObject utente=new JsonObject();
-//				utente.addProperty(username, password);
-//	
-//				
-//				return utente.toString();
+			if (ruolo.equals("doctor")) {
 				return "homeSegretaria";
 			}	
-			else if (this.user.getRuolo().equals("cliente")) {
+			else if (ruolo.equals("patient")) {
 				//return "homeCliente";
 			}
-			else if (this.user.getRuolo().equals("amministratore")) {
-				//return "homeAdmin";
+			else if (ruolo.equals("admin")) {
+				return "homeDIM";
 			}	
 			else {
 				//return "index";

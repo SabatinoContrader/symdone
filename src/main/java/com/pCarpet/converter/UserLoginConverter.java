@@ -6,8 +6,6 @@ import com.pCarpet.model.User;
 
 public class UserLoginConverter{
 
-	
-
 //	
 //	public static UserDTO covertToDTO(User entity) {
 //		UserDTO userDTO = new UserDTO();
@@ -16,12 +14,6 @@ public class UserLoginConverter{
 //		userDTO.setRuolo(entity.getRuolo());
 //		
 //		return userDTO;
-//	}
-	
-	
-	
-	
-
-	
+//	}	
 	
 }

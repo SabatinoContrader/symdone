@@ -180,12 +180,8 @@ public class MovimentoService {
         		
         		
         			System.out.println("Entrato! Utente: "+ u.getIduser());
-        			if(a.getFlag()==1l && u.getStato().getFlag()==1l)
-            			l.add(String.valueOf(u.getIduser()));
-            		else
-            			l.add(String.valueOf(u.getIduser()+" (Deleted)"));
+  
             		
-            		l.add(u.getRagioneSociale());
             		l.add(a.getNome());
             		l.add(a.getCognome());
             		
@@ -230,12 +226,6 @@ public class MovimentoService {
     			BadgeReader br=this.badgeReaderRepository.findById(lMov.get(i).getBadgereader().getIdBadgeReader()).get();
         		Asset asset=this.assetRepository.findById(br.getAsset().getIdasset()).get();
         		
-        		if(a.getFlag()==1l && u.getStato().getFlag()==1l)
-        			l.add(String.valueOf(u.getIduser()));
-        		else
-        			l.add(String.valueOf(u.getIduser()+" (Deleted)"));
-        		
-        		l.add(u.getRagioneSociale());
         		l.add(a.getNome());
         		l.add(a.getCognome());
         		

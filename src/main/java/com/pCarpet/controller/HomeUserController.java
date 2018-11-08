@@ -81,16 +81,9 @@ public class HomeUserController {
 			switch(choice) {
 				case "insert":
 					String username=request.getParameter("username");
-					String password=request.getParameter("password");
-					String ragioneSociale=request.getParameter("ragioneSociale");
-					String telefono=request.getParameter("telefono");
-					String mail=request.getParameter("mail");
-					String partitaiva=request.getParameter("partitaiva");
-					String ruolo=request.getParameter("ruolo");
-					long idAbb=Integer.parseInt(request.getParameter("nomeAbb"));
-					AbbonamentoDTO abb=abbonamentoService.findById(idAbb);
-					
-					UserDTO u=new UserDTO(0,username,password,ragioneSociale,telefono,mail,partitaiva,ruolo,abb);
+					String password=request.getParameter("password");					
+					String ruolo=request.getParameter("ruolo");				
+					UserDTO u=new UserDTO(0,username,password,0,ruolo);
 					
 					userService.insertUser(u);
 					users = userService.getAllUsers();
@@ -100,14 +93,8 @@ public class HomeUserController {
 					long idm=Integer.parseInt(request.getParameter("id"));
 					String usernamem=request.getParameter("username");
 					String passwordm=request.getParameter("password");
-					String ragioneSocialem=request.getParameter("ragioneSociale");
-					String telefonom=request.getParameter("telefono");
-					String mailm=request.getParameter("mail");
-					String partitaivam=request.getParameter("partitaiva");
 					String ruolom=request.getParameter("ruolo");
-					idAbb=Integer.parseInt(request.getParameter("nomeAbb"));
-					abb=abbonamentoService.findById(idAbb);
-					UserDTO um=new UserDTO(idm,usernamem,passwordm,ragioneSocialem,telefonom,mailm,partitaivam,ruolom,abb);
+					UserDTO um=new UserDTO(idm,usernamem,passwordm,0,ruolom);
 					
 					userService.insertUser(um);
 					users = userService.getAllUsers();
