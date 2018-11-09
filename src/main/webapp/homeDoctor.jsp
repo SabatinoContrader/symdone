@@ -23,8 +23,14 @@
 		<h1 class="h3 mb-3 font-weight-normal">
 		SYNDONE
 		</h1>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/Home/homeSintomo">Gestione Sintomi</a><br> 
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/Home/homeDirectory?scelta=Customers">Gestione Patologie</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Ricerca Patologie</a><br> 
+		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Gestione Erbe</a><br> 
+		<a class="btn btn-lg btn-primary btn-block" 
+		href="/Home/homeDirectory?scelta=Logs">Gestione SintomoSet</a><br>
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Login/logoutControl">Logout</a><br>
 	</form>

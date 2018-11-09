@@ -23,8 +23,8 @@
 		<h1 class="h3 mb-3 font-weight-normal">
 		SYNDONE
 		</h1>
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Ricerca Patologie</a><br> 
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/Home/homeSintomo">Gestione Medici</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Login/logoutControl">Logout</a><br>
 	</form>

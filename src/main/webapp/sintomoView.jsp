@@ -45,10 +45,8 @@
 	
         <c:forEach items="${listaSintomo}" var="sintomo">
      	
-         <td>
-             
-             	<c:out value="${sintomo.idsintomo}"></c:out>
-             
+         <td>           
+            <c:out value="${sintomo.idsintomo}"></c:out>            
          </td>
 		 <td>
             <c:out value="${sintomo.nomeSintomo}"></c:out>

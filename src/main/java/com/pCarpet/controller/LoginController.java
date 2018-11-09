@@ -57,13 +57,13 @@ public class LoginController {
 		if (ruolo!="") {
 			//session.setAttribute("user", this.user);
 			if (ruolo.equals("doctor")) {
-				return "homeSegretaria";
+				return "homeDoctor";
 			}	
 			else if (ruolo.equals("patient")) {
-				//return "homeCliente";
+				return "homeDIM";
 			}
 			else if (ruolo.equals("admin")) {
-				return "homeDIM";
+				return "homeAdmin";
 			}	
 			else {
 				//return "index";
@@ -84,44 +84,6 @@ public class LoginController {
 	
 	public HttpSession getSession() {
 		return this.session;
-	}
-	
-	
-	public void defaultAbb(String nome, double prezzo)
-	{
-		AbbonamentoDTO abb = new AbbonamentoDTO();
-		if(nome.equals("normale"))
-			abb.setId(1l);
-		else if(nome.equals("silver"))
-			abb.setId(2l);
-		else if(nome.equals("gold"))
-			abb.setId(3l);
-		else if(nome.equals("business"))
-			abb.setId(4l);
-		abb.setNome(nome);
-		abb.setPrezzo(prezzo);
-		abbonamentoservice.insertAbb(abb);
-	}
-	
-	public void defaultStato(String value) {
-		StatoDTO sDTO=new StatoDTO();
-		if(value.equals("attivo"))
-			sDTO.setId(1l);
-		else if(value.equals("eliminato"))
-			sDTO.setId(2l);
-		sDTO.setValore(value);
-		statoService.insertStato(sDTO);
-			
-	}
-	
-	public void defaultAsset() {
-		AssetDTO assDTO=new AssetDTO();
-		assDTO.setIdAsset(1l);
-		assDTO.setDescrizione("vuoto");
-		assDTO.setFlag(1l);
-		assDTO.setPrezzo(00);
-		assDTO.setTipo("vuoto");
-		assetService.insertAsset(assDTO);
 	}
 	
 }
