@@ -9,23 +9,13 @@ public class SintomoConverter {
 		SintomoDTO sintomoDTO= new SintomoDTO();
 		sintomoDTO.setIdsintomo(i.getIdsintomo());
 		sintomoDTO.setNomeSintomo(i.getSintomo());
-		sintomoDTO.setRoom(RoomConverter.convertToDto(i.getRoom()));
-		sintomoDTO.setItemType(ItemTypeConverter.convertToDto(i.getItemType()));
-		if(i.getThing()!=null)
-		item.setThing(ThingConverter.convertToDto(i.getThing()));
-		return item;
-		
+		return sintomoDTO;		
 		}
 
-	public static Item convertToItem(ItemDTO i) {
-		Item item = new Item();
-		item.setId(i.getId());
-		item.setConsumoEnergetico(i.getConsumoEnergetico());
-		item.setSeriale(i.getSeriale());
-		item.setRoom(RoomConverter.convertToRoom(i.getRoom()));
-		item.setItemType(ItemTypeConverter.convertToItem(i.getItemType()));
-		if(i.getThing()!=null)
-		item.setThing(ThingConverter.convertToThing(i.getThing()));
-		return item;
+	public static Sintomo convertToSintomo(SintomoDTO i) {
+		Sintomo sintomo = new Sintomo();
+		sintomo.setIdsintomo(i.getIdsintomo());
+		sintomo.setSintomo(i.getNomeSintomo());
+		return sintomo;
 	  	}
 }

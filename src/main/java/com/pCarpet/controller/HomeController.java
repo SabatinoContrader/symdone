@@ -26,15 +26,9 @@ public class HomeController {
 		this.userService = userService;
 	}
 
-
-		
-
-	
 	@RequestMapping(value = "/homeSintomo", method = RequestMethod.GET)
 	public String HomeSintomo(HttpServletRequest request, Model model) {
 		return "homeSintomo";
 	}
 	
-	
-
 }

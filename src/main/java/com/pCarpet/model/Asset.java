@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -29,7 +30,7 @@ public class Asset {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idasset;
 	@Column
-	@NotNull
+	@NonNull
 	private String descrizione;
 	@Column
 	@NotNull

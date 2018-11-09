@@ -1,5 +1,5 @@
 <%@ page import="java.util.List"%>
-<%@ page import="com.pCarpet.dto.SintomoDTO"%>
+<%@ page import="com.pCarpet.dto.UserDTO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -13,90 +13,72 @@
 </head>
 <body>
 
-<form action="SintomiServlet" method="post">
- <table border="2">
 
+<form class="form-signin" action="/HomeUser/showUsers" method="post">
+
+	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+
+		
+		
+		
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>SINTOMI</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
-       
-         <th>
-             ID
-         </th>
-
-         <th>
-             SINTOMO
-         </th>
-         <th>
-             DESCRIZIONE
-         </th>
-         
-
-     </tr>
-        <%for (Sintomo sintomo : allSympthom) { %>
-     <tr>
+	<tr>
         
-         <td>
-             <%= sintomo.getIdSintomo()%>
-         </td>
+         <th>
+             ID SINTOMO
+         </th>
 
-         <td>
-             <%=  sintomo.getTipoSintomo()%>
-         </td>
-
-         <td>
-             <%=  sintomo.getDescrizione()%>
-         </td>
+         <th>
+             NOME SINTOMO
+         </th>
          
-         <td>
-             <a href="SintomiServlet?richiesta=update&id=<%=  sintomo.getIdSintomo()%>">Modifica</a>
-         </td>
-         <td>
-             <a href="SintomiServlet?richiesta=eliminaSintomo&id=<%= sintomo.getIdSintomo()%>">Elimina</a>
-         </td>
+         <th>
+          </th>
+         <th>
+          </th>
 
      </tr>
-     <% }%>
- </table>
-<input type="submit" value="indietro" name="richiesta">
+	
+        <c:forEach items="${listaSintomo}" var="sintomo">
+     	
+         <td>
+             
+             	<c:out value="${sintomo.idsintomo}"></c:out>
+             
+         </td>
+		 <td>
+            <c:out value="${sintomo.nomeSintomo}"></c:out>
+         </td>
+	
+		<td>
+          
+          <a class="btn lg btn-primary"
+			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+         </td>
+         <td>
+             <a class="btn lg btn-primary"
+			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+         </td>
+		
+		
+     </tr>
+     </c:forEach>	
+     
+     
+</table>
+
+ <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
+ 	Inserisci
+ </a>
+
+<a class="btn lg btn-primary"
+		href="/HomeUser/showUsers?choice=indietro">Indietro</a></br> 
+
 </form>
- <h2></h2>
- <h2></h2>
- 
- <h3></h3>
-
- </form>
- </body>
-</html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>DIM - Syndone</title>
-
-<!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/css/signin.css" rel="stylesheet">
-</head>
-
-<body class="text-center">
-	<form class="form-signin">
-		<h1 class="h3 mb-3 font-weight-normal">
-		HOME SINTOMO
-		</h1>
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory">Visualizza Sintomi</a><br> 
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=Customers">Inserisci Sintomo</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href=" ">Indietro</a><br>
-	</form>
 
 </body>
 </html>

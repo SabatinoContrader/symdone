@@ -24,7 +24,7 @@
 		HOME SINTOMO
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory">Visualizza Sintomi</a><br> 
+		href="/HomeSintomo/ShowSintomo">Visualizza Sintomi</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/Home/homeDirectory?scelta=Customers">Inserisci Sintomo</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 

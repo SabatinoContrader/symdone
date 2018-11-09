@@ -10,5 +10,4 @@ import com.pCarpet.model.Sintomo;
 @Repository
 public interface SintomoDAO extends CrudRepository<Sintomo, Long> {
 
-	List<Sintomo> findBySintomo(Sintomo sintomo);
 }

@@ -50,18 +50,6 @@ public class LoginController {
 	@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request, Model model ) {
 		
-		
-		defaultAbb("normale",100);
-		defaultAbb("silver",200);
-		defaultAbb("gold",300);
-		defaultAbb("business",400);
-		
-		defaultStato("eliminato");
-		defaultStato("attivo");
-		
-		defaultAsset();
-		
-		
 		this.session = request.getSession();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
