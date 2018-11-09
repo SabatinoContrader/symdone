@@ -29,7 +29,7 @@ public class UserService {
         this.userRepository = userRepository;
         this.statoRepository = sta;
     }
-    
+     
     
     public UserRepository getUserRepository() {
     	return this.userRepository;
