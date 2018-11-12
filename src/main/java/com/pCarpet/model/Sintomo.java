@@ -28,10 +28,9 @@ public class Sintomo {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idsintomo;
+	private long idsintomo;
 	
 	@Column
-	@NonNull
 	private String sintomo;
 	
 }

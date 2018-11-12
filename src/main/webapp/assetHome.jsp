@@ -22,7 +22,7 @@
 		
 		
 
-		<table class="border rcorners">	
+		<table class="border rcorners">
 	<tr><th><h4>ASSETS</h4></th><td></td><td></td><td></td><td></td><td></td></tr>
 	<tr>
         

@@ -2,7 +2,7 @@ package com.pCarpet.dto;
 
 public class SintomoDTO {
 
-	private int idsintomo;
+	private long idsintomo;
 	private String nomeSintomo;
 	
 	
@@ -11,20 +11,20 @@ public class SintomoDTO {
 	}
 
 
-	public SintomoDTO(int idsintomo, String nomeSintomo) {
+	public SintomoDTO(long idsintomo, String nomeSintomo) {
 		super();
 		this.idsintomo = idsintomo;
 		this.nomeSintomo = nomeSintomo;
 	}
 
 
-	public int getIdsintomo() {
+	public long getIdsintomo() {
 		return idsintomo;
 	}
 
 
-	public void setIdsintomo(int idsintomo) {
-		this.idsintomo = idsintomo;
+	public void setIdsintomo(long l) {
+		this.idsintomo = l;
 	}
 
 
