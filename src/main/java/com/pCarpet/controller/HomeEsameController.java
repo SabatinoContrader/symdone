@@ -78,6 +78,8 @@ public class HomeEsameController {
 		esameDTO.setEsame(request.getParameter("esame"));
 		esameDTO.setDescrizione(request.getParameter("descrizione"));
 		esameService.updateEsame(esameDTO);
+		List<EsameDTO> listaEsame = esameService.getAll();
+		model.addAttribute("listaEsame", listaEsame);
 		return "esameView";
 	} 
 	

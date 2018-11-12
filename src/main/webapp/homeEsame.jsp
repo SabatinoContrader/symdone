@@ -32,7 +32,7 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeEsame/deleteForm">Elimina Esame Clinico</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href=" ">Indietro</a><br>
+		href="/Home/homeDoctor ">Indietro</a><br>
 	</form>
 
 </body>
