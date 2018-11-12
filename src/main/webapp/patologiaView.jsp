@@ -56,7 +56,7 @@
             <c:out value="${patologia.descrizione}"></c:out>
          </td>
          
-	 <!--	<td>
+	<td>
           
          <a class="btn lg btn-primary"
 			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
@@ -65,7 +65,7 @@
          <a class="btn lg btn-primary"
 			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a
          </td>
-         -->
+      
 		
 		
      </tr>
@@ -73,10 +73,10 @@
      
      
 </table>
-<!--
+
  <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
  	Inserisci
- </a> -->
+ </a> 
 
 <a class="btn lg btn-primary"
 		href="/Home/homePatologia">Indietro</a></br> 
