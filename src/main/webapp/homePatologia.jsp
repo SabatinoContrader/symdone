@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>DIM</title>
+<title>PATOLOGIE</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,13 +21,20 @@
 <body class="text-center">
 	<form class="form-signin">
 		<h1 class="h3 mb-3 font-weight-normal">
-		HOME D.I.M.
+		HOME PATOLOGIA
 		</h1>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomePatologia/ShowPatologia">Visualizza Patologia</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Ricerca Patologie</a><br> 
+		href="/HomePatologia/InsertForm">Inserisci Patologia</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
+		href="/HomePatologia/UpdateForm">Modifica Patologia</a><br> 
+		<a class="btn btn-lg btn-primary btn-block" 
+		href="/HomePatologia/DeleteForm">Cancella Patologia</a><br> 
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/Home/homeDoctor">Indietro</a
 	</form>
 
 </body>
 </html>
+

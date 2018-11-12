@@ -26,11 +26,11 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/Home/homeSintomo">Gestione Sintomi</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=Customers">Gestione Patologie</a><br> 
+		href="/Home/homePatologia">Gestione Patologie</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Gestione Erbe</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Gestione SintomoSet</a><br>
+		<!--href="/Home/homeSintomoSet">Gestione SintomoSet</a><br>-->
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Login/logoutControl">Logout</a><br>
 	</form>
