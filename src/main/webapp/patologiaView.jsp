@@ -16,7 +16,7 @@
 
 <form class="form-signin" action="/HomeUser/showUsers" method="post">
 
-	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+	<h1 class="element-margin-left">Ecco tutte le patologie</h1>
 
 		
 		
