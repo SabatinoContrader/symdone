@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>DIM</title>
+<title>DIM - Syndone</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,20 +21,18 @@
 <body class="text-center">
 	<form class="form-signin">
 		<h1 class="h3 mb-3 font-weight-normal">
-		SYNDONE
+		HOME ERBA
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeSintomo">Gestione Sintomi</a><br> 
+		href="/HomeErbaC/ShowErba">Visualizza Erba</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homePatologia">Gestione Patologie</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeErba">Gestione Erbe</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeSintomoSet">Gestione SintomoSet</a><br>
+		href="/HomeErbaC/insertForm">Inserisci Erba</a><br>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeEsame">Gestione Esami Clinici</a><br>
+		href="/HomeErbaC/updateForm">Modifica Erba</a><br>  
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeErbaC/deleteForm">Elimina Erba</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
+		href="/Home/homeDoctor">Indietro</a><br>
 	</form>
 
 </body>

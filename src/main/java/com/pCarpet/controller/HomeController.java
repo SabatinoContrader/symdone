@@ -56,4 +56,15 @@ public class HomeController {
 	}
 	
 
+	@RequestMapping(value = "/homeErba", method = RequestMethod.GET)
+	public String HomeErba(HttpServletRequest request, Model model) {
+		return "homeErba";
+	}
+	
+	@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
+	public String HomeDoc(HttpServletRequest request, Model model) {
+		return "homeDoctor";
+	}
+	
+
 }
