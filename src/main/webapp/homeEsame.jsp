@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>DIM</title>
+<title>DIM - Syndone</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,20 +21,18 @@
 <body class="text-center">
 	<form class="form-signin">
 		<h1 class="h3 mb-3 font-weight-normal">
-		SYNDONE
+		HOME ESAMI CLINICI
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeSintomo">Gestione Sintomi</a><br> 
+		href="/HomeEsame/ShowEsame">Visualizza Esami Clinici</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homePatologia">Gestione Patologie</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Gestione Erbe</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeSintomoSet">Gestione SintomoSet</a><br>
+		href="/HomeEsame/insertForm">Inserisci Esame Clinico</a><br>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeEsame">Gestione Esami Clinici</a><br>
+		href="/HomeEsame/updateForm">Modifica Esame Clinico</a><br>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeEsame/deleteForm">Elimina Esame Clinico</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
+		href=" ">Indietro</a><br>
 	</form>
 
 </body>
