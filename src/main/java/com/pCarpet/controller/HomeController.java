@@ -6,6 +6,7 @@ import com.pCarpet.services.UserService;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
@@ -30,5 +31,12 @@ public class HomeController {
 	public String HomeSintomo(HttpServletRequest request, Model model) {
 		return "homeSintomo";
 	}
-	
+	@RequestMapping(value = "/homeSintomoSet", method = RequestMethod.GET)
+	public String HomeSintomoSet(HttpServletRequest request, Model model) {
+		return "homeSintomoSet";
+	}
+	@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
+	public String HomeDoctor(HttpServletRequest request, Model model) {
+		return "homeDoctor";
+	}
 }

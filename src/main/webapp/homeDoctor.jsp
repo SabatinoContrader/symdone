@@ -30,7 +30,7 @@
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Gestione Erbe</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Gestione SintomoSet</a><br>
+		href="/Home/homeSintomoSet">Gestione SintomoSet</a><br>
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Login/logoutControl">Logout</a><br>
 	</form>

@@ -24,16 +24,15 @@
 		HOME SINTOMO SET
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=AssBadRead">My Assets</a><br> 
+		href="/HomeSintomoSet/ShowSintomoSet">Visualizza Sintomi Set</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=Customers">Customers</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePrenotazione/showPrenotazione?choice=managementPrenotazioni">Bookings</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Logs</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
-
+		href="/HomeSintomoSet/InsertForm">Inserisci Sintomo Set</a><br>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeSintomoSet/UpdateForm">Modifica Sintomo Set</a><br>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeSintomoSet/DeleteForm">Elimina Sintomo Set</a><br>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/Home/homeDoctor">Indietro</a><br>
 	</form>
 
 </body>

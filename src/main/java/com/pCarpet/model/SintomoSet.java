@@ -48,7 +48,8 @@ public class SintomoSet {
 	@NotNull
 	private int idterzosintomo;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn (name = "doctor")
-    private User doctor; 
-}
+    private User doctor*/
+  }
+

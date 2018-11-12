@@ -6,7 +6,7 @@ public class SintomoSetDTO {
 	private int idprimosintomo;
 	private int idsecondosintomo;
 	private int idterzosintomo;
-	private Object doctor;
+	//private Object doctor;
 	
 	public SintomoSetDTO() {
 		
@@ -50,8 +50,9 @@ public class SintomoSetDTO {
    
 	
 	
-	public void setDoctor(UserDTO covertToDTO, String doctor) {
+	/*public void setDoctor(UserDTO covertToDTO, String doctor) {
 		this.doctor = doctor;
 		
-	}
+	}*/
+	
 	}
