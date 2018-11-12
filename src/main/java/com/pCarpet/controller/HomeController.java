@@ -37,12 +37,6 @@ public class HomeController {
 		return "homePatologia";
 		}
 	
-		@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
-		public String HomeDoctor(HttpServletRequest request, Model model) {
-			return "homeDoctor";
-		
-		}
-	
 
 	@RequestMapping(value = "/homeSintomoSet", method = RequestMethod.GET)
 	public String HomeSintomoSet(HttpServletRequest request, Model model) {

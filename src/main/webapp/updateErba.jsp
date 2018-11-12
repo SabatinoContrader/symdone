@@ -14,7 +14,7 @@
 <body>
 
 
-<form action="/HomeErbaC/updateErba" method="get">
+<form action="/HomeErbaC/updateErba" method="POST">
 
 	<h1 class="element-margin-left">Lista delle erbe che puoi modificare </h1>
 	

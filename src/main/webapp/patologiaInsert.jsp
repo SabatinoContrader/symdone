@@ -16,11 +16,7 @@
 
 <form action="/HomePatologia/InsertPatologia" method="post">
 			<table class="insertTable">
-				<tr>
-					<td><h2>Id Patologia:</h2></td>
-					<td><input type="text" id="idpatologia" name="idpatologia"
-						placeholder="Inserisci l'id della patologia"></td>
-				</tr>
+				
 				
 				<tr>
 					<td><h2>Nome Patologia:</h2></td>

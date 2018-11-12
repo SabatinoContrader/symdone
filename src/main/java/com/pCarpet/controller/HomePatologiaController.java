@@ -38,7 +38,6 @@ public class HomePatologiaController {
 	@RequestMapping(value = "/InsertPatologia", method = RequestMethod.POST)
 	public String InsertPatologia(HttpServletRequest request, Model model) {
 		PatologiaDTO patologiaDTO = new PatologiaDTO();
-		patologiaDTO.setIdpatologia(Long.parseLong(request.getParameter("idpatologia")));
 		patologiaDTO.setPatologia(request.getParameter("patologia"));
 		patologiaDTO.setDescrizione(request.getParameter("descrizione"));
 		patologiaService.insertPatologia(patologiaDTO);
@@ -55,8 +54,7 @@ public class HomePatologiaController {
 	@RequestMapping(value="/DeletePatologia", method=RequestMethod.POST)
 	public String DeletePatologia(HttpServletRequest request, Model model) {
 		long idpatologia = Long.parseLong(request.getParameter("idpatologia"));
-		long l=idpatologia;
-		patologiaService.deletePatologia(l);
+		patologiaService.deletePatologia(idpatologia);
 		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
 		model.addAttribute("listaPatologia", listaPatologia);
 		return "patologiaView";		
@@ -71,10 +69,6 @@ public class HomePatologiaController {
 	public String UpdatePatologia(HttpServletRequest request,Model model) {
 		long idpatologia=Long.parseLong(request.getParameter("idpatologia").toString());
 		model.addAttribute("idpatologia", idpatologia);
-		return "patologiaUpdate2";			
-	}
-	@RequestMapping(value ="/UpdatePatologia2", method = RequestMethod.POST)
-	public String UpdatePatologia2(HttpServletRequest request, Model model) {
 		PatologiaDTO patologiaDTO = new PatologiaDTO();
 		patologiaDTO.setIdpatologia(Long.parseLong(request.getParameter("idpatologia").toString()));
 		patologiaDTO.setPatologia(request.getParameter("patologia"));
@@ -83,11 +77,7 @@ public class HomePatologiaController {
 		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
 		model.addAttribute("listaPatologia", listaPatologia);
 		return "patologiaView";
-	}
-	@RequestMapping(value = "/patologiaUpdate", method = RequestMethod.GET)
-	public String PatologiaUpdate(HttpServletRequest request, Model model) {
-		return "patologiaUpdate";
-	
+				
 	}
 
 

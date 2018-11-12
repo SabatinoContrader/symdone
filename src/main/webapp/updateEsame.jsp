@@ -14,7 +14,7 @@
 <body>
 
 
-<form action="/HomeEsame/updateEsame" method="get">
+<form action="/HomeEsame/updateEsame" method="post">
 
 	<h1 class="element-margin-left">Lista degli Esami Clinici che puoi modificare </h1>
 	

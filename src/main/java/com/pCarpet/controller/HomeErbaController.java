@@ -97,6 +97,8 @@ public class HomeErbaController {
 		erbaDTO.setErba(request.getParameter("erba"));
 		erbaDTO.setDescrizione(request.getParameter("descrizione"));
 		erbaService.updateErba(erbaDTO);
+		List<ErbaDTO> listaErba = this.erbaService.getAll();
+		model.addAttribute("listaErba", listaErba);
 		return "erbaView";
 		
 	}
