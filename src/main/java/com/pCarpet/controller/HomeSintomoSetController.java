@@ -36,8 +36,7 @@ public class HomeSintomoSetController {
 	@RequestMapping(value = "/insertSintomoSet", method = RequestMethod.POST)
 	public String insertSintomoSet(HttpServletRequest request, Model model) {
 		SintomoSetDTO sintomosetDTO = new SintomoSetDTO();
-		sintomosetDTO.setIdsintomoset(Long.parseLong(request.getParameter("idsintomoset")));
-		sintomosetDTO.setIdprimosintomo(Integer.parseInt(request.getParameter("idprimosintomo")));
+    	sintomosetDTO.setIdprimosintomo(Integer.parseInt(request.getParameter("idprimosintomo")));
 		sintomosetDTO.setIdsecondosintomo(Integer.parseInt(request.getParameter("idsecondosintomo")));
 		sintomosetDTO.setIdterzosintomo(Integer.parseInt(request.getParameter("idterzosintomo")));
 		sintomosetService.insertSintomoSet(sintomosetDTO);

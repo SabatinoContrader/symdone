@@ -16,11 +16,7 @@
 
 <form action = "/HomeSintomoSet/insertSintomoSet" method="post">
 <table class="insertTable">
-				<tr>
-					<td><h2>Id Sintomo Set:</h2></td>
-					<td><input type="text" id="idsintomoset" name="idsintomoset"
-						placeholder="Inserisci l'id sintomo set"></td>
-				</tr>
+		
 				<tr>
 					<td><h2>Id Primo Sintomo :</h2></td>
 					<td><input type="text" id="idprimosintomo" name="idprimosintomo"
