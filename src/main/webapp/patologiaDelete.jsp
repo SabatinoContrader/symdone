@@ -20,7 +20,7 @@
 	
 	<table class="bordo rcorners" >	
 	     <tr>
-     <th><h4>ERBE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <th><h4>PATOLOGIE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
 	<tr>
         
@@ -70,7 +70,7 @@
 
 	  
 	  <tr>
-	   <td><h2>Id Erba : </h2></td>
+	   <td><h2>Id Patologia : </h2></td>
 	   <td><input type = "text" id = "idpatologia" name="idpatologia" placeholder="Inserisci id patologia da eliminare"></td>
 	
 		

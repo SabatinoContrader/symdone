@@ -55,7 +55,7 @@ public class HomeEsameController {
 		return "deleteEsame";
 	}
 	
-	@RequestMapping(value="/deleteEsame", method=RequestMethod.POST)
+	@RequestMapping(value="/deleteEsame", method=RequestMethod.GET)
 		public String deleteEsame(HttpServletRequest request, Model model) {
 		Long idesame = Long.parseLong(request.getParameter("idesame"));
 		esameService.deleteEsame(idesame);
