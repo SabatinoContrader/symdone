@@ -77,8 +77,8 @@
  	Inserisci
  </a>
 
-<a class="btn lg btn-primary"
-		href="/HomeUser/showUsers?choice=indietro">Indietro</a></br> 
+		<a class="btn lg btn-primary"
+ 		href="/Home/homeEsame">Indietro</a></br> 
 
 </form>
 

@@ -26,9 +26,9 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeSintomo/ShowSintomo">Visualizza Sintomi</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDirectory?scelta=Customers">Inserisci Sintomo</a><br> 
+		href="/HomeSintomo/insertForm">Inserisci un Sintomo</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href=" ">Indietro</a><br>
+		href="/HomeSintomo/returnHomeDoctor">Indietro</a><br>
 	</form>
 
 </body>

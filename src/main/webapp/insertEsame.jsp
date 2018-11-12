@@ -1,15 +1,20 @@
+<%@ page import="java.util.List"%>
+<%@ page import="com.pCarpet.dto.UserDTO"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<link href="/resources/css/styles.css" rel="stylesheet">
-<meta charset="ISO-8859-1">
+<!-- Javascript -->
+<script src="/css/googleApiManagerDriver.js"></script>
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 <title>Inserisci Esame</title>
 </head>
 
 <div class="insertEsame">
-		<img
-			src="https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/add-user.png"
-			class="imgSuperUser">
+		
 		<h1>Inserisci Esame</h1>
 	</div>
 	<form class="esameForm" action="/HomeEsame/insert" method="post">
@@ -28,6 +33,8 @@
 		
 		<p><button type = "submit" >Inserisci</button></p>
 		
+		<a class="btn lg btn-primary"
+ href="/Home/homeEsame">Indietro</a></br>
 		</form>
 	
 </body>

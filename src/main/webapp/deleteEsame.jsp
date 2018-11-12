@@ -87,8 +87,9 @@
 
  
 
-<a class="btn lg btn-primary"
-		href="/HomeEsame/showEsame?choice=indietro">Indietro</a></br> 
+		<a class="btn lg btn-primary"
+		href="/Home/homeEsame">Indietro</a></br> 
+	
 
 </form>
 

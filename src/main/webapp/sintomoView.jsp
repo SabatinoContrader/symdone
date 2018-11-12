@@ -14,9 +14,9 @@
 <body>
 
 
-<form class="form-signin" action="/HomeUser/showUsers" method="post">
+<form class="form-signin" action="/HomeUser/showUsers" method="GET">
 
-	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+	<h1 class="element-margin-left">Ecco tutti i Sintomi</h1>
 
 		
 		
@@ -24,7 +24,7 @@
 
 <table class="bordo rcorners" >	
 	     <tr>
-     <th><h4>SINTOMI</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <th><h4>SINTOMI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
 	<tr>
         
@@ -55,14 +55,12 @@
 		<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomeSintomo/operationForm?scelta=update&id=${sintomo.idsintomo}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
-         </td>
-		
-		
+			href="/HomeSintomo/operationForm?scelta=delete&id=${sintomo.idsintomo}">Elimina</a>
+         </td>		
      </tr>
      </c:forEach>	
      
@@ -74,7 +72,7 @@
  </a>
 
 <a class="btn lg btn-primary"
-		href="/HomeUser/showUsers?choice=indietro">Indietro</a></br> 
+		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 
 
 </form>
 

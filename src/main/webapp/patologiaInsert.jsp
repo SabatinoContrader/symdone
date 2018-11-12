@@ -16,8 +16,7 @@
 
 <form action="/HomePatologia/InsertPatologia" method="post">
 			<table class="insertTable">
-				
-				
+
 				<tr>
 					<td><h2>Nome Patologia:</h2></td>
 					<td><input type="text" id="patologia" name="patologia"
@@ -32,7 +31,7 @@
 				
 		</table>
 		<
-		    <input type="submit" value="Inserisci" name="richiesta">
+		    <input type="submit" value="Inserisci">
 		    <a class="btn lg btn-primary"
  href="/Home/homePatologia">Indietro</a></br> 
 		
