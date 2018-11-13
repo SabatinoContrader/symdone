@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>DIM</title>
+<title>DIM - Syndone</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -20,16 +20,17 @@
 
 <body class="text-center">
 	<form class="form-signin">
-	
 		<h1 class="h3 mb-3 font-weight-normal">
-		SYNDONE
+		HOME MEDICO
 		</h1>
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeMedico/ShowMedico?scelta=visualizza">Visualizza Medico</a><br> 
 		
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeMedico">Gestione Medici</a><br> 
+		href="/HomeMedico/ShowMedico?scelta=inserisci">Inserisci Medico</a><br> 
 		
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Login/logoutControl">Logout</a><br>
+		href="/HomeMedico/ShowMedico?scelta=indietroMain">Indietro</a><br>
 		
 	</form>
 

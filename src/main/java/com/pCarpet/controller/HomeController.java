@@ -56,4 +56,10 @@ public class HomeController {
 	}
 	
 
+	@RequestMapping(value = "/homeMedico", method = RequestMethod.GET)
+	public String HomeMedico(HttpServletRequest request, Model model) {
+		return "homeMedico";
+	}
+	
+
 }
