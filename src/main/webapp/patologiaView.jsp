@@ -14,7 +14,7 @@
 <body>
 
 
-<form class="form-signin" action="/HomeUser/showUsers" method="post">
+<form class="form-signin" action="/HomeUser/showUsers" method="get">
 
 	<h1 class="element-margin-left">Ecco tutte le patologie</h1>
 
@@ -59,11 +59,11 @@
 	<td>
           
          <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomePatologia/operationForm?scelta=update&idpatologia=${patologia.idpatologia}">Modifica</a>
          </td>
          <td>
          <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a
+			href="/HomePatologia/operationForm?scelta=delete&idpatologia=${patologia.idpatologia}">Elimina</a>
          </td>
       
 		
@@ -72,14 +72,10 @@
      </c:forEach>	
      
      
-</table>
-
- <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
- 	Inserisci
- </a> 
+</table> 
 
 <a class="btn lg btn-primary"
-		href="/Home/homePatologia">Indietro</a></br> 
+		href="/HomePatologia/returnHomePatologia">Indietro</a></br> 
 
 </form>
 

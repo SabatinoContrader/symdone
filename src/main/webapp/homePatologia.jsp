@@ -26,11 +26,7 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomePatologia/ShowPatologia">Visualizza Patologia</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePatologia/InsertForm">Inserisci Patologia</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePatologia/UpdateForm">Modifica Patologia</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePatologia/DeleteForm">Cancella Patologia</a><br> 
+		href="/HomePatologia/InsertForm">Inserisci Patologia</a><br>  
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/Home/homeDoctor">Indietro</a
 	</form>

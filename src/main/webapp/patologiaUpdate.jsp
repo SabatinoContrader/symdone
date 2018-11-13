@@ -14,7 +14,7 @@
 <body>
 
 
-<form action="/HomePatologia/UpdatePatologia" method="post">
+<form action="/HomePatologia/operationForm" method="POST" id="form_register">
 
 	<h1 class="element-margin-left">Lista delle patologie che puoi modificare </h1>
 	
@@ -54,30 +54,25 @@
             <c:out value="${patologia.descrizione}"></c:out>
          </td>
 	
-		<td>
-          
-          <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
-         </td>
-         <td>
-             <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
-         </td>
-		
 		
      </tr>
      </c:forEach>	
      
      
 </table>
+
      	
-     
-     
+     	<input type="hidden" name="idpatologia" value="${patologia.idpatologia}"/>
+     	<table>
+     	<tr><td>
+     	<button class="btn lg btn-primary" type="submit" value="update" name="scelta"> Effettua la modifica</button>
+     </td><td>
+      <a class="btn lg btn-primary"
+			href="/HomePatologia/returnHomePatologia">Indietro</a>
+         </td>
 
 	  
 	  <tr>
-	   <td><h2>Id Patologia : </h2>
-	   <td><input type = "text" id = "idpatologia" name="idpatologia" placeholder="Inserisci id patologia da modificare"></td>
 	
 	  <td><h2>Nome Patologia : </h2>
 	  <td><input type = "text" id = "patologia" name="patologia" placeholder="Inserisci nome patologia"></td>
@@ -89,18 +84,9 @@
 		
 		</tr>
 		
-
-		
-		 <td>
-
-             <p><button type = "submit" >Modifica</button></p>
-         </td>
      
      
  </table>  
-
-<a class="btn lg btn-primary"
-		href="/Home/homePatologia">Indietro</a></br> 
 
 </form>
 
