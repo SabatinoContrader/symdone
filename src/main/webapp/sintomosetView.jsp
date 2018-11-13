@@ -14,7 +14,7 @@
 <body>
 
 
-<form class="form-signin" action="/HomeUser/showUsers" method="post">
+<form class="form-signin" action="/HomeUser/showUsers" method="get">
 
 	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
 
@@ -66,16 +66,15 @@
             <c:out value="${sintomoset.idterzosintomo}"></c:out>
          </td>
 	
-	<!--	<td>
+	<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeSintomoSet/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomeSintomoSet/operationForm?scelta=update&idsintomoset=${sintomoset.idsintomoset}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeSintomoSet/DeleteForm">Elimina</a>
+			href="/HomeSintomoSet/operationForm?scelta=delete&idsintomoset=${sintomoset.idsintomoset}">Elimina</a>
          </td>
-		-->
 		
      </tr>
      </c:forEach>	

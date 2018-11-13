@@ -28,10 +28,6 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeSintomoSet/InsertForm">Inserisci Sintomo Set</a><br>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeSintomoSet/UpdateForm">Modifica Sintomo Set</a><br>
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeSintomoSet/DeleteForm">Elimina Sintomo Set</a><br>
-		<a class="btn btn-lg btn-primary btn-block"
 		href="/Home/homeDoctor">Indietro</a><br>
 	</form>
 

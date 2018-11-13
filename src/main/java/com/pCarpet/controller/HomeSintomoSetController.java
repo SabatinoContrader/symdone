@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.dto.SintomoSetDTO;
 import com.pCarpet.model.SintomoSet;
 import com.pCarpet.services.SintomoSetService;
@@ -44,7 +45,7 @@ public class HomeSintomoSetController {
 		model.addAttribute("listaSintomoSet", listaSintomoSet);
 		return "sintomosetView";
 	}
-	@RequestMapping(value="/UpdateForm", method=RequestMethod.GET)
+	/*@RequestMapping(value="/UpdateForm", method=RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
 		List<SintomoSetDTO> listaSintomoSet = sintomosetService.getAll();
 		model.addAttribute("listaSinomoSet", listaSintomoSet);
@@ -104,6 +105,66 @@ public class HomeSintomoSetController {
 	@RequestMapping(value = "/sintomosetUpdate", method = RequestMethod.GET)
 	public String sintomosetUpdat(HttpServletRequest request, Model model) {
 		return "sintomosetUpdate";
+		}*/
+	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
+	public String updateForm(HttpServletRequest request, Model model) {
+		
+		List<SintomoSetDTO> listaSintomoSet3 = this.sintomosetService.getAll();
+		model.addAttribute("listaSintomoSet", listaSintomoSet3);
+	    String scelta= request.getParameter("scelta");
+	    
+	    if (scelta.equals("update")) {
+	    	SintomoSetDTO s = this.sintomosetService.getIdsintomoset(Long.parseLong(request.getParameter("idsintomoset")));			
+			model.addAttribute("sintomoset", s);
+		    return "updateSintomoSet";
 		}
+	    else if(scelta.equals("delete")) {
+            sintomosetService.deleteSintomoSet(Long.parseLong((request.getParameter("idsintomoset"))));			
+            listaSintomoSet3 = sintomosetService.getAll();
+			model.addAttribute("listaSintomoSet", listaSintomoSet3);
+			return "sintomosetView";
+	    }
+	    
+	    return "";
 	
+	}
+	
+	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
+	public String sintomosetControlPost(HttpServletRequest request, Model model ) {
+		
+		List<SintomoSetDTO> listaSintomoSet3 = sintomosetService.getAll();
+		model.addAttribute("listaSintomoSet", listaSintomoSet3);	
+		String scelta=request.getParameter("scelta");
+
+		
+			switch(scelta) {
+				
+			case "update":
+				    //System.out.println("IDSINTOMOSET: " + Integer.parseInt(request.getParameter("idsintomoset")));
+				    long idsintomoset = Integer.parseInt(request.getParameter("idsintomoset"));
+				    
+					int idprimosintomo = Integer.parseInt(request.getParameter("idprimosintomo"));
+					int idsecondosintomo = Integer.parseInt(request.getParameter("idsecondosintomo"));	
+					int idterzosintomo = Integer.parseInt(request.getParameter("idterzosintomo"));
+					SintomoSetDTO sdto =new SintomoSetDTO(idsintomoset,idprimosintomo,idsecondosintomo,idterzosintomo);				
+					sintomosetService.insertSintomoSet(sdto);
+					List<SintomoSetDTO> listaSintomoSet4 = sintomosetService.getAll();
+					model.addAttribute("listaSintomoSet", listaSintomoSet4);	
+					return "sintomosetView";
+			}
+		
+	
+		return "sintomosetView";
+	}
+	
+	
+	@RequestMapping(value = "/returnHomeSintomoSet", method = RequestMethod.GET)
+	public String returnControl(HttpServletRequest request) {
+		return "homeSintomoSet";
+	}
+	
+	@RequestMapping(value = "/returnHomeDoctor", method = RequestMethod.GET)
+	public String returnTwoControl(HttpServletRequest request) {
+		return "homeDoctor";
+	}
 }

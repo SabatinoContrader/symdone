@@ -1,31 +1,32 @@
-<%@ page import="java.util.List"%>
-<%@ page import="com.pCarpet.dto.UserDTO"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="com.pCarpet.dto.AssetDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Javascript -->
-<script src="/css/googleApiManagerDriver.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>   
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>   
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script>   
+<script type="text/javascript" src="/validate/validation_asset.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
 <body>
 
+<h2>Inserisci i dati del Sintomo Set</h2>
+ 
+ </br>
+ 
+<form action="/HomeSintomoSet/operationForm" method="POST" id="form_register">
+        
+<table class="border rcorners">	
 
-<form class="form-signin" action="/HomeSintomoSet/sintomosetUpdate" method="post">
-
-	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
-
-		
-		
-		
-
-<table class="bordo rcorners" >	
-	     <tr>
-     <th><h4>SINTOMISET</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
-     <tr>
 	<tr>
         
          <th>
@@ -43,74 +44,44 @@
          <th>
              ID TERZO SINTOMO
          </th>
-         
-         <th>
-          </th>
-         <th>
-          </th>
 
-     </tr>
+	</tr>
+	<tr>
 	
-        <c:forEach items="${listaSintomoSet}" var="sintomoset">
-     	
-         <td>           
-            <c:out value="${sintomoset.idsintomoset}"></c:out>            
+        <td>
+            <input type="text" value="${sintomoset.idsintomoset}" disabled class="labcor">
          </td>
-		 <td>
-            <c:out value="${sintomoset.idprimosintomo}"></c:out>
+
+		<td>
+             <input type="text" value="${sintomoset.idprimosintomo}" name="idprimosintomo" class="labcor">
          </td>
-         	 <td>
-            <c:out value="${sintomoset.idsecondosintomo}"></c:out>
-         </td>
-         	 <td>
-            <c:out value="${sintomoset.idterzosintomo}"></c:out>
-         </td>
-	
-		 <!-- <td>
-          
-        <a class="btn lg btn-primary"
-			href="/HomeSintomoSet/showUsers?choice=update&id=${user.iduser}">Modifica</a>
-         </td>
+         
          <td>
-             <a class="btn lg btn-primary"
-			href="/HomeSintomoSet/DeleteForm">Elimina</a>
+             <input type="text" value="${sintomoset.idsecondosintomo}" name="idsecondosintomo" class="labcor">
          </td>
-		-->
-		
+         
+         <td>
+             <input type="text" value="${sintomoset.idterzosintomo}" name="idterzosintomo" class="labcor">
+         </td>
      </tr>
-     </c:forEach>	
-     
+   
      
 </table>
 
-<!-- <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
- 	Inserisci
- </a>
--->
- <!--<a class="btn lg btn-primary"
-		href="/HomeUser/showUsers?choice=indietro">Indietro</a></br> -->
-<table class="insertTable">
-				
-				<tr>
-					<td><h2>Id Primo Sintomo :</h2></td>
-					<td><input type="text" id="idprimosintomo" name="idprimosintomo"
-						placeholder="Inserisci l'id primo sintomo"></td>
-				</tr>
-				<tr>
-					<td><h2>Id Secondo Sintomo :</h2></td>
-					<td><input type="text" id="idsecondosintomo" name="idsecondosintomo"
-						placeholder="Inserisci l'id secondo sintomo"></td>
-				</tr>
-				<tr>
-					<td><h2>Id Terzo Sintomo :</h2></td>
-					<td><input type="text" id="idterzosintomo" name="idterzosintomo"
-						placeholder="Inserisci l'id terzo sintomo"></td>
-				</tr>
-				</table>
-				<input hidden name="idsintomoset" value="${idsintomoset}">
-		<input type="submit" value="Modifica">
-		<a class="btn lg btn-primary"
-		href="/HomeSintomoSet/sintomosetUpdate">Indietro</a></br> 
+</br>
+		
+</br>
+
+<input type="hidden" name="idsintomoset" value="${sintomoset.idsintomoset}"/>
+<table>
+<tr><td>
+<button class="btn lg btn-primary" type="submit" value="update" name="scelta">Effettua la Modifica</button>
+</td><td>
+<a class="btn lg btn-primary" 
+		href="/HomeSintomoSet/returnHomeSintomoSet">Indietro</a></br>
+</td>
+</tr>
+</table>
 </form>
 
 </body>
