@@ -28,7 +28,7 @@ public class Medico {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idmedico;
+	private long idmedico;
 	
 	@Column
 	@NonNull

@@ -2,7 +2,7 @@ package com.pCarpet.dto;
 
 public class MedicoDTO {
 
-	private int idmedico;
+	private long idmedico;
 	private String nome;
 	private String cognome;
 	private String specializzazione;
@@ -14,7 +14,7 @@ public class MedicoDTO {
 	}
 
 
-	public MedicoDTO(int idMed, String nome, String cognome, String specializzazione, String indirizzo, String mail) {
+	public MedicoDTO(long idMed, String nome, String cognome, String specializzazione, String indirizzo, String mail) {
 		super();
 		this.idmedico = idMed;
 		this.nome = nome;
@@ -25,11 +25,11 @@ public class MedicoDTO {
 	}
 
 
-	public int getIdMed() {
+	public long getIdMed() {
 		return idmedico;
 	}
 
-	public void setIdMed(int idMed) {
+	public void setIdMed(long idMed) {
 		this.idmedico = idMed;
 	}
 

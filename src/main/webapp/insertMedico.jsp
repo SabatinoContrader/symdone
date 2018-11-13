@@ -23,10 +23,9 @@
  
  <br>
  
-     <form action="/HomeMedico/showMedico" method="post" id="form_register">
+     <form action="/HomeMedico/insertMedico" method="get">
      
      	
-     
         <table class="border rcorners">
         <tr><th><h4>Inserimento Medico</h4></th><td class="userimg"></td><td></td><td></td></tr>
         <tr>
@@ -39,24 +38,13 @@
      	<tr><th>Indirizzo Ambulatorio:</th> <td> <input type = "text" id = "indirizzo" name ="indirizzo" placeholder = "inserisci l'indirizzo dell'ambulatorio"></td></tr>
      	
      	<tr><th>Mail:</th> <td> <input type = "text" id = "mail" name ="mail" placeholder = "inserisci mail"></td></tr>
-		
-
-		<%-- ${Medico m= new Medico(0,nome,cognome,specializzazione,indirizzo,mail)}
-         <input type="hidden" name="Medico" value="${m}"/> --%>
-		
-     	<%-- <a class="btn btn-lg btn-primary btn-block"
-			href="/HomeMedico/showMedico?scelta=insertMedico&Medico=${m}">Inserisci</a> --%>
-		
-		<!-- --!>
-		 <a class="btn btn-lg btn-primary btn-block"
-			href="/HomeMedico/showMedico?scelta=insertMedico&Medico=${m}">Inserisci</a> 
-		<!-- --!>
+		</table>
 			
-		<button class="btn lg btn-primary" type="submit"  value="insert" name="choice">Inserisci</button>
+		<button class="btn lg btn-primary" type="submit"  value="inserisci" name="scelta">Inserisci</button>
 		
 		<a class="btn lg btn-primary" 
-		href="/HomeMedico/showMedico?scelta=indietroMedico">Indietro</a></br>
-     </table>
+		href="/HomeMedico/indietroMedico">Indietro</a></br>
+     
      </form>
      
 </body>

@@ -29,6 +29,12 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeMedico/ShowMedico?scelta=inserisci">Inserisci Medico</a><br> 
 		
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeMedico/ShowMedico?scelta=update">Modifica Medico</a><br> 
+		
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeMedico/ShowMedico?scelta=delete">Elimina Medico</a><br> 
+		
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/HomeMedico/ShowMedico?scelta=indietroMain">Indietro</a><br>
 		

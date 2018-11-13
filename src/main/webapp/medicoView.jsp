@@ -83,11 +83,11 @@
 		<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeMedico/ShowMedico?scelta=update&id=${medico.idMed}">Modifica</a>
+			href="/HomeMedico/updateForm?id=${medico.idMed}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeMedico/ShowMedico?scelta=delete&id=${medico.idMed}">Elimina</a>
+			href="/HomeMedico/deleteMedico?id=${medico.idMed}">Elimina</a>
          </td>
 		
 		
