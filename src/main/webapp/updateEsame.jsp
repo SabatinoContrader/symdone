@@ -1,107 +1,80 @@
-<%@ page import="java.util.List"%>
-<%@ page import="com.pCarpet.dto.UserDTO"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="com.pCarpet.dto.AssetDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Javascript -->
-<script src="/css/googleApiManagerDriver.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>   
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>   
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script>   
+<script type="text/javascript" src="/validate/validation_asset.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Modifica Esame Clinico</title>
+
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
 <body>
 
+<h2>Inserisci i dati dell' Esame Clinico</h2>
+ 
+ </br>
+ 
+<form action="/HomeEsame/operationForm" method="POST" id="form_register">
+        
+<table class="border rcorners">	
 
-<form action="/HomeEsame/updateEsame" method="post">
-
-	<h1 class="element-margin-left">Lista degli Esami Clinici che puoi modificare </h1>
-	
-
-
-<table class="bordo rcorners" >	
-	     <tr>
-     <th><h4>ESAMI</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
-     <tr>
 	<tr>
         
          <th>
-             ID ESAME
+             Id ESAME
          </th>
 
          <th>
              ESAME
          </th>
          
-         <th>
-         	DESCRIZIONE
-          </th>
-         <th>
-          </th>
+          <th>
+             DESCRIZIONE
+         </th>
 
-     </tr>
+	</tr>
+	<tr>
 	
-        <c:forEach items="${listaEsame}" var="esame">
-     	
-         <td>           
-            <c:out value="${esame.idesame}"></c:out>            
+        <td>
+            <input type="text" value="${esame.idesame}" disabled class="labcor">
          </td>
-		 <td>
-            <c:out value="${esame.esame}"></c:out>
-         </td>
-         <td>
-            <c:out value="${esame.descrizione}"></c:out>
-         </td>
-	
+
 		<td>
-          
-          <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+             <input type="text" value="${esame.esame}" name="esame" class="labcor">
          </td>
+         
          <td>
-             <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+             <input type="text" value="${esame.descrizione}" name="descrizione" class="labcor">
          </td>
-		
-		
+         
      </tr>
-     </c:forEach>	
-     
+   
      
 </table>
-     	
-     
-     
 
-	  
-	  <tr>
-	   <td><h2>Id esame : </h2>
-	   <td><input type = "text" id = "idesame" name="idesame" placeholder="Inserisci id esame da modificare"></td>
-	
-	  <td><h2>Nome esame : </h2>
-	  <td><input type = "text" id = "esame" name="esame" placeholder="Inserisci nome esame"></td>
-	  
-	   <td><h2>Descrizione : </h2>
-	  <td><input type = "text" id = "descrizione" name="descrizione" placeholder="Inserisci descrizione"></td>
-	  
-	  
+</br>
 		
-		</tr>
-		
+</br>
 
-		
-		 <td>
-
-             <p><button type = "submit" >Modifica</button></p>
-         </td>
-     
-     
- </table>  
-
+<input type="hidden" name="idesame" value="${esame.idesame}"/>
+<table>
+<tr><td>
+<button class="btn lg btn-primary" type="submit" value="update" name="scelta">Effettua la Modifica</button>
+</td><td>
 <a class="btn lg btn-primary"
-		href="/Home/homeEsame">Indietro</a></br> 
-
+ 		href="/Home/homeEsame">Indietro</a></br>
+</td>
+</tr>
+</table>
 </form>
 
 </body>
