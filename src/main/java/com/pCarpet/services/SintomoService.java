@@ -50,6 +50,14 @@ public class SintomoService {
 	
 	public void deleteSintomo(long id) {
     	Sintomo sintomo = sintomoDAO.findById(id).get();
-    	 this.sintomoDAO.delete(sintomo);	
+    	 this.sintomoDAO.delete(sintomo);
     }
+	
+	public List<SintomoDTO> getListaPatologia(long id) {
+		System.out.println("IDReturn: " + id);
+		List<Sintomo> listaSintomo = (List<Sintomo>) this.sintomoDAO.findAllListSintomo(id);
+		List<SintomoDTO> SintomoPerSintomoSet= new ArrayList<>();
+		listaSintomo.forEach(i->SintomoPerSintomoSet.add(SintomoConverter.convertToDto(i)));
+		return SintomoPerSintomoSet;
+	}
 }

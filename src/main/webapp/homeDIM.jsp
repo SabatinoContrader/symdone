@@ -26,7 +26,7 @@
 		HOME D.I.M.
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeDirectory?scelta=Logs">Ricerca Patologie</a><br> 
+		href="/HomeSearchSintomo/operationSearchForm?scelta=updateView">Ricerca Patologie</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Login/logoutControl">Logout</a><br>
 	</form>

@@ -9,23 +9,16 @@
 <script src="/css/googleApiManagerDriver.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="/css/background.css" rel="stylesheet">
-
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
 <body>
 
 
-<form class="form-signin" action="/HomeUser/showUsers" method="GET">
+<form class="form-signin" action="/HomeSearchSintomo/operationSearchForm" method="GET">
 
-	<h1 class="element-margin-left">Ecco tutti i Sintomi</h1>
+	<h1 class="element-margin-left">Ecco tutti i Sintomi !!!!</h1>
 
-		
-		
-		
-
-<table class="bordo rcorners" >	
+    <table class="bordo rcorners" >	
 	     <tr>
      <th><h4>SINTOMI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
@@ -44,7 +37,7 @@
          <th>
           </th>
 
-     </tr>
+        </tr>
 	
         <c:forEach items="${listaSintomo}" var="sintomo">
      	
@@ -54,26 +47,23 @@
 		 <td>
             <c:out value="${sintomo.nomeSintomo}"></c:out>
          </td>
-	
-		<td>
-          
-          <a class="btn lg btn-primary"
-			href="/HomeSintomo/operationForm?scelta=update&id=${sintomo.idsintomo}">Modifica</a>
-         </td>
-         <td>
-             <a class="btn lg btn-primary"
-			href="/HomeSintomo/operationForm?scelta=delete&id=${sintomo.idsintomo}">Elimina</a>
-         </td>		
-     </tr>
-     </c:forEach>	
-     
-     
-</table>
-
-<a class="btn lg btn-primary"
-		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 
-
-</form>
+         
+	     </tr>
+         </c:forEach>	
+    </table>
+   <table class="insertTable">
+   <tr>
+    <td><h2>Inserisci ID del Sintomo </h2></td>
+          <td><input type="text" id="idRicerca" name="idRicerca" placeholder = "inserisci ID"><td>
+    </tr>
+   </table>
+   <button class="btn btn-lg btn-primary btn-block" value="searchPatologia" type="submit" name="scelta">Cerca</button>
+   
+   <a class="btn lg btn-primary"
+		href="/HomeSintomo/returnHomeSintomo?scelta=result">View Patologie</a></br>
+		<a class="btn lg btn-primary"
+		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br>
+   </form>
 
 </body>
 </html>

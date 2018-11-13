@@ -23,7 +23,7 @@
 
 <body>
 
-     <form action="/HomeSintomo/insertSintomo" method="Get">
+     <form action="/HomeSintomo/ricercaSintomo" method="Get">
 		<table class="insertTable">
 
 			<tr>

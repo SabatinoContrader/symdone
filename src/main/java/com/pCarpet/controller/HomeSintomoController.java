@@ -56,7 +56,7 @@ public class HomeSintomoController {
 	    String scelta= request.getParameter("scelta");
 	    
 	    if (scelta.equals("update")) {
-	    	SintomoDTO s = this.sintomoService.getSintomoID(Integer.parseInt(request.getParameter("id")));			
+	    	SintomoDTO s = this.sintomoService.getSintomoID(Integer.parseInt(request.getParameter("id")));		
 			model.addAttribute("sintomo", s);
 		    return "updateSintomo";
 		}
@@ -89,8 +89,7 @@ public class HomeSintomoController {
 					List<SintomoDTO> listaSintomo4 = sintomoService.getAll();
 					model.addAttribute("listaSintomo", listaSintomo4);	
 					return "sintomoView";
-			}
-		
+			}		
 	
 		return "sintomoView";
 	}
