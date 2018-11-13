@@ -48,6 +48,10 @@ public class SintomoSetService {
      public SintomoSetDTO searchSintomoSet(long idsintomoset) {
     	 return SintomoSetConverter.convertToDTO(sintomosetDAO.findById(idsintomoset).get());
      }
+	public SintomoSetDTO getIdsintomoset(long idsintomoset) {
+		SintomoSet s = (SintomoSet)this.sintomosetDAO.findById(idsintomoset).get();
+		return SintomoSetConverter.convertToDTO(s);
+	}
      
 }
   

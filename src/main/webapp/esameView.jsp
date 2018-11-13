@@ -16,7 +16,7 @@
 
 <form class="form-signin" action="/HomeUser/showUsers" method="post">
 
-	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+	<h1 class="element-margin-left">Ecco tutti gli Esami clinici</h1>
 
 		
 		
@@ -59,11 +59,11 @@
 		<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomeEsame/operationForm?scelta=update&idesame=${esame.idesame}">Modifica</a>
          </td>
          <td>
-             <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+              <a class="btn lg btn-primary"
+			href="/HomeEsame/operationForm?scelta=delete&idesame=${esame.idesame}">Elimina</a>
          </td>
 		
 		
@@ -73,7 +73,7 @@
      
 </table>
 
- <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
+ <a class="btn lg btn-primary" href="/HomeEsame/insertForm">
  	Inserisci
  </a>
 

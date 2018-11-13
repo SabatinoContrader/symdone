@@ -50,6 +50,7 @@ public class HomeController {
 	}
 	
 
+
 	@RequestMapping(value = "/homeErba", method = RequestMethod.GET)
 	public String HomeErba(HttpServletRequest request, Model model) {
 		return "homeErba";
@@ -58,6 +59,12 @@ public class HomeController {
 	@RequestMapping(value = "/homeDoctor", method = RequestMethod.GET)
 	public String HomeDoc(HttpServletRequest request, Model model) {
 		return "homeDoctor";
+	}
+
+	@RequestMapping(value = "/homeMedico", method = RequestMethod.GET)
+	public String HomeMedico(HttpServletRequest request, Model model) {
+		return "homeMedico";
+
 	}
 	
 

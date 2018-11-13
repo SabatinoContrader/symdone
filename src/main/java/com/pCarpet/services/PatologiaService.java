@@ -41,5 +41,9 @@ public void updatePatologia(PatologiaDTO patologiaDTO) {
 	Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
 	this.patologiaDAO.save(patologia);
 }
+public PatologiaDTO getIdpatologia(long idpatologia) {
+	Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
+	return PatologiaConverter.convertToDto(p);
+}
 	
 	}

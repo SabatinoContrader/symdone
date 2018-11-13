@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pCarpet.dto.EsameDTO;
+import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.services.EsameService;
 
 @Controller
@@ -42,7 +43,6 @@ public class HomeEsameController {
 		esameDTO.setEsame(request.getParameter("esame"));
 		esameDTO.setDescrizione(request.getParameter("descrizione"));
 		esameService.insertEsame(esameDTO);
-		
 		List<EsameDTO> listaEsame = esameService.getAll();
 		model.addAttribute("listaEsame", listaEsame);
 		return "esameView";
@@ -62,7 +62,7 @@ public class HomeEsameController {
 		return "esameView";
 	} 
 	
-	@RequestMapping(value="/updateForm", method=RequestMethod.GET)
+	/*@RequestMapping(value="/updateForm", method=RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
 		List<EsameDTO> listaEsame = esameService.getAll();
 		model.addAttribute("listaEsame", listaEsame);
@@ -81,6 +81,53 @@ public class HomeEsameController {
 		List<EsameDTO> listaEsame = esameService.getAll();
 		model.addAttribute("listaEsame", listaEsame);
 		return "esameView";
-	} 
+	} */
 	
+	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
+	public String updateForm(HttpServletRequest request, Model model) {
+		
+		List<EsameDTO> listaEsame3 = this.esameService.getAll();
+		model.addAttribute("listaEsame", listaEsame3);
+	    String scelta= request.getParameter("scelta");
+	    
+	    if (scelta.equals("update")) {
+	    	EsameDTO esame = this.esameService.getIdesame(Integer.parseInt(request.getParameter("idesame")));			
+			model.addAttribute("esame", esame);
+		    return "updateEsame";
+		}
+	    else if(scelta.equals("delete")) {
+            esameService.deleteEsame(Long.parseLong((request.getParameter("idesame"))));			
+            listaEsame3 = esameService.getAll();
+			model.addAttribute("listaEsame", listaEsame3);
+			return "esameView";
+	    }
+	    
+	    return "";
+	
+	}
+	
+	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
+	public String sintomoControlPost(HttpServletRequest request, Model model ) {
+		
+		List<EsameDTO> listaEsame3 = esameService.getAll();
+		model.addAttribute("listaEsame", listaEsame3);	
+		String scelta=request.getParameter("scelta");
+	
+		
+			switch(scelta) {
+				
+			case "update":
+				long idesame = Integer.parseInt(request.getParameter("idesame"));
+					String esame =request.getParameter("esame");
+					String descrizione =request.getParameter("descrizione");
+					EsameDTO edto =new EsameDTO(idesame, esame, descrizione);				
+					esameService.insertEsame(edto);
+					List<EsameDTO> listaEsame4 = esameService.getAll();
+					model.addAttribute("listaEsame", listaEsame4);	
+					return "esameView";
+			}
+		
+	
+		return "esameView";
+	}
 }

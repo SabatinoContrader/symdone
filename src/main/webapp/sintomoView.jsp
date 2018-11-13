@@ -67,9 +67,7 @@
      
 </table>
 
- <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
- 	Inserisci
- </a>
+ 
 
 <a class="btn lg btn-primary"
 		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 

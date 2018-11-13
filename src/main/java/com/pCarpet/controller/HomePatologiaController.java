@@ -45,7 +45,7 @@ public class HomePatologiaController {
 		model.addAttribute("listaPatologia", listaPatologia);
 		return "patologiaView";
 	}
-	@RequestMapping(value="/DeleteForm", method=RequestMethod.GET)
+	/*@RequestMapping(value="/DeleteForm", method=RequestMethod.GET)
 	public String DeleteForm(HttpServletRequest request, Model model) {
 		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
 		model.addAttribute("listaPatologia", listaPatologia);
@@ -78,6 +78,64 @@ public class HomePatologiaController {
 		model.addAttribute("listaPatologia", listaPatologia);
 		return "patologiaView";
 				
+	}*/
+	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
+	public String updateForm(HttpServletRequest request, Model model) {
+		
+		List<PatologiaDTO> listaPatologia = this.patologiaService.getAll();
+		model.addAttribute("listaPatologia", listaPatologia);
+	    String scelta= request.getParameter("scelta");
+	    
+	    if (scelta.equals("update")) {
+	    	PatologiaDTO p = this.patologiaService.getIdpatologia(Long.parseLong(request.getParameter("idpatologia")));			
+			model.addAttribute("patologia", p);
+		    return "patologiaUpdate";
+		}
+	    else if(scelta.equals("delete")) {
+            patologiaService.deletePatologia(Long.parseLong((request.getParameter("idpatologia"))));			
+            listaPatologia = patologiaService.getAll();
+			model.addAttribute("listaPatologia", listaPatologia);
+			return "patologiaView";
+	    }
+	    
+	    return "";
+	
+	}
+	
+	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
+	public String patologiaControlPost(HttpServletRequest request, Model model ) {
+		
+		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
+		model.addAttribute("listaPatologia", listaPatologia);	
+		String scelta=request.getParameter("scelta");
+	
+		
+			switch(scelta) {
+				
+			case "update":
+				long idpatologia=Long.parseLong(request.getParameter("idpatologia"));
+				String patologia= request.getParameter("patologia");
+				String descrizione= request.getParameter("descrizione");
+				PatologiaDTO patologiaDTO = new PatologiaDTO(idpatologia,patologia,descrizione);
+				patologiaService.insertPatologia(patologiaDTO);
+				List<PatologiaDTO> listaPatologia1 = patologiaService.getAll();
+				model.addAttribute("listaPatologia", listaPatologia1);
+				return "patologiaView";
+			}
+		
+	
+		return "patologiaView";
+	}
+	
+	
+	@RequestMapping(value = "/returnHomePatologia", method = RequestMethod.GET)
+	public String returnControl(HttpServletRequest request) {
+		return "homePatologia";
+	}
+	
+	@RequestMapping(value = "/returnHomeDoctor", method = RequestMethod.GET)
+	public String returnTwoControl(HttpServletRequest request) {
+		return "homeDoctor";
 	}
 
 

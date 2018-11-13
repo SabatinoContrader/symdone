@@ -19,49 +19,59 @@
 </head>
 <body>
 
-<h2>Inserisci i dati del Sintomo Set</h2>
+<h2>Inserisci i dati del Medico</h2>
  
  </br>
  
-<form action="/HomeSintomoSet/operationForm" method="POST" id="form_register">
+<form action="/HomeMedico/updateMedico" method="POST" id="form_register">
         
 <table class="border rcorners">	
 
 	<tr>
         
          <th>
-             ID SINTOMO SET
+             Id MEDICO
          </th>
 
          <th>
-             ID PRIMO SINTOMO
+             NOME
          </th>
          
          <th>
-             ID SECONDO SINTOMO
+             COGNOME
+         </th>
+         <th>
+             SPECIALIZZAZIONE
+         </th>
+         <th>
+             INDIRIZZO AMBULATORIO
+         </th>
+         <th>
+             INDIRIZZO MAIL
          </th>
          
-         <th>
-             ID TERZO SINTOMO
-         </th>
 
 	</tr>
 	<tr>
 	
         <td>
-            <input type="text" value="${sintomoset.idsintomoset}" disabled class="labcor">
+            <input type="text" value="${medico.idMed}" disabled class="labcor">
          </td>
 
 		<td>
-             <input type="text" value="${sintomoset.idprimosintomo}" name="idprimosintomo" class="labcor">
+             <input type="text" value="${medico.nomeMed}" name="nome" class="labcor">
          </td>
-         
+        <td>
+             <input type="text" value="${medico.cognomeMed}" name="cognome" class="labcor">
+         </td> 
          <td>
-             <input type="text" value="${sintomoset.idsecondosintomo}" name="idsecondosintomo" class="labcor">
+             <input type="text" value="${medico.specMed}" name="specializzazione" class="labcor">
          </td>
-         
          <td>
-             <input type="text" value="${sintomoset.idterzosintomo}" name="idterzosintomo" class="labcor">
+             <input type="text" value="${medico.indMed}" name="indirizzo" class="labcor">
+         </td>
+         <td>
+             <input type="text" value="${medico.mailMed}" name="mail" class="labcor">
          </td>
      </tr>
    
@@ -72,13 +82,13 @@
 		
 </br>
 
-<input type="hidden" name="idsintomoset" value="${sintomoset.idsintomoset}"/>
+<input type="hidden" name="id" value="${medico.idMed}"/>
 <table>
 <tr><td>
 <button class="btn lg btn-primary" type="submit" value="update" name="scelta">Effettua la Modifica</button>
 </td><td>
 <a class="btn lg btn-primary" 
-		href="/HomeSintomoSet/returnHomeSintomoSet">Indietro</a></br>
+		href="/HomeMedico/indietroMedico">Indietro</a></br>
 </td>
 </tr>
 </table>

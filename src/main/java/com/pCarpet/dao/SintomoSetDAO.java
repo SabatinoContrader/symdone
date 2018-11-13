@@ -13,8 +13,6 @@ import com.pCarpet.model.User;
 
 @Repository
 public interface SintomoSetDAO extends CrudRepository <SintomoSet, Long> {
-
-
 	
 	
 }

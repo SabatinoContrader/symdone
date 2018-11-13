@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>PATOLOGIE</title>
+<title>DIM - Syndone</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,16 +21,24 @@
 <body class="text-center">
 	<form class="form-signin">
 		<h1 class="h3 mb-3 font-weight-normal">
-		HOME PATOLOGIA
+		HOME MEDICO
 		</h1>
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomePatologia/ShowPatologia">Visualizza Patologia</a><br> 
-		<a class="btn btn-lg btn-primary btn-block" 
-		href="/HomePatologia/InsertForm">Inserisci Patologia</a><br>  
+		href="/HomeMedico/ShowMedico?scelta=visualizza">Visualizza Medico</a><br> 
+		
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/Home/homeDoctor">Indietro</a
+		href="/HomeMedico/ShowMedico?scelta=inserisci">Inserisci Medico</a><br> 
+		
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeMedico/ShowMedico?scelta=update">Modifica Medico</a><br> 
+		
+		<a class="btn btn-lg btn-primary btn-block"
+		href="/HomeMedico/ShowMedico?scelta=delete">Elimina Medico</a><br> 
+		
+		<a class="btn btn-lg btn-primary btn-block" 
+		href="/HomeMedico/ShowMedico?scelta=indietroMain">Indietro</a><br>
+		
 	</form>
 
 </body>
 </html>
-

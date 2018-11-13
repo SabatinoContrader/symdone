@@ -14,15 +14,11 @@
 <body>
 
 
-<form class="form-signin" action="/HomeUser/showUsers" method="get">
+<form action="/HomePatologia/DeletePatologia" method="post">
 
-	<h1 class="element-margin-left">Ecco tutte le patologie</h1>
-
-		
-		
-		
-
-<table class="bordo rcorners" >	
+	<h1 class="element-margin-left">Lista delle patologie che puoi eliminare </h1>
+	
+	<table class="bordo rcorners" >	
 	     <tr>
      <th><h4>PATOLOGIE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
@@ -33,11 +29,11 @@
          </th>
 
          <th>
-             NOME PATOLOGIA
+            PATOLOGIA
          </th>
          
-         <th>DESCRIZIONE PATOLOGIA
-         
+         <th>
+         	DESCRIZIONE
           </th>
          <th>
           </th>
@@ -52,32 +48,43 @@
 		 <td>
             <c:out value="${patologia.patologia}"></c:out>
          </td>
-	<td>
+         <td>
             <c:out value="${patologia.descrizione}"></c:out>
          </td>
-         
-	<td>
+	
+		<td>
           
-         <a class="btn lg btn-primary"
-			href="/HomePatologia/operationForm?scelta=update&idpatologia=${patologia.idpatologia}">Modifica</a>
+          <a class="btn lg btn-primary"
+			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
          </td>
          <td>
-         <a class="btn lg btn-primary"
-			href="/HomePatologia/operationForm?scelta=delete&idpatologia=${patologia.idpatologia}">Elimina</a>
+             <a class="btn lg btn-primary"
+			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
          </td>
-      
 		
 		
      </tr>
      </c:forEach>	
-     
-     
-</table> 
+   	
 
-<a class="btn lg btn-primary"
-		href="/HomePatologia/returnHomePatologia">Indietro</a></br> 
 
-</form>
-
+	  
+	  <tr>
+	   <td><h2>Id Patologia : </h2></td>
+	   <td><input type = "text" id = "idpatologia" name="idpatologia" placeholder="Inserisci id patologia da eliminare"></td>
+	
+		
+		</tr>
+				
+				
+		</table>
+		
+		
+	 
+		 <input type="submit" value="Elimina">
+    
+    <a class="btn lg btn-primary"
+ href="/Home/homePatologia">Indietro</a></br> 		
+		</form>
 </body>
 </html>

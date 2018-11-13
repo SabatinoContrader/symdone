@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pCarpet.converter.EsameConverter;
+import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.EsameDAO;
 import com.pCarpet.dto.EsameDTO;
+import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Esame;
+import com.pCarpet.model.Sintomo;
 
 
 @Service
@@ -43,4 +46,9 @@ public class EsameService {
 	public void updateEsame(EsameDTO esameDTO) {
 		esameDAO.save(EsameConverter.convertToEsame(esameDTO));
 	}	
+	
+	public EsameDTO getIdesame (long idesame) {
+        Esame e = (Esame)this.esameDAO.findById(idesame).get(); // procedura automatica di spring col DAO
+        return EsameConverter.convertToDto(e);
+    }
 }
