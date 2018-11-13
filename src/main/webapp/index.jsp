@@ -13,10 +13,14 @@
 <title>DIM LOGIN PAGE</title>
 
 <!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+ <link href="/css/bootstrap.min.css" rel="stylesheet"> 
 
 <!-- Custom styles for this template -->
-<link href="/css/signin.css" rel="stylesheet">
+<link href="/css/signin.css" rel="stylesheet"> 
+
+<link href="/css/background.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -24,13 +28,13 @@
 	<form class="form-signin" action="/Login/loginControl" method="post">
 		<h1 class="h3 mb-3 font-weight-normal">DIM LOGIN PAGE</h1>
 		<h2 class="h3 mb-3 font-weight-normal">Login</h2>
-		<label for="inputUser" class="sr-only">Username</label> 
-			<input type="text" name="username" id="inputUser" class="form-control"
-			placeholder="Username" required autofocus> 
-		<label for="inputPassword" class="sr-only">Password</label> 
-			<input type="password" name="password" id="inputPassword"
-			class="form-control" placeholder="Password" required> 
-			<input type="text" name="richiesta" value="login" hidden>
+		<label for="inputUser" class="sr-only">Username</label> <input
+			type="text" name="username" id="inputUser" class="form-control"
+			placeholder="Username" required autofocus> <label
+			for="inputPassword" class="sr-only">Password</label> <input
+			type="password" name="password" id="inputPassword"
+			class="form-control" placeholder="Password" required> <input
+			type="text" name="richiesta" value="login" hidden>
 		</p>
 		
 		<c:choose>

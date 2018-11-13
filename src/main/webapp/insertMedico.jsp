@@ -17,6 +17,7 @@
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
+<link href="/css/background.css" rel="stylesheet">
 </head>
 <body>
  <h2>Inserisci i dati del nuovo medico</h2>

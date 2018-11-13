@@ -16,6 +16,8 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/signin.css" rel="stylesheet">
+
+<link href="/css/background.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
@@ -26,11 +28,7 @@
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeEsame/ShowEsame">Visualizza Esami Clinici</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeEsame/insertForm">Inserisci Esame Clinico</a><br>
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeEsame/updateForm">Modifica Esame Clinico</a><br>
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeEsame/deleteForm">Elimina Esame Clinico</a><br> 
+		href="/HomeEsame/insertForm">Inserisci Esame Clinico</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Home/homeDoctor ">Indietro</a><br>
 	</form>

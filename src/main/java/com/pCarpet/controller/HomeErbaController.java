@@ -15,10 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.pCarpet.dao.ErbaDAO;
 import com.pCarpet.dto.ErbaDTO;
+import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Erba;
+import com.pCarpet.model.Sintomo;
 import com.pCarpet.services.ErbaService;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,52 +60,55 @@ public class HomeErbaController {
 		model.addAttribute("listaErba", listaErba);
 		return "erbaView";
 	}
-
-	@RequestMapping(value = "/deleteForm", method = RequestMethod.GET)
-	public String deleteForm(HttpServletRequest request, Model model) {
-		List<ErbaDTO> listaErba = this.erbaService.getAll();
-		model.addAttribute("listaErba", listaErba);
-		return "deleteErba";
-
-	}
 	
-	@RequestMapping(value = "/deleteErba", method = RequestMethod.POST)
-	public String deleteErba(HttpServletRequest request, Model model) {
-		
-		Long iderba = Long.parseLong(request.getParameter("iderba"));
-		erbaService.deleteErba(iderba);
-		List<ErbaDTO>listaErba = erbaService.getAll();
-		model.addAttribute("listaErba", listaErba);
-		return "erbaView";
-		
-	}
-	
-	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
+		
 		List<ErbaDTO> listaErba = this.erbaService.getAll();
 		model.addAttribute("listaErba", listaErba);
-		return "updateErba";
-
+	    String scelta= request.getParameter("scelta");
+	   
+	    if (scelta.equals("update")) {
+	    	ErbaDTO erba = this.erbaService.getErbaID(Integer.parseInt(request.getParameter("id")))	;		
+			model.addAttribute("erba", erba);
+		    return "updateErba";
+		}
+	    else if(scelta.equals("delete")) {
+            erbaService.deleteErba(Long.parseLong((request.getParameter("id"))));			
+            listaErba = erbaService.getAll();
+			model.addAttribute("listaErba", listaErba);
+			return "erbaView";
+	    }
+            
+	    return "";
+	
 	}
 	
-	@RequestMapping(value = "/updateErba", method = RequestMethod.POST)
-	public String updateErba(HttpServletRequest request, Model model) {
+	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
+	public String erbaControlPost(HttpServletRequest request, Model model ) {
 		
-		Long iderba = Long.parseLong(request.getParameter("iderba").toString());
-		model.addAttribute("iderba", iderba);
-		ErbaDTO erbaDTO = new ErbaDTO();
-		erbaDTO.setIderba(Long.parseLong(request.getParameter("iderba").toString()));
-		erbaDTO.setErba(request.getParameter("erba"));
-		erbaDTO.setDescrizione(request.getParameter("descrizione"));
-		erbaService.updateErba(erbaDTO);
-		List<ErbaDTO> listaErba = this.erbaService.getAll();
-		model.addAttribute("listaErba", listaErba);
+		List<ErbaDTO> listaErba2= erbaService.getAll();
+		model.addAttribute("listaErba", listaErba2);	
+		String scelta=request.getParameter("scelta");
+	
+		
+			switch(scelta) {
+				
+			case "update":
+				long iderba = Integer.parseInt(request.getParameter("id"));
+					String erba = request.getParameter("erba");
+					String descrizione = request.getParameter("descrizione");
+					ErbaDTO ErbaDTO =new ErbaDTO(iderba,erba,descrizione);				
+					erbaService.insertErba(ErbaDTO);
+					List<ErbaDTO> listaErba3 = erbaService.getAll();
+					model.addAttribute("listaErba", listaErba3);	
+					return "erbaView";
+			}
+		
+	
 		return "erbaView";
-		
 	}
 	
-	
-	
-	
 
+	
 }

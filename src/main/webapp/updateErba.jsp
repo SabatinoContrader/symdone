@@ -10,11 +10,12 @@
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
+<link href="/css/background.css" rel="stylesheet">
 </head>
 <body>
 
 
-<form action="/HomeErbaC/updateErba" method="POST">
+<form action="/HomeErbaC/operationForm" method="POST">
 
 	<h1 class="element-margin-left">Lista delle erbe che puoi modificare </h1>
 	
@@ -39,70 +40,41 @@
           </th>
          <th>
           </th>
-
-     </tr>
-	
-        <c:forEach items="${listaErba}" var="erba">
-     	
-         <td>           
-            <c:out value="${erba.iderba}"></c:out>            
-         </td>
-		 <td>
-            <c:out value="${erba.erba}"></c:out>
-         </td>
-         <td>
-            <c:out value="${erba.descrizione}"></c:out>
-         </td>
-	
-		<td>
+       </tr>
           
-          <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+          
+         <tr>
+          <td>
+            <input type="text" value="${erba.iderba}" disabled class="labcor">
          </td>
+
+		<td>
+             <input type="text" value="${erba.erba}" name="erba" class="labcor">
+         </td>
+         
          <td>
-             <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+             <input type="text" value="${erba.descrizione}" name="descrizione" class="labcor">
          </td>
-		
-		
+
      </tr>
-     </c:forEach>	
-     
-     
-</table>
-     	
-     
-     
 
-	  
-	  <tr>
-	   <td><h2>Id Erba : </h2>
-	   <td><input type = "text" id = "iderba" name="iderba" placeholder="Inserisci id erba da modificare"></td>
-	
-	  <td><h2>Nome Erba : </h2>
-	  <td><input type = "text" id = "erba" name="erba" placeholder="Inserisci nome erba"></td>
-	  
-	   <td><h2>Descrizione : </h2>
-	  <td><input type = "text" id = "descrizione" name="descrizione" placeholder="Inserisci descrizione"></td>
-	  
-	  
+  </table>
+
+    </br>
 		
-		</tr>
-		
+    </br>
 
-		
-		 <td>
 
-             <p><button type = "submit" >Modifica</button></p>
-         </td>
-     
-     
- </table>  
-
-<a class="btn lg btn-primary"
-		href="/Home/homeErba">Indietro</a></br> 
-
-</form>
-
-</body>
-</html>
+     <input type="hidden" name="id" value="${erba.iderba}"/>     	
+     <table>
+     <tr><td>
+	  <button class="btn lg btn-primary" type="submit" value="update" name="scelta">Effettua la Modifica</button>
+	  </td><td>
+      <a class="btn lg btn-primary" 
+		href="/Home/homeErba">Indietro</a></br>
+      </td>
+	  </tr>
+      </table>  
+      </form>
+      </body>
+      </html>

@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pCarpet.converter.ErbaConverter;
+import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.ErbaDAO;
 import com.pCarpet.dto.ErbaDTO;
+import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Erba;
+import com.pCarpet.model.Sintomo;
 
 @Service
 public class ErbaService {
@@ -43,6 +46,11 @@ public class ErbaService {
 	public void updateErba(ErbaDTO erbaDTO) {
 		this.erbaDAO.save(ErbaConverter.convertToErba(erbaDTO));
 	}
+	
+	public ErbaDTO getErbaID (long id) {
+        Erba erba = (Erba)this.erbaDAO.findById(id).get(); // procedura automatica di spring col DAO
+        return ErbaConverter.convertToDto(erba);
+    }
 	
 	
 	

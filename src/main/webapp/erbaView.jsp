@@ -10,6 +10,7 @@
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
+<link href="/css/background.css" rel="stylesheet">
 </head>
 <body>
 
@@ -59,11 +60,11 @@
 		<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomeErbaC/operationForm?scelta=update&id=${erba.iderba}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+			href="/HomeErbaC/operationForm?scelta=delete&id=${erba.iderba}">Elimina</a>
          </td>
 		
 		
@@ -73,9 +74,7 @@
      
 </table>
 
- <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
- 	Inserisci
- </a>
+
 
 <a class="btn lg btn-primary"
 		href="/Home/homeErba">Indietro</a></br> 

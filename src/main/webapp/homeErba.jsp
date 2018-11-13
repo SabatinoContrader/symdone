@@ -16,6 +16,8 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/signin.css" rel="stylesheet">
+
+<link href="/css/background.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
@@ -27,10 +29,6 @@
 		href="/HomeErbaC/ShowErba">Visualizza Erba</a><br> 
 		<a class="btn btn-lg btn-primary btn-block"
 		href="/HomeErbaC/insertForm">Inserisci Erba</a><br>
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeErbaC/updateForm">Modifica Erba</a><br>  
-		<a class="btn btn-lg btn-primary btn-block"
-		href="/HomeErbaC/deleteForm">Elimina Erba</a><br> 
 		<a class="btn btn-lg btn-primary btn-block" 
 		href="/Home/homeDoctor">Indietro</a><br>
 	</form>

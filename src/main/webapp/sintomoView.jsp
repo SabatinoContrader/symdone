@@ -9,6 +9,9 @@
 <script src="/css/googleApiManagerDriver.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/background.css" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
 <body>
@@ -67,7 +70,9 @@
      
 </table>
 
- 
+ <a class="btn lg btn-primary" href="/HomeUser/showUsers?choice=insert">
+ 	Inserisci
+ </a>
 
 <a class="btn lg btn-primary"
 		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 
