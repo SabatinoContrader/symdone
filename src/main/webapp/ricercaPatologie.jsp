@@ -18,7 +18,7 @@
 
 	<h1 class="element-margin-left">Ecco tutti i Sintomi !!!!</h1>
 
-    <table class="bordo rcorners" >	
+    <table class="bordo rcorners" >
 	     <tr>
      <th><h4>SINTOMI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
@@ -48,6 +48,7 @@
             <c:out value="${sintomo.nomeSintomo}"></c:out>
          </td>
          
+         
 	     </tr>
          </c:forEach>	
     </table>
@@ -60,7 +61,7 @@
    <button class="btn btn-lg btn-primary btn-block" value="searchPatologia" type="submit" name="scelta">Cerca</button>
    
    <a class="btn lg btn-primary"
-		href="/HomeSintomo/returnHomeSintomo?scelta=result">View Patologie</a></br>
+		href="/HomeSearchSintomo/operationSearchForm?scelta=result">View Patologie</a></br>
 		<a class="btn lg btn-primary"
 		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br>
    </form>

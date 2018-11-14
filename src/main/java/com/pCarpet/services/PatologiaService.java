@@ -29,21 +29,32 @@ public class PatologiaService {
 		return PatologiaPerPatologiaSet;
 
 	}	
-		public void insertPatologia(PatologiaDTO patologiaDTO) {
+	
+    public void insertPatologia(PatologiaDTO patologiaDTO) {
 		Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
 		this.patologiaDAO.save(patologia);
-}
-public void deletePatologia(Long idpatologia) {
+    }
+		
+    public void deletePatologia(Long idpatologia) {
 		Patologia p = patologiaDAO.findById(idpatologia).get();
 		patologiaDAO.delete(p);
 	}	
-public void updatePatologia(PatologiaDTO patologiaDTO) {
-	Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
-	this.patologiaDAO.save(patologia);
-}
-public PatologiaDTO getIdpatologia(long idpatologia) {
-	Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
-	return PatologiaConverter.convertToDto(p);
-}
+    
+    public void updatePatologia(PatologiaDTO patologiaDTO) {
+	    Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
+	    this.patologiaDAO.save(patologia);
+    }
+    
+    public PatologiaDTO getIdpatologia(long idpatologia) {
+	    Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
+	    return PatologiaConverter.convertToDto(p);
+    }
 	
+    public List<PatologiaDTO> getListaResultPatologia(long idpatologia) {
+		System.out.println("IDReturn: " + idpatologia);
+		List<Patologia> listaPatologia = (List<Patologia>) this.patologiaDAO.findAllListPatologia(idpatologia);
+		List<PatologiaDTO> SintomoPerPatologiaSet= new ArrayList<>();
+		listaPatologia.forEach(i->SintomoPerPatologiaSet.add(PatologiaConverter.convertToDto(i)));
+		return SintomoPerPatologiaSet;
 	}
+}

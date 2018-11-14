@@ -10,9 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
+import com.pCarpet.model.Medico;
 import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
+import com.pCarpet.services.PatologiaService;
 import com.pCarpet.services.SintomoService;
 
 @Controller
@@ -20,13 +23,17 @@ import com.pCarpet.services.SintomoService;
 public class HomeRicercaController {
 	
 	private SintomoService sintomoService;
+	private PatologiaService patologiaService;
 	private List<SintomoDTO> searchListSintomi;
-	private List<Patologia> listaDisease;
-	//private List<Medico> listaMedici;
+	private List<PatologiaDTO> listaPatologia;
+	private List<Medico> listaMedici;
+	private int count=0;
+	private long idsintomo = 0;
 
 	@Autowired
-	public HomeRicercaController (SintomoService sintomoService) {
+	public HomeRicercaController (SintomoService sintomoService, PatologiaService patologiaService) {
 		this.sintomoService =  sintomoService;
+		this.patologiaService =  patologiaService;
 	}
 	
 	@RequestMapping(value = "/operationSearchForm", method = RequestMethod.GET)
@@ -35,6 +42,7 @@ public class HomeRicercaController {
 		List<SintomoDTO> listaSintomo2 = this.sintomoService.getAll();
 		model.addAttribute("listaSintomo", listaSintomo2);
 	    String scelta= request.getParameter("scelta");
+	    System.out.println("SCELTA: " + scelta);
 	    
 	    switch(scelta) {
 		
@@ -44,16 +52,26 @@ public class HomeRicercaController {
 			return "ricercaPatologie";
 			
 		case "searchPatologia":
-			long idsintomo = Integer.parseInt(request.getParameter("idRicerca"));
-			System.out.println("ID: " + idsintomo );
+			count += 1;
+			idsintomo = Integer.parseInt(request.getParameter("idRicerca"));
+			System.out.println("IDSP: " + idsintomo);
 			searchListSintomi = sintomoService.getListaPatologia(idsintomo);
 			model.addAttribute("listaSintomo", searchListSintomi);
 			//request.setAttribute("conta", count);
 			return "ricercaPatologie";
 			
 		case "result":
-			long idresultSintomo = Integer.parseInt(request.getParameter("idRicerca"));
-			//listaDisease = sintomoService.getListDisease(idresultSintomo);
+			if(count == 1) {
+				listaPatologia = patologiaService.getListaResultPatologia(idsintomo);
+				model.addAttribute("listaPatologia", listaPatologia);
+				count = 0;
+				idsintomo = 0;
+				return "resultSearch";
+			}
+			else if(count == 2) {
+				
+				count = 0;
+			}
 			//request.setAttribute("listaDisease", listaDisease);
 			//listaMedici = medicoService.getListMedici(id1);
 			//request.setAttribute("allDoctor", listaMedici);

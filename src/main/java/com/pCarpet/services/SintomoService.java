@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 import com.pCarpet.converter.AssetConverter;
 import com.pCarpet.converter.BadgeReaderConverter;
 import com.pCarpet.converter.SintomoConverter;
+import com.pCarpet.dao.PatologiaDAO;
 import com.pCarpet.dao.SintomoDAO;
 import com.pCarpet.dto.AssetDTO;
 import com.pCarpet.dto.BadgeReaderDTO;
+import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Asset;
 import com.pCarpet.model.BadgeReader;
+import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
 
 @Service
@@ -54,10 +57,10 @@ public class SintomoService {
     }
 	
 	public List<SintomoDTO> getListaPatologia(long id) {
-		System.out.println("IDReturn: " + id);
 		List<Sintomo> listaSintomo = (List<Sintomo>) this.sintomoDAO.findAllListSintomo(id);
 		List<SintomoDTO> SintomoPerSintomoSet= new ArrayList<>();
 		listaSintomo.forEach(i->SintomoPerSintomoSet.add(SintomoConverter.convertToDto(i)));
 		return SintomoPerSintomoSet;
 	}
+	
 }
