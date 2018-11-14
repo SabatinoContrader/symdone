@@ -14,7 +14,7 @@ import com.pCarpet.model.Sintomo;
 @Transactional
 public interface SintomoDAO extends CrudRepository<Sintomo, Long> {
 	
-	@Query(value = "select idsintomo, sintomo from sintomo where idsintomo in (select idsintomo from sintomopatologia where idpatologia in  (select idpatologia from sintomopatologia where idsintomo=?))", nativeQuery=true)
+	@Query(value = "select idsintomo, sintomo from sintomo where idsintomo in (select idsintomo from sintomopatologia where idpatologia in (select idpatologia from sintomopatologia where idsintomo=?))", nativeQuery=true)
 	List<Sintomo> findAllListSintomo(long idsintomo);
 	
 }

@@ -61,11 +61,75 @@
 	
 		<td>
           
-     </tr>
-     </c:forEach>	
+       </tr>
+       </c:forEach>	
      
      
 </table>
+
+<h3>-------------------------------------------- </h3>
+        
+        <table class="bordo rcorners" >
+	     <tr>
+     <th><h4>TABELLA MEDICI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+	<tr>
+        
+         <th>
+             ID MEDICI
+         </th>
+
+         <th>
+             NOME MEDICO
+         </th>
+         
+         <th>
+             COGNOME MEDICO
+         </th>
+         
+         <th>
+             IND. MEDICO
+         </th>
+         
+         <th>
+             SPEC. MEDICO
+         </th>
+         
+         <th>
+             MAIL MEDICO
+         </th>
+         
+         <th>
+          </th>
+         <th>
+          </th>
+
+        </tr>
+	
+        <c:forEach items="${listaMedici}" var="medico">
+     	
+         <td>           
+            <c:out value="${medico.idmedico}"></c:out>            
+         </td>
+		 <td>
+            <c:out value="${medico.nome}"></c:out>
+         </td>
+         <td>
+            <c:out value="${medico.cognome}"></c:out>
+         </td>
+         <td>
+            <c:out value="${medico.indirizzo}"></c:out>
+         </td>
+         <td>
+            <c:out value="${medico.specializzazione}"></c:out>
+         </td>
+         <td>
+            <c:out value="${medico.mail}"></c:out>
+         </td>
+         
+	     </tr>
+         </c:forEach>	
+    </table>
 
 <a class="btn lg btn-primary"
 		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 

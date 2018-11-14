@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pCarpet.converter.MedicoConverter;
+import com.pCarpet.converter.PatologiaConverter;
 import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.converter.UserConverter;
 import com.pCarpet.dao.MedicoDAO;
 import com.pCarpet.dto.MedicoDTO;
+import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.model.Medico;
+import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
 import com.pCarpet.model.User;
 
@@ -55,4 +58,13 @@ public class MedicoService {
     	 Medico medico = medicoDAO.findById(id).get();
     	 this.medicoDAO.delete(medico);	
     }
+	
+	public List<MedicoDTO> getListaResultMedici(long idsintomo) {
+		System.out.println("IDReturn: " + idsintomo);
+		List<Medico> listaMedici = (List<Medico>) this.medicoDAO.findAllListMedico(idsintomo);
+		List<MedicoDTO> SintomoPerMedicoSet= new ArrayList<>();
+		listaMedici.forEach(i->SintomoPerMedicoSet.add(MedicoConverter.convertToDto(i)));
+		return SintomoPerMedicoSet;
+	}
+	
 }

@@ -14,9 +14,9 @@ public class MedicoDTO {
 	}
 
 
-	public MedicoDTO(long idMed, String nome, String cognome, String specializzazione, String indirizzo, String mail) {
+	public MedicoDTO(long idmedico, String nome, String cognome, String specializzazione, String indirizzo, String mail) {
 		super();
-		this.idmedico = idMed;
+		this.idmedico = idmedico;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.specializzazione = specializzazione;
@@ -25,51 +25,51 @@ public class MedicoDTO {
 	}
 
 
-	public long getIdMed() {
+	public long getIdmedico() {
 		return idmedico;
 	}
 
-	public void setIdMed(long idMed) {
-		this.idmedico = idMed;
+	public void setIdmedico(long idmedico) {
+		this.idmedico = idmedico;
 	}
 
-	public String getNomeMed() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNomeMed(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
-	public String getCognomeMed() {
+	public String getCognome() {
 		return cognome;
 	}
 
-	public void setCognomeMed(String cognome) {
+	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
 	
-	public String getSpecMed() {
+	public String getSpecializzazione() {
 		return specializzazione;
 	}
 
-	public void setSpecMed(String specializzazione) {
+	public void setSpecializzazione(String specializzazione) {
 		this.specializzazione = specializzazione;
 	}
 	
-	public String getIndMed() {
+	public String getIndirizzo() {
 		return indirizzo;
 	}
 
-	public void setIndMed(String indirizzo) {
+	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
 	
-	public String getMailMed() {
+	public String getMail() {
 		return mail;
 	}
 
-	public void setMailMed(String mail) {
+	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
