@@ -35,6 +35,7 @@ public class HomeRicercaController {
 	private int count=0;
 	private long idsintomo = 0;
 	private long idsintomoDue = 0;
+	private long idsintomoTre = 0;
 	private ErbaService erbaService;
 	private List<ErbaDTO> listaErba;
 	private List<PatologiaDTO> searchListPatologie;
@@ -82,6 +83,15 @@ public class HomeRicercaController {
 				searchListSintomi = sintomoService.getListaPatologiaDue(idsintomo, idsintomoDue);
 				model.addAttribute("listaSintomo", searchListSintomi);
 				return "ricercaPatologie";
+			}else if(count == 3) {
+				idsintomoTre = Integer.parseInt(request.getParameter("idRicerca"));
+				System.out.println("IDSP3: " + idsintomoTre);
+				System.out.println("COUNT3: " + count);
+				listaPatologia = patologiaService.getListaResultPatologiaTre(idsintomo, idsintomoDue, idsintomoTre);
+				model.addAttribute("listaPatologia", listaPatologia);
+				listaMedici = medicoService.getListaResultMediciTre(idsintomo, idsintomoDue, idsintomoTre);
+				model.addAttribute("listaMedici", listaMedici);
+				return "resultSearch";
 			}
 			
 			

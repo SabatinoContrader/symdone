@@ -73,4 +73,11 @@ public class MedicoService {
 		return SintomoPerMedicoSet;
 	}
 	
+	public List<MedicoDTO> getListaResultMediciTre(long idsintomoUno, long idsintomoDue, long idsintomoTre) {
+		List<Medico> listaMedici = (List<Medico>) this.medicoDAO.findAllListMedicoThreeParameter(idsintomoUno,idsintomoDue,idsintomoTre);
+		List<MedicoDTO> SintomoPerMedicoSet= new ArrayList<>();
+		listaMedici.forEach(i->SintomoPerMedicoSet.add(MedicoConverter.convertToDto(i)));
+		return SintomoPerMedicoSet;
+	}
+	
 }

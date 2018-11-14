@@ -63,5 +63,12 @@ public class PatologiaService {
 		listaPatologia.forEach(i->SintomoPerPatologiaSet.add(PatologiaConverter.convertToDto(i)));
 		return SintomoPerPatologiaSet;
 	}
+    
+    public List<PatologiaDTO> getListaResultPatologiaTre(long idpatologia1, long idpatologia2, long idpatologia3) {
+		List<Patologia> listaPatologia = (List<Patologia>) this.patologiaDAO.findAllListPatologiaThreeParameter(idpatologia1, idpatologia2, idpatologia3);
+		List<PatologiaDTO> SintomoPerPatologiaSet= new ArrayList<>();
+		listaPatologia.forEach(i->SintomoPerPatologiaSet.add(PatologiaConverter.convertToDto(i)));
+		return SintomoPerPatologiaSet;
+	}
    
 }

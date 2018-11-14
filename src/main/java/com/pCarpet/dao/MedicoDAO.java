@@ -21,5 +21,10 @@ public interface MedicoDAO extends CrudRepository<Medico, Long> {
 			"(Select idmedico from patologiamedici where idpatologia in\r\n" + 
 			"(select a.idpatologia from sintomopatologia a inner join sintomopatologia b on a.idpatologia = b.idpatologia where a.idsintomo = ? and b.idsintomo = ?))", nativeQuery=true)
 	List<Medico> findAllListMedicoTwoParameter(long idmedico1, long idmedico2);
+	
+	@Query(value = "Select idmedico, nome, cognome, indirizzo, specializzazione, mail from medico where idmedico in\r\n" + 
+			"(Select idmedico from patologiamedici where idpatologia in\r\n" + 
+			"(select a.idpatologia from sintomopatologia a inner join sintomopatologia b on a.idpatologia = b.idpatologia inner join sintomopatologia c on b.idpatologia = c.idpatologia where a.idsintomo = ? and b.idsintomo = ? and c.idsintomo = ?))", nativeQuery=true)
+	List<Medico> findAllListMedicoThreeParameter(long idmedico1, long idmedico2, long idmedico3);
 
 }
