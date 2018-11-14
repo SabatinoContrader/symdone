@@ -7,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pCarpet.converter.ErbaConverter;
+import com.pCarpet.converter.MedicoConverter;
 import com.pCarpet.converter.PatologiaConverter;
 import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.ErbaDAO;
 import com.pCarpet.dto.ErbaDTO;
+import com.pCarpet.dto.MedicoDTO;
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Erba;
+import com.pCarpet.model.Medico;
 import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
 
@@ -62,5 +65,17 @@ public class ErbaService {
 			listaErba.forEach(i->PatologiaPerErbaSet.add(ErbaConverter.convertToDto(i)));
 			return PatologiaPerErbaSet;
 			}
-	
+	 
+		public List<ErbaDTO> getListaResultErbaDue(long idsintomoUno, long idsintomoDue) {
+			List<Erba> listaErba = (List<Erba>) this.erbaDAO.findAllListErbaTwoParameter(idsintomoUno,idsintomoDue);
+			List<ErbaDTO> SintomoPerErbaSet= new ArrayList<>();
+			listaErba.forEach(i->SintomoPerErbaSet.add(ErbaConverter.convertToDto(i)));
+			return SintomoPerErbaSet;
+		}
+		public List<ErbaDTO> getListaResultErbaTre(long idsintomoUno, long idsintomoDue, long idsintomoTre) {
+			List<Erba> listaErba = (List<Erba>) this.erbaDAO.findAllListErbaThreeParameter(idsintomoUno,idsintomoDue,idsintomoTre);
+			List<ErbaDTO> SintomoPerErbaSetDue= new ArrayList<>();
+			listaErba.forEach(i->SintomoPerErbaSetDue.add(ErbaConverter.convertToDto(i)));
+			return SintomoPerErbaSetDue;
+			}
 }

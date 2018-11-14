@@ -63,7 +63,7 @@
    <a class="btn lg btn-primary"
 		href="/HomeSearchSintomo/operationSearchForm?scelta=result">View Patologie</a></br>
 		<a class="btn lg btn-primary"
-		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br>
+		href="/HomeSearchSintomo/returnControl">Indietro</a></br>
    </form>
 
 </body>

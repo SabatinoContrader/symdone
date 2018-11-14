@@ -91,7 +91,10 @@ public class HomeRicercaController {
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMediciTre(idsintomo, idsintomoDue, idsintomoTre);
 				model.addAttribute("listaMedici", listaMedici);
+				listaErba = erbaService.getListaResultErbaTre(idsintomo, idsintomoDue, idsintomoTre);
+				model.addAttribute("listaErba", listaErba);
 				return "resultSearch";
+								
 			}
 			
 			
@@ -113,11 +116,14 @@ public class HomeRicercaController {
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMediciDue(idsintomo, idsintomoDue);
 				model.addAttribute("listaMedici", listaMedici);
+				listaErba = erbaService.getListaResultErbaDue(idsintomo, idsintomoDue);
+				model.addAttribute("listaErba", listaErba);
 				count = 0;
 				idsintomo = 0;
 				idsintomoDue = 0;
 				return "resultSearch";
 			}
+			
 			return "";
 		}	    
 	    
