@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pCarpet.converter.ErbaConverter;
+import com.pCarpet.converter.PatologiaConverter;
 import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.ErbaDAO;
 import com.pCarpet.dto.ErbaDTO;
+import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Erba;
+import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
 
 @Service
@@ -52,6 +55,12 @@ public class ErbaService {
         return ErbaConverter.convertToDto(erba);
     }
 	
-	
+	 public List<ErbaDTO> getListaResultErba(long iderba) {
+			
+			List<Erba> listaErba = (List<Erba>) this.erbaDAO.findAllListErba(iderba);
+			List<ErbaDTO> PatologiaPerErbaSet= new ArrayList<>();
+			listaErba.forEach(i->PatologiaPerErbaSet.add(ErbaConverter.convertToDto(i)));
+			return PatologiaPerErbaSet;
+			}
 	
 }

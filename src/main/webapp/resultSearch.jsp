@@ -130,7 +130,56 @@
 	     </tr>
          </c:forEach>	
     </table>
+
 <br>
+
+<h3>-------------------------------------------- </h3>
+        
+        <table class="bordo rcorners" >
+	     <tr>
+     <th><h4>TABELLA ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+	<tr>
+        
+         <th>
+             ID ERBA
+         </th>
+
+         <th>
+             ERBA
+         </th>
+         
+         <th>
+             DESCRIZIONE
+         </th>
+         
+        
+         
+         <th>
+          </th>
+         <th>
+          </th>
+
+        </tr>
+	
+        <c:forEach items="${listaErba}" var="erba">
+     	
+         <td>           
+            <c:out value="${erba.iderba}"></c:out>            
+         </td>
+		 <td>
+            <c:out value="${erba.erba}"></c:out>
+         </td>
+         <td>
+            <c:out value="${erba.descrizione}"></c:out>
+         </td>
+       
+         
+	     </tr>
+         </c:forEach>	
+    </table>
+
+
 <a class="btn lg btn-primary"
 		href="/HomeSearchSintomo/returnControl">Indietro</a></br> 
 

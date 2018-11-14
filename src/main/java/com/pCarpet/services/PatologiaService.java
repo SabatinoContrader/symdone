@@ -63,4 +63,5 @@ public class PatologiaService {
 		listaPatologia.forEach(i->SintomoPerPatologiaSet.add(PatologiaConverter.convertToDto(i)));
 		return SintomoPerPatologiaSet;
 	}
+   
 }

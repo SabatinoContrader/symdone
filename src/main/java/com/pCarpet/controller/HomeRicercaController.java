@@ -10,12 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pCarpet.dto.ErbaDTO;
 import com.pCarpet.dto.MedicoDTO;
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Medico;
 import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Sintomo;
+import com.pCarpet.services.ErbaService;
 import com.pCarpet.services.MedicoService;
 import com.pCarpet.services.PatologiaService;
 import com.pCarpet.services.SintomoService;
@@ -33,12 +35,16 @@ public class HomeRicercaController {
 	private int count=0;
 	private long idsintomo = 0;
 	private long idsintomoDue = 0;
+	private ErbaService erbaService;
+	private List<ErbaDTO> listaErba;
+	private List<PatologiaDTO> searchListPatologie;
 
 	@Autowired
-	public HomeRicercaController (SintomoService sintomoService, PatologiaService patologiaService, MedicoService medicoService) {
+	public HomeRicercaController (SintomoService sintomoService, PatologiaService patologiaService, MedicoService medicoService, ErbaService erbaService) {
 		this.sintomoService =  sintomoService;
 		this.patologiaService =  patologiaService;
 		this.medicoService = medicoService;
+		this.erbaService = erbaService;
 	}
 	
 	@RequestMapping(value = "/operationSearchForm", method = RequestMethod.GET)
@@ -46,6 +52,9 @@ public class HomeRicercaController {
 		
 		List<SintomoDTO> listaSintomo2 = this.sintomoService.getAll();
 		model.addAttribute("listaSintomo", listaSintomo2);
+	   List<PatologiaDTO> listaPatologia2 = this.patologiaService.getAll();
+		model.addAttribute("listaPatologia", listaPatologia2);
+		
 	    String scelta= request.getParameter("scelta");
 	    System.out.println("SCELTA: " + scelta);
 	    
@@ -82,9 +91,12 @@ public class HomeRicercaController {
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMedici(idsintomo);
 				model.addAttribute("listaMedici", listaMedici);
+				listaErba = erbaService.getListaResultErba(idsintomo);
+				model.addAttribute("listaErba", listaErba);
 				count = 0;
 				idsintomo = 0;
 				return "resultSearch";
+				
 			}
 			else if(count == 2) {
 				listaPatologia = patologiaService.getListaResultPatologiaDue(idsintomo, idsintomoDue);
@@ -99,7 +111,9 @@ public class HomeRicercaController {
 			return "";
 		}	    
 	    
-	    return "";
+		return "";
+	
+	    
 	
 	}
 	
@@ -107,4 +121,9 @@ public class HomeRicercaController {
 	public String indietroControl(HttpServletRequest request, Model model ) {
 		return "homeDIM";
 	}
-}
+
+
+	
+}  
+	
+
