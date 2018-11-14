@@ -32,6 +32,7 @@ public class HomeRicercaController {
 	private List<MedicoDTO> listaMedici;
 	private int count=0;
 	private long idsintomo = 0;
+	private long idsintomoDue = 0;
 
 	@Autowired
 	public HomeRicercaController (SintomoService sintomoService, PatologiaService patologiaService, MedicoService medicoService) {
@@ -57,11 +58,23 @@ public class HomeRicercaController {
 			
 		case "searchPatologia":
 			count += 1;
-			idsintomo = Integer.parseInt(request.getParameter("idRicerca"));
-			System.out.println("IDSP: " + idsintomo);
-			searchListSintomi = sintomoService.getListaPatologia(idsintomo);
-			model.addAttribute("listaSintomo", searchListSintomi);
-			return "ricercaPatologie";
+			System.out.println("COUNT: " + count);
+			if(count == 1) {
+				idsintomo = Integer.parseInt(request.getParameter("idRicerca"));
+				System.out.println("IDSP1: " + idsintomo);
+				System.out.println("COUNT1: " + count);
+				searchListSintomi = sintomoService.getListaPatologia(idsintomo);
+				model.addAttribute("listaSintomo", searchListSintomi);
+				return "ricercaPatologie";
+			}else if(count == 2) {
+				idsintomoDue = Integer.parseInt(request.getParameter("idRicerca"));
+				System.out.println("IDSP2: " + idsintomoDue);
+				System.out.println("COUNT2: " + count);
+				searchListSintomi = sintomoService.getListaPatologiaDue(idsintomo, idsintomoDue);
+				model.addAttribute("listaSintomo", searchListSintomi);
+				return "ricercaPatologie";
+			}
+			
 			
 		case "result":
 			if(count == 1) {
@@ -74,15 +87,24 @@ public class HomeRicercaController {
 				return "resultSearch";
 			}
 			else if(count == 2) {
-				
+				listaPatologia = patologiaService.getListaResultPatologiaDue(idsintomo, idsintomoDue);
+				model.addAttribute("listaPatologia", listaPatologia);
+				listaMedici = medicoService.getListaResultMediciDue(idsintomo, idsintomoDue);
+				model.addAttribute("listaMedici", listaMedici);
 				count = 0;
+				idsintomo = 0;
+				idsintomoDue = 0;
+				return "resultSearch";
 			}
 			return "";
-		}
-	    
-	    
+		}	    
 	    
 	    return "";
 	
+	}
+	
+	@RequestMapping(value = "/returnControl", method = RequestMethod.GET)
+	public String indietroControl(HttpServletRequest request, Model model ) {
+		return "homeDIM";
 	}
 }

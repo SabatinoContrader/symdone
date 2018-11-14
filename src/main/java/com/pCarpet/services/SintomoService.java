@@ -63,4 +63,13 @@ public class SintomoService {
 		return SintomoPerSintomoSet;
 	}
 	
+	public List<SintomoDTO> getListaPatologiaDue(long idSintomoUno, long idSintomoDue) {
+		System.out.println("METHOD SERVICE1: " + idSintomoUno);
+		System.out.println("METHOD SERVICE2: " + idSintomoDue);
+		List<Sintomo> listaSintomo = (List<Sintomo>) this.sintomoDAO.findAllListSintomoTwoParameter(idSintomoUno,idSintomoDue);
+		List<SintomoDTO> SintomoPerSintomoSet= new ArrayList<>();
+		listaSintomo.forEach(i->SintomoPerSintomoSet.add(SintomoConverter.convertToDto(i)));
+		return SintomoPerSintomoSet;
+	}
+	
 }

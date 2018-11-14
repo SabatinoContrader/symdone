@@ -60,8 +60,14 @@ public class MedicoService {
     }
 	
 	public List<MedicoDTO> getListaResultMedici(long idsintomo) {
-		System.out.println("IDReturn: " + idsintomo);
 		List<Medico> listaMedici = (List<Medico>) this.medicoDAO.findAllListMedico(idsintomo);
+		List<MedicoDTO> SintomoPerMedicoSet= new ArrayList<>();
+		listaMedici.forEach(i->SintomoPerMedicoSet.add(MedicoConverter.convertToDto(i)));
+		return SintomoPerMedicoSet;
+	}
+	
+	public List<MedicoDTO> getListaResultMediciDue(long idsintomoUno, long idsintomoDue) {
+		List<Medico> listaMedici = (List<Medico>) this.medicoDAO.findAllListMedicoTwoParameter(idsintomoUno,idsintomoDue);
 		List<MedicoDTO> SintomoPerMedicoSet= new ArrayList<>();
 		listaMedici.forEach(i->SintomoPerMedicoSet.add(MedicoConverter.convertToDto(i)));
 		return SintomoPerMedicoSet;

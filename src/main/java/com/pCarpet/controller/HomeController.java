@@ -43,13 +43,10 @@ public class HomeController {
 		return "homeSintomoSet";
 	}
 
-
 	@RequestMapping(value = "/homeEsame", method = RequestMethod.GET)
 	public String HomeEsame(HttpServletRequest request, Model model) {
 		return "homeEsame";
 	}
-	
-
 
 	@RequestMapping(value = "/homeErba", method = RequestMethod.GET)
 	public String HomeErba(HttpServletRequest request, Model model) {

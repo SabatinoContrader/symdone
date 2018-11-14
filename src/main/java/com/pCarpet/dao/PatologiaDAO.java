@@ -14,4 +14,6 @@ public interface PatologiaDAO extends CrudRepository<Patologia, Long> {
 			"(select idpatologia from sintomopatologia where idsintomo = ? )", nativeQuery=true)
 	List<Patologia> findAllListPatologia(long idpatologia);
 	
+	@Query(value = "Select idpatologia, patologia, descrizione from patologia where idpatologia in(select idpatologia from sintomopatologia where idpatologia in(select a.idpatologia from sintomopatologia a inner join sintomopatologia b on a.idpatologia = b.idpatologia where a.idsintomo = ? and b.idsintomo = ?))", nativeQuery=true)
+	List<Patologia> findAllListPatologiaTwoParameter(long idpatologia1, long idpatologia2);
  }

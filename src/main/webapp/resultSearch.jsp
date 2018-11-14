@@ -130,9 +130,9 @@
 	     </tr>
          </c:forEach>	
     </table>
-
+<br>
 <a class="btn lg btn-primary"
-		href="/HomeSintomo/returnHomeSintomo">Indietro</a></br> 
+		href="/HomeSearchSintomo/returnControl">Indietro</a></br> 
 
 </form>
 

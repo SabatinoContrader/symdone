@@ -6,7 +6,7 @@ import com.pCarpet.dto.AssetDTO;
 import com.pCarpet.dto.StatoDTO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.services.AbbonamentoService;
-import com.pCarpet.services.AssetService;
+
 import com.pCarpet.services.StatoService;
 import com.pCarpet.services.UserService;
 
@@ -37,14 +37,14 @@ public class LoginController {
 	private HttpSession session;
 	private AbbonamentoService abbonamentoservice;
 	private StatoService statoService;
-	private AssetService assetService;
+	
 	
 	@Autowired
-	public LoginController(UserService userService, AbbonamentoService abs,AssetService assetService, StatoService statoService) {
+	public LoginController(UserService userService, AbbonamentoService abs, StatoService statoService) {
 		this.userService = userService;
 		this.abbonamentoservice=abs;
 		this.statoService=statoService;
-		this.assetService=assetService;
+		
 	}
 
 	@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
