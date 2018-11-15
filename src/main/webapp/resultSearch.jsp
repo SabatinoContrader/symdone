@@ -9,8 +9,8 @@
 <script src="/css/googleApiManagerDriver.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="/css/background.css" rel="stylesheet">
+
 
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
@@ -67,7 +67,7 @@
      
 </table>
 
-<h3>-------------------------------------------- </h3>
+<h3>---------------------------------------------------------------------------------------- </h3>
         
         <table class="bordo rcorners" >
 	     <tr>
@@ -133,27 +133,26 @@
 
 <br>
 
-<h3>-------------------------------------------- </h3>
+<h3>---------------------------------------------------------------------------------------- </h3>
         
-        <table class="bordo rcorners" >
+ <table class="bordo rcorners" >
+
+  <tr>
+         <th><h4>ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+         <tr>
 	     <tr>
-     <th><h4>TABELLA ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
-     <tr>
-	<tr>
         
          <th>
-             ID ERBA
+             ID ERBA		
          </th>
 
          <th>
-             ERBA
+             NOME ERBA
          </th>
          
          <th>
-             DESCRIZIONE
+             DESCRIZIONE ERBA
          </th>
-         
-        
          
          <th>
           </th>
@@ -161,7 +160,9 @@
           </th>
 
         </tr>
-	
+        
+        <tr>
+        
         <c:forEach items="${listaErba}" var="erba">
      	
          <td>           
@@ -173,13 +174,66 @@
          <td>
             <c:out value="${erba.descrizione}"></c:out>
          </td>
-       
-         
-	     </tr>
-         </c:forEach>	
+	
+		<td>
+          
+     </tr>
+     </c:forEach>	
+	
+    
     </table>
+         
+        
+     <h3>---------------------------------------------------------------------------------------- </h3>
 
+ <table class="bordo rcorners" >
 
+  <tr>
+         <th><h4>ESAME</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+         <tr>
+	     <tr>
+        
+         <th>
+             ID ESAME		
+         </th>
+
+         <th>
+             NOME ESAME
+         </th>
+         
+         <th>
+             DESCRIZIONE ESAME
+         </th>
+         
+         <th>
+          </th>
+         <th>
+          </th>
+
+        </tr>
+        
+        <tr>
+        <c:forEach items="${listaEsame}" var="esame">
+     	
+         <td>           
+            <c:out value="${esame.idesame}"></c:out>            
+         </td>
+		 <td>
+            <c:out value="${esame.esame}"></c:out>
+         </td>
+         <td>
+            <c:out value="${esame.descrizione}"></c:out>
+         </td>
+	
+		<td>
+          
+     </tr>
+     </c:forEach>	
+	
+    
+    </table>
+<h3>---------------------------------------------------------------------------------------- </h3>
+<br>
 <a class="btn lg btn-primary"
 		href="/HomeSearchSintomo/returnControl">Indietro</a></br> 
 

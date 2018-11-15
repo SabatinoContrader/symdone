@@ -7,8 +7,9 @@
 <head>
 <!-- Javascript -->
 <script src="/css/googleApiManagerDriver.js"></script>
-<!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/signin2.css" rel="stylesheet">
+<link href="/css/background.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
 
 <form class="form-signin" action="/HomeSearchSintomo/operationSearchForm" method="GET">
 
-	<h1 class="element-margin-left">Ecco tutti i Sintomi !!!!</h1>
+	<h1><nobr>Ecco tutti i Sintomi !!!!</nobr></h1>
 
     <table class="bordo rcorners" >
 	     <tr>
@@ -54,7 +55,7 @@
     </table>
    <table class="insertTable">
    <tr>
-    <td><h2>Inserisci ID del Sintomo </h2></td>
+    <td><h2><nobr>Inserisci ID del Sintomo </nobr></h2></td>
           <td><input type="text" id="idRicerca" name="idRicerca" placeholder = "inserisci ID"><td>
     </tr>
    </table>

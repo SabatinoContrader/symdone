@@ -23,5 +23,5 @@ public interface PatologiaDAO extends CrudRepository<Patologia, Long> {
 	
 	/*@Query(value = "select idpatologia, patologia, descrizione from patologia where idpatologia in (select idpatologia from patologiaerba where iderba in (select iderba from patologiaerba where idpatologia=?))", nativeQuery=true)
 	List<Patologia> findAllListPatologia2(long idpatologia);*/
-	
+
  }

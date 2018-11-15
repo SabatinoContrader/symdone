@@ -49,9 +49,12 @@ public class PatologiaService {
 	    Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
 	    return PatologiaConverter.convertToDto(p);
     }
+    
+	
 	
     public List<PatologiaDTO> getListaResultPatologia(long idpatologia) {
-		List<Patologia> listaPatologia = (List<Patologia>) this.patologiaDAO.findAllListPatologia(idpatologia);
+    	System.out.println("IDReturn1: " + idpatologia);
+    	List<Patologia> listaPatologia = (List<Patologia>) this.patologiaDAO.findAllListPatologia(idpatologia);
 		List<PatologiaDTO> SintomoPerPatologiaSet= new ArrayList<>();
 		listaPatologia.forEach(i->SintomoPerPatologiaSet.add(PatologiaConverter.convertToDto(i)));
 		return SintomoPerPatologiaSet;
@@ -71,4 +74,5 @@ public class PatologiaService {
 		return SintomoPerPatologiaSet;
 	}
    
+
 }

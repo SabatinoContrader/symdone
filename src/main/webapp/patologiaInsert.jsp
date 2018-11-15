@@ -9,6 +9,7 @@
 <script src="/css/googleApiManagerDriver.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/signin.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/pcarpet.css">
 <link href="/css/background.css" rel="stylesheet">
 </head>
