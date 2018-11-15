@@ -56,23 +56,23 @@
 	<tr>
 	
         <td>
-            <input type="text" value="${medico.idMed}" disabled class="labcor">
+            <input type="text" value="${medico.idmedico}" disabled class="labcor">
          </td>
 
 		<td>
-             <input type="text" value="${medico.nomeMed}" name="nome" class="labcor">
+             <input type="text" value="${medico.nome}" name="nome" class="labcor">
          </td>
         <td>
-             <input type="text" value="${medico.cognomeMed}" name="cognome" class="labcor">
+             <input type="text" value="${medico.cognome}" name="cognome" class="labcor">
          </td> 
          <td>
-             <input type="text" value="${medico.specMed}" name="specializzazione" class="labcor">
+             <input type="text" value="${medico.specializzazione}" name="specializzazione" class="labcor">
          </td>
          <td>
-             <input type="text" value="${medico.indMed}" name="indirizzo" class="labcor">
+             <input type="text" value="${medico.indirizzo}" name="indirizzo" class="labcor">
          </td>
          <td>
-             <input type="text" value="${medico.mailMed}" name="mail" class="labcor">
+             <input type="text" value="${medico.mail}" name="mail" class="labcor">
          </td>
      </tr>
    
@@ -83,7 +83,7 @@
 		
 </br>
 
-<input type="hidden" name="id" value="${medico.idMed}"/>
+<input type="hidden" name="id" value="${medico.idmedico}"/>
 <table>
 <tr><td>
 <button class="btn lg btn-primary" type="submit" value="update" name="scelta">Effettua la Modifica</button>

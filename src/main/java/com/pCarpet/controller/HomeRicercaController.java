@@ -92,6 +92,8 @@ public class HomeRicercaController {
 				idsintomoTre = Integer.parseInt(request.getParameter("idRicerca"));
 				System.out.println("IDSP3: " + idsintomoTre);
 				System.out.println("COUNT3: " + count);
+				listaEsame= esameService.getListaResultEsameTre(idsintomo, idsintomoDue, idsintomoTre);
+				model.addAttribute("listaEsame",listaEsame);
 				listaPatologia = patologiaService.getListaResultPatologiaTre(idsintomo, idsintomoDue, idsintomoTre);
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMediciTre(idsintomo, idsintomoDue, idsintomoTre);
@@ -154,6 +156,7 @@ public class HomeRicercaController {
 
 	@RequestMapping(value = "/returnControl", method = RequestMethod.GET)
 	public String indietroControl(HttpServletRequest request, Model model ) {
+		count = 0;
 		return "homeDIM";
 	}
 
