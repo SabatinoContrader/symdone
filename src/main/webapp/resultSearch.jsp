@@ -52,6 +52,11 @@ function exportTableToExcel(tableID, filename = ''){
 
          <th><h4>PATOLOGIE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
 
+<<<<<<< Updated upstream
+=======
+       
+
+>>>>>>> Stashed changes
          <tr>
 	     <tr>
         
