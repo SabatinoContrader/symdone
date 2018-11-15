@@ -63,32 +63,32 @@
         <c:forEach items="${listaMedico}" var="medico">
      	
          <td>           
-            <c:out value="${medico.idMed}"></c:out>            
+            <c:out value="${medico.idmedico}"></c:out>            
          </td>
 		 <td>
-            <c:out value="${medico.nomeMed}"></c:out>
+            <c:out value="${medico.nome}"></c:out>
          </td>
 		  <td>           
-            <c:out value="${medico.cognomeMed}"></c:out>            
+            <c:out value="${medico.cognome}"></c:out>            
          </td>
 		 <td>
-            <c:out value="${medico.specMed}"></c:out>
+            <c:out value="${medico.specializzazione}"></c:out>
          </td>
           <td>           
-            <c:out value="${medico.indMed}"></c:out>            
+            <c:out value="${medico.indirizzo}"></c:out>            
          </td>
 		 <td>
-            <c:out value="${medico.mailMed}"></c:out>
+            <c:out value="${medico.mail}"></c:out>
          </td>
          
 		<td>
           
           <a class="btn lg btn-primary"
-			href="/HomeMedico/updateForm?id=${medico.idMed}">Modifica</a>
+			href="/HomeMedico/updateForm?id=${medico.idmedico}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeMedico/deleteMedico?id=${medico.idMed}">Elimina</a>
+			href="/HomeMedico/deleteMedico?id=${medico.idmedico}">Elimina</a>
          </td>
 		
 		

@@ -15,9 +15,6 @@ import com.pCarpet.dto.MedicoDTO;
 import com.pCarpet.dto.EsameDTO;
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
-import com.pCarpet.model.Medico;
-import com.pCarpet.model.Patologia;
-import com.pCarpet.model.Sintomo;
 import com.pCarpet.services.ErbaService;
 import com.pCarpet.services.MedicoService;
 import com.pCarpet.services.EsameService;
@@ -58,7 +55,7 @@ public class HomeRicercaController {
 		
 		List<SintomoDTO> listaSintomo2 = this.sintomoService.getAll();
 		model.addAttribute("listaSintomo", listaSintomo2);
-	   List<PatologiaDTO> listaPatologia2 = this.patologiaService.getAll();
+	    List<PatologiaDTO> listaPatologia2 = this.patologiaService.getAll();
 		model.addAttribute("listaPatologia", listaPatologia2);
 		
 	    String scelta= request.getParameter("scelta");
@@ -76,28 +73,24 @@ public class HomeRicercaController {
 			System.out.println("COUNT: " + count);
 			if(count == 1) {
 				idsintomo = Integer.parseInt(request.getParameter("idRicerca"));
-				System.out.println("IDSP1: " + idsintomo);
-				System.out.println("COUNT1: " + count);
 				searchListSintomi = sintomoService.getListaPatologia(idsintomo);
 				model.addAttribute("listaSintomo", searchListSintomi);
 				return "ricercaPatologie";
 			}else if(count == 2) {
 				idsintomoDue = Integer.parseInt(request.getParameter("idRicerca"));
-				System.out.println("IDSP2: " + idsintomoDue);
-				System.out.println("COUNT2: " + count);
 				searchListSintomi = sintomoService.getListaPatologiaDue(idsintomo, idsintomoDue);
 				model.addAttribute("listaSintomo", searchListSintomi);
 				return "ricercaPatologie";
 			}else if(count == 3) {
 				idsintomoTre = Integer.parseInt(request.getParameter("idRicerca"));
-				System.out.println("IDSP3: " + idsintomoTre);
-				System.out.println("COUNT3: " + count);
 				listaPatologia = patologiaService.getListaResultPatologiaTre(idsintomo, idsintomoDue, idsintomoTre);
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMediciTre(idsintomo, idsintomoDue, idsintomoTre);
 				model.addAttribute("listaMedici", listaMedici);
 				listaErba = erbaService.getListaResultErbaTre(idsintomo, idsintomoDue, idsintomoTre);
 				model.addAttribute("listaErba", listaErba);
+				listaEsame= esameService.getListaResultEsameTre(idsintomo, idsintomoDue, idsintomoTre);
+				model.addAttribute("listaEsame",listaEsame);
 				return "resultSearch";
 								
 			}
@@ -134,30 +127,17 @@ public class HomeRicercaController {
 				return "resultSearch";
 			}
 			
-
-			
-			return "";
 		}	    
 			
-			//request.setAttribute("listaDisease", listaDisease);
-			//listaMedici = medicoService.getListMedici(id1);
-			//request.setAttribute("allDoctor", listaMedici);
-			
-
-
-	    
-		return "";
-	
-	    
+		return "";	    
 	
 	}
 
 	@RequestMapping(value = "/returnControl", method = RequestMethod.GET)
 	public String indietroControl(HttpServletRequest request, Model model ) {
+		count = 0;
 		return "homeDIM";
 	}
-
-
 	
 }  
 	

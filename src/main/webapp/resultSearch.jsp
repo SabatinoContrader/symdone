@@ -16,15 +16,42 @@
 </head>
 <body>
 
+<script>
+function exportTableToExcel(tableID, filename = ''){
+	var downloadLink;
+	var dataType = 'application/vnd.ms-excel';
+	var tableSelect = document.getElementById(tableID);
+	var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+	
+	filename = filename?filename+'.xls':'excel_data.xls';
+	
+	downloadLink = document.createElement("a");
+	
+	
+	document.body.appendChild(downloadLink);
+	
+	if(navigator.msSaveOrOpenBlob){
+		var blob = new Blob(['\ufeff', tableHTML], {type: dataType 
+			});
+		navigator.msSaveOrOpenBlob(blob, filename);
+	}else{
+		downloadLink.href = 'data:' + dataType + ',' + tableHTML;
+		downloadLink.download = filename;
+		
+		downloadLink.click();
+	}
+}
 
-<form class="form-signin" action="/HomeUser/showUsers" method="GET">
+</script>
 
 	<h1 class="element-margin-left">Ecco tutte le Patologie</h1>	
 
-    <table class="bordo rcorners" >	
+    <table id="first" class="bordo rcorners" >	
     
 	     <tr>
-         <th><h4>SINTOMI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+
+         <th><h4>PATOLOGIE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+
          <tr>
 	     <tr>
         
@@ -67,9 +94,13 @@
      
 </table>
 
+<br>
+<button onClick="exportTableToExcel('first')" class="btn lg btn-primary">Download Excel</button>
+<br>
+
 <h3>---------------------------------------------------------------------------------------- </h3>
         
-        <table class="bordo rcorners" >
+        <table id="first2" class="bordo rcorners" >
 	     <tr>
      <th><h4>TABELLA MEDICI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
      <tr>
@@ -132,10 +163,13 @@
     </table>
 
 <br>
+<button onClick="exportTableToExcel('first2')" class="btn lg btn-primary">Download Excel</button>
+<br>
+<br>
 
 <h3>---------------------------------------------------------------------------------------- </h3>
         
- <table class="bordo rcorners" >
+ <table id="first3"class="bordo rcorners" >
 
   <tr>
          <th><h4>ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
@@ -182,11 +216,13 @@
 	
     
     </table>
-         
+        <br>
+<button onClick="exportTableToExcel('first3')" class="btn lg btn-primary">Download Excel</button>
+<br> 
         
      <h3>---------------------------------------------------------------------------------------- </h3>
 
- <table class="bordo rcorners" >
+ <table id="first4" class="bordo rcorners" >
 
   <tr>
          <th><h4>ESAME</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
@@ -232,12 +268,13 @@
 	
     
     </table>
+
+<br>
+<button onClick="exportTableToExcel('first4')" class="btn lg btn-primary">Download Excel</button>
+<br>
 <h3>---------------------------------------------------------------------------------------- </h3>
 <br>
 <a class="btn lg btn-primary"
-		href="/HomeSearchSintomo/returnControl">Indietro</a></br> 
-
-</form>
-
+		href="/HomeSearchSintomo/returnControl">Indietro</a><br> 
 </body>
 </html>
