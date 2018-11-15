@@ -24,7 +24,11 @@
     <table class="bordo rcorners" >	
     
 	     <tr>
+<<<<<<< Updated upstream
          <th><h4>PATOLOGIE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+=======
+         <th><h4>PATOLOGIA</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+>>>>>>> Stashed changes
          <tr>
 	     <tr>
         
