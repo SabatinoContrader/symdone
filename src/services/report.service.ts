@@ -49,7 +49,7 @@ export class ReportService {
     var user: User = JSON.parse(sessionStorage.getItem("user"));
     console.log("lat al service : "+ lat);
     console.log("long al service : "+ lng);
-    return this.http.get<Array<Report>>('http://localhost:58708/api/getNearReport?type='+ user.type + '&lat=' + lat + '&lng=' + lng)
+    return this.http.get<Array<Report>>('http://localhost:58708/api/getNearReport?type='+ user.idRuolo + '&lat=' + lat + '&lng=' + lng)
     .pipe(tap((response) => console.log("Retrieved Near Report List"), catchError(this.handleError("report error", {})))
   );}
 }

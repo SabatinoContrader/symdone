@@ -21,9 +21,11 @@ export class IntestazioneComponent implements OnInit {
   homeOrLogin(){
     var user: User = JSON.parse(sessionStorage.getItem("user"));
     if(user != null){
-      if(user.type == 1)
-        this.router.navigateByUrl("/homeDriver");
-      else if(user.type == 0)
+      if(user.idRuolo == 1)
+        this.router.navigateByUrl("/homeAdmin");
+      else if(user.idRuolo == 2)
+        this.router.navigateByUrl("/homeOwner");
+        else if(user.idRuolo == 3)
         this.router.navigateByUrl("/homeOwner");
     }
     else

@@ -44,7 +44,7 @@ export class ReportHystoryComponent implements OnInit {
   back(): void
   {
     var user: User = JSON.parse(sessionStorage.getItem("user"));
-    if(user.type == 0) this.router.navigateByUrl("/homeOwner");
-    if(user.type == 1) this.router.navigateByUrl("/homeDriver");
+    if(user.idRuolo == 0) this.router.navigateByUrl("/homeOwner");
+    if(user.idRuolo == 1) this.router.navigateByUrl("/homeDriver");
   }
 }

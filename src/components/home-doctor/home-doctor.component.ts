@@ -2,12 +2,12 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home-owner',
-  templateUrl: './home-owner.component.html',
-  styleUrls: ['./home-owner.component.css']
+  selector: 'app-home-doctor',
+  templateUrl: './home-doctor.component.html',
+  styleUrls: ['./home-doctor.component.css']
 })
 
-export class HomeOwnerComponent implements OnInit {
+export class HomeDoctorComponent implements OnInit {
 
   constructor(private router: Router) { }
 

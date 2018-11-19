@@ -3,12 +3,12 @@ import { Component, OnInit } from "@angular/core";
 import { CarService } from "../../services/car.service";
 
 @Component({
-  selector: "app-home-driver",
-  templateUrl: "./home-driver.component.html",
-  styleUrls: ["./home-driver.component.css"]
+  selector: "app-home-admin",
+  templateUrl: "./home-admin.component.html",
+  styleUrls: ["./home-admin.component.css"]
 })
 
-export class HomeDriverComponent implements OnInit {
+export class HomeAdminComponent implements OnInit {
   
   constructor(private carService: CarService, private router: Router) { }
 

@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
-import { HomeDriverComponent } from '../components/home-driver/home-driver.component';
-import { HomeOwnerComponent } from '../components/home-owner/home-owner.component';
+import { HomeAdminComponent } from '../components/home-admin/home-admin.component';
+import { HomeDoctorComponent } from '../components/home-doctor/home-doctor.component';
+import { HomeDimComponent } from '../components/home-dim/home-dim.component';
 import { SignupComponent } from '../components/signup/signup.component';
 import { ReportDriverComponent } from '../components/report-driver/report-driver.component';
 import { CarComponent } from '../components/car/car.component';
@@ -25,8 +26,9 @@ import { ManagementSlotComponent } from '../components/management-slot/managemen
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'homeDriver', component: HomeDriverComponent},
-  {path: 'homeOwner', component: HomeOwnerComponent},
+  {path: 'homeAdmin', component: HomeAdminComponent},
+  {path: 'homeDoctor', component: HomeDoctorComponent},
+  {path: 'homeDim', component: HomeDimComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'car', component: CarComponent},
   {path: 'addCar', component: AddCarComponent},

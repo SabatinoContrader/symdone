@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup(f: NgForm): void{
-    var user = new User(f.value.username, f.value.password, 1, f.value.name, f.value.surname, f.value.address, f.value.cap, f.value.handiccaped, f.value.phone, f.value.email);
+    var user = new User(f.value.username, f.value.password, 1, f.value.iduser, f.value.ruolo);
     this.userService.signup(user).subscribe((response) => {
       if(response)
         this.feedback = "Registrazione effettuata con successo";
