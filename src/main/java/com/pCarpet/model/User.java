@@ -59,21 +59,5 @@ public class User {
 	@NotNull
     private String ruolo;
 	
-    /*@Override
-    public int hashCode() {
-        int result;
-        result = ragioneSociale != null ? ragioneSociale.hashCode() : 0;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        return result;
-    }*/
-
-    /*@Override
-    public String toString() {
-        return "1)ID Utente: "+iduser+"\n2)Username: " + username + "\n3)Password: "+password+"\n4)Ragione Sociale: " + ragioneSociale +"\n5)Telefono: "+telefono+
-        		"\n6)Mail: "+mail+"\n7)Partita Iva: "+partitaiva+"\n8)Ruolo: "+ruolo + "\n9)NomeAbb: "+abbonamento+"\n"
-    }
-    public String stampa() {
-    return "\nId Utente"+iduser+"\nUsername: "+username+"\nRagione Sociale: "+ragioneSociale+"\nPartita iva: "+partitaiva+"\n";
-    }*/
 }
 

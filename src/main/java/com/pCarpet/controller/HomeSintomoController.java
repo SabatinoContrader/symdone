@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pCarpet.dao.SintomoDAO;
-import com.pCarpet.dto.AssetDTO;
+
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.services.SintomoService;
 

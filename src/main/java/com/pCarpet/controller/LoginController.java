@@ -1,13 +1,7 @@
 package com.pCarpet.controller;
 
 //import com.google.gson.JsonObject;
-import com.pCarpet.dto.AbbonamentoDTO;
-import com.pCarpet.dto.AssetDTO;
-import com.pCarpet.dto.StatoDTO;
 import com.pCarpet.dto.UserDTO;
-import com.pCarpet.services.AbbonamentoService;
-
-import com.pCarpet.services.StatoService;
 import com.pCarpet.services.UserService;
 
 //import net.sf.json.JSONArray;
@@ -21,33 +15,41 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+@RestController
+@CrossOrigin
 //@Controller
-@Controller
 @RequestMapping("/Login")
 public class LoginController {
 
 	private UserService userService;
-	private UserDTO user;
+	private UserDTO user;	
 	private HttpSession session;
-	private AbbonamentoService abbonamentoservice;
-	private StatoService statoService;
+	
 	
 	
 	@Autowired
-	public LoginController(UserService userService, AbbonamentoService abs, StatoService statoService) {
+	public LoginController(UserService userService) {
 		this.userService = userService;
-		this.abbonamentoservice=abs;
-		this.statoService=statoService;
-		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
+	public UserDTO loginControl(
+			@RequestParam(value="username", required=true) String username, 
+			@RequestParam(value="password", required=true) String password) 
+	{
+		UserDTO userDTO = userService.login(username,password);
+		return userDTO;
 	}
 
-	@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
 	public String loginControl(HttpServletRequest request, Model model ) {
 		
 		this.session = request.getSession();
@@ -74,7 +76,7 @@ public class LoginController {
 			//return "index";
 		}
 		return "index";
-	}
+	}*/
 	
 	@RequestMapping(value = "/logoutControl", method = RequestMethod.GET)
 	public String logoutControl(HttpServletRequest request, Model model ) {
