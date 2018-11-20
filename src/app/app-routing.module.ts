@@ -25,6 +25,8 @@ import { ReadPatologiaComponent } from '../components/readPatologia/readPatologi
 import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
 import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
 
+import { ErbaComponent } from '../components/erba/erba.component';
+import { AddErbaComponent } from '../components/addErba/addErba.component';
 
 
 const routes: Routes = [
@@ -51,7 +53,12 @@ const routes: Routes = [
   {path: 'managementSlot', component: ManagementSlotComponent},
   {path: 'readPatologia', component: ReadPatologiaComponent},
   {path: 'insertPatologia', component: InsertPatologiaComponent},
-  {path: 'deletePatologia', component: DeletePatologiaComponent}
+  {path: 'deletePatologia', component: DeletePatologiaComponent},
+  {path: 'erba', component: ErbaComponent},
+  {path: 'addErba', component: AddErbaComponent}
+
+
+  
 ];
 
 @NgModule({

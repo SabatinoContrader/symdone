@@ -5,8 +5,8 @@ import { Patologia } from "src/models/Patologia";
 
 @Component({
     selector:'app-readPatologia',
-    templateUrl:'./readPatologia.component.html',
-    styleUrls:['./readPatologia.component.css']
+    templateUrl:'./',
+  //  styleUrls:['./']
 })
 
 export class ReadPatologiaComponent implements OnInit{

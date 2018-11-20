@@ -5,8 +5,8 @@ import { NgForm } from "@angular/forms";
 
 @Component({
     selector:'app-insertPatologia',
-    templateUrl:'./insertPatologia.component.html',
-    styleUrls:['./insertPatologia.component.css']
+    templateUrl:'',
+   // styleUrls:['']
 })
 
 export class InsertPatologiaComponent implements OnInit{

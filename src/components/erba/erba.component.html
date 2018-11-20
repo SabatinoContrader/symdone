@@ -1,0 +1,61 @@
+
+<form class="form-signin" action="/HomeUser/showUsers" method="post">
+
+	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+
+		
+		
+		
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>ERBE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+	<tr>
+        
+         <th>
+             ID ERBA
+         </th>
+
+         <th>
+             ERBA
+         </th>
+         
+         <th>
+         	DESCRIZIONE
+          </th>
+         <th>
+          </th>
+
+     </tr>
+	
+        <tr *ngFor="let erba of erbaList">
+            <td>{{erba.iderba}}</td>
+            <td>{{erba.erba}}</td>
+            <td> {{erba.descrizione}}</td>
+            
+
+	
+		<td>
+          
+          <a class="btn lg btn-primary"
+			href="/HomeErbaC//updateErba?&id=${erba.iderba}">Modifica</a>
+         </td>
+         <td>
+             <a class="btn lg btn-primary"
+			href="/HomeErbaC/deleteErba?&id=${erba.iderba}">Elimina</a>
+         </td>
+		
+		
+     </tr>
+     
+     
+     
+</table>
+
+
+
+<a class="btn lg btn-primary"
+		href="/Home/homeErba">Indietro</a></br> 
+
+</form>

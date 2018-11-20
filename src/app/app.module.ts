@@ -1,4 +1,4 @@
-import { IntestazioneComponent } from '../components/intestazione/intestazione.component';
+import * as intestazioneComponent from '../components/intestazione/intestazione.component';
 import { LoginComponent } from "../components/login/login.component";
 import { HomeAdminComponent } from "../components/home-admin/home-admin.component";
 import { FormsModule } from "@angular/forms";
@@ -33,6 +33,10 @@ import { ManagementSlotComponent } from '../components/management-slot/managemen
 import { SlotService } from '../services/slot.service';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
 import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
+
+import { ErbaComponent } from '../components/erba/erba.component';
+import { ErbaService } from '../services/erba.service';
+import { AddErbaComponent } from '../components/addErba/addErba.component';
 import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
 
 
@@ -58,10 +62,12 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
     ManagementParkComponent,
     LegislationsComponent,
     UsefulNumbersComponent,
-    IntestazioneComponent,
     ManagementSlotComponent,
     ReadPatologiaComponent,
     InsertPatologiaComponent,
+    ManagementSlotComponent,
+    ErbaComponent,
+    AddErbaComponent,
     DeletePatologiaComponent
   ],
   imports: [
@@ -74,7 +80,7 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
       libraries: ["places"]
     })
   ],
-  providers: [UserService, ReportService, CarService, PaymentService, GoogleMapService, SlotService],
+  providers: [UserService, ReportService, CarService, PaymentService, GoogleMapService, SlotService, ErbaService],
   bootstrap: [AppComponent]
 })
 

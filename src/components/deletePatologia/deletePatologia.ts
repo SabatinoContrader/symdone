@@ -5,9 +5,9 @@ import { NgForm } from "@angular/forms";
 import { Patologia } from "src/models/Patologia";
 
 @Component({
-    selector:'app.deletePatologia',
-    templateUrl:'./deletePatologia.component.html',
-    styleUrls: ['./deletePatologia.component.css']
+    selector:'app-deletePatologia',
+    templateUrl:"",
+   // styleUrls: ['']
 })
 
 export class DeletePatologiaComponent implements OnInit{
