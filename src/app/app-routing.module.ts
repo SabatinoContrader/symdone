@@ -21,6 +21,10 @@ import { ManagementParkComponent } from '../components/management-park/managemen
 import { UsefulNumbersComponent } from '../components/useful-numbers/useful-numbers.component';
 import { LegislationsComponent } from '../components/legislations/legislations.component';
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
+import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
+import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+
 
 
 const routes: Routes = [
@@ -44,8 +48,10 @@ const routes: Routes = [
   {path: 'usefulNumbers', component: UsefulNumbersComponent},
   {path: 'legislations', component: LegislationsComponent},
   {path: 'intestazione', component: IntestazioneComponent},
-  {path: 'managementSlot', component: ManagementSlotComponent}
-  
+  {path: 'managementSlot', component: ManagementSlotComponent},
+  {path: 'readPatologia', component: ReadPatologiaComponent},
+  {path: 'insertPatologia', component: InsertPatologiaComponent},
+  {path: 'deletePatologia', component: DeletePatologiaComponent}
 ];
 
 @NgModule({

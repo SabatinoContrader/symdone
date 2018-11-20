@@ -31,6 +31,9 @@ import { LegislationsComponent } from "../components/legislations/legislations.c
 import { UsefulNumbersComponent } from "../components/useful-numbers/useful-numbers.component";
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
 import { SlotService } from '../services/slot.service';
+import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
+import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
 
 
 
@@ -56,7 +59,10 @@ import { SlotService } from '../services/slot.service';
     LegislationsComponent,
     UsefulNumbersComponent,
     IntestazioneComponent,
-    ManagementSlotComponent
+    ManagementSlotComponent,
+    ReadPatologiaComponent,
+    InsertPatologiaComponent,
+    DeletePatologiaComponent
   ],
   imports: [
     BrowserModule,

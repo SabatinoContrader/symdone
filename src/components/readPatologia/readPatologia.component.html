@@ -1,0 +1,58 @@
+<form class="form-signin" action="/HomeUser/showUsers" method="get">
+
+	<h1 class="element-margin-left">Ecco tutte le patologie</h1>
+
+		
+		
+		
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>PATOLOGIE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+	<tr>
+        
+         <th>
+             ID PATOLOGIA
+         </th>
+
+         <th>
+             NOME PATOLOGIA
+         </th>
+         
+         <th>DESCRIZIONE PATOLOGIA
+         
+          </th>
+         <th>
+          </th>
+
+     </tr>
+	
+     <tr *ngFor="let patologia  of listaPatologia">	
+     <td>{{patologia.idpatologia}}</td>
+     <td >{{patologia.patologia}}</td>
+     <td>{{patologia.descrizione}}</td>
+         
+	<td>
+          
+         <a class="btn lg btn-primary"
+			href="/HomePatologia/operationForm?scelta=update&idpatologia=${patologia.idpatologia}">Modifica</a>
+         </td>
+         <td>
+         <a class="btn lg btn-primary"
+			href="/HomePatologia/operationForm?scelta=delete&idpatologia=${patologia.idpatologia}">Elimina</a>
+         </td>
+      
+		
+		
+     </tr>
+     </c:forEach>	
+     
+     
+</table> 
+
+<a class="btn lg btn-primary"
+		href="/HomePatologia/returnHomePatologia">Indietro</a></br> 
+
+</form>
+
