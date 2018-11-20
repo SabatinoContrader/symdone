@@ -2,8 +2,11 @@ package com.pCarpet.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
@@ -14,72 +17,62 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/HomePatologia")
 public class HomePatologiaController {
 	
 	private PatologiaService patologiaService;
+	
 	@Autowired
 	public HomePatologiaController(PatologiaService patologiaService) {
 		this.patologiaService = patologiaService;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/ShowPatologia", method = RequestMethod.GET)
-	public String HomePatologia(HttpServletRequest request, Model model) {
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaView";
+	public List<PatologiaDTO> getAll(){
+		List<PatologiaDTO> patologia = patologiaService.getAll();
+		return patologia;
 	}
 	
-	@RequestMapping(value = "/InsertForm", method = RequestMethod.GET)
-	public String InsertForm(HttpServletRequest request) {
-		return "patologiaInsert";
-	}
+	
 	@RequestMapping(value = "/InsertPatologia", method = RequestMethod.POST)
-	public String InsertPatologia(HttpServletRequest request, Model model) {
+	@CrossOrigin
+	public PatologiaDTO newPatologia(
+			@RequestParam(value="patologia") String patologia,
+			@RequestParam(value="descrizione") String descrizione) {
 		PatologiaDTO patologiaDTO = new PatologiaDTO();
-		patologiaDTO.setPatologia(request.getParameter("patologia"));
-		patologiaDTO.setDescrizione(request.getParameter("descrizione"));
-		patologiaService.insertPatologia(patologiaDTO);
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaView";
+		patologiaDTO.setPatologia(patologia);
+		patologiaDTO.setDescrizione(descrizione);
+		patologiaDTO = patologiaService.insertPatologia(patologiaDTO);
+		return patologiaDTO;
 	}
-	/*@RequestMapping(value="/DeleteForm", method=RequestMethod.GET)
-	public String DeleteForm(HttpServletRequest request, Model model) {
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaDelete";
-	} 
-	@RequestMapping(value="/DeletePatologia", method=RequestMethod.POST)
-	public String DeletePatologia(HttpServletRequest request, Model model) {
-		long idpatologia = Long.parseLong(request.getParameter("idpatologia"));
-		patologiaService.deletePatologia(idpatologia);
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaView";		
-	} 
-	@RequestMapping(value="/UpdateForm", method= RequestMethod.GET)
-	public String UpdateForm(HttpServletRequest request, Model model) {
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaUpdate";		
+		 List<PatologiaDTO> getAll2(){
+		List<PatologiaDTO> patologia = patologiaService.getAll();
+		return patologia;
 	}
-	@RequestMapping(value="/UpdatePatologia", method= RequestMethod.POST)
-	public String UpdatePatologia(HttpServletRequest request,Model model) {
-		long idpatologia=Long.parseLong(request.getParameter("idpatologia").toString());
-		model.addAttribute("idpatologia", idpatologia);
-		PatologiaDTO patologiaDTO = new PatologiaDTO();
-		patologiaDTO.setIdpatologia(Long.parseLong(request.getParameter("idpatologia").toString()));
-		patologiaDTO.setPatologia(request.getParameter("patologia"));
-		patologiaDTO.setDescrizione(request.getParameter("descrizione"));
-		patologiaService.updatePatologia(patologiaDTO);
-		List<PatologiaDTO> listaPatologia = patologiaService.getAll();
-		model.addAttribute("listaPatologia", listaPatologia);
-		return "patologiaView";
+		 @CrossOrigin
+			@RequestMapping(value="/delete", method = RequestMethod.GET)
+			public boolean delete(@RequestParam(value="idpatologia") long idpatologia) {
+				patologiaService.deletePatologia(idpatologia);
+				return true;
 				
-	}*/
-	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
+			}
+		 
+		 @CrossOrigin
+			@RequestMapping(value="/update", method = RequestMethod.POST)
+		 public PatologiaDTO updatePatologia(
+				 @RequestParam(value= "idpatologia") long idpatologia,
+				 	@RequestParam(value= "patologia") String patologia,
+				 	@RequestParam(value= "descrizione") String descrizione) {
+			 PatologiaDTO patologiaDTO = patologiaService.findById(idpatologia);
+			 patologiaDTO.setPatologia(patologia);
+			 patologiaDTO.setDescrizione(descrizione);
+			 patologiaService.updatePatologia(patologiaDTO);
+			return patologiaDTO;
+		 }
+	/*@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
 		
 		List<PatologiaDTO> listaPatologia = this.patologiaService.getAll();
@@ -126,7 +119,7 @@ public class HomePatologiaController {
 	
 		return "patologiaView";
 	}
-	
+	*/
 	
 	@RequestMapping(value = "/returnHomePatologia", method = RequestMethod.GET)
 	public String returnControl(HttpServletRequest request) {
