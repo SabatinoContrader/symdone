@@ -1,4 +1,4 @@
-<form action="/HomePatologia/DeletePatologia" method="post">
+<form action="/HomePatologia/delete" method="get">
 
 	<h1 class="element-margin-left">Lista delle patologie che puoi eliminare </h1>
 	
@@ -34,35 +34,20 @@
        <td>
           
           <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=update&id=${user.iduser}">Modifica</a>
+			href="/HomePatologia/update&id=${patologia.idpatologia}">Modifica</a>
          </td>
          <td>
              <a class="btn lg btn-primary"
-			href="/HomeUser/showUsers?choice=delete&id=${user.iduser}">Elimina</a>
+			href="/HomePatologia/delete&idpatologia=${patologia.idpatologia}">Elimina</a>
          </td>
 		
 		
      </tr>
      </c:forEach>	
-   	
-
-
-	  
-	  <tr>
-
-	   <td><h2>Id Patologia : </h2></td>
-
-	   <td><input type = "text" id = "idpatologia" name="idpatologia" placeholder="Inserisci id patologia da eliminare"></td>
 	
-		
-		</tr>
-				
 				
 		</table>
 		
-		
-	 
-		 <input type="submit" value="Elimina">
     
     <a class="btn lg btn-primary"
  href="/Home/homePatologia">Indietro</a></br> 		

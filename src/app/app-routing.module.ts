@@ -22,8 +22,10 @@ import { UsefulNumbersComponent } from '../components/useful-numbers/useful-numb
 import { LegislationsComponent } from '../components/legislations/legislations.component';
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
-import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
-import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+//import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
+//import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+//import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
+//import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
 
 
 
@@ -49,9 +51,11 @@ const routes: Routes = [
   {path: 'legislations', component: LegislationsComponent},
   {path: 'intestazione', component: IntestazioneComponent},
   {path: 'managementSlot', component: ManagementSlotComponent},
-  {path: 'readPatologia', component: ReadPatologiaComponent},
-  {path: 'insertPatologia', component: InsertPatologiaComponent},
-  {path: 'deletePatologia', component: DeletePatologiaComponent}
+  //{path: 'readPatologia', component: ReadPatologiaComponent},
+  //{path: 'insertPatologia', component: InsertPatologiaComponent},
+  //{path: 'deletePatologia', component: DeletePatologiaComponent},
+ // {path: 'updatePatologia', component: UpdatePatologiaComponent},
+ // {path: 'gestionePatologie', component: GestionePatologieComponent},
 ];
 
 @NgModule({

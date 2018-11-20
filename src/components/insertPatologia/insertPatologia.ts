@@ -3,11 +3,11 @@ import { PatologiaService } from "src/services/patologia.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
-@Component({
+/*@Component({
     selector:'app-insertPatologia',
-    templateUrl:'./insertPatologia.component.html',
-    styleUrls:['./insertPatologia.component.css']
-})
+    templateUrl:'',
+    styleUrls:['']
+})*/
 
 export class InsertPatologiaComponent implements OnInit{
 

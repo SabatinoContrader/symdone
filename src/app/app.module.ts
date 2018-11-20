@@ -34,6 +34,9 @@ import { SlotService } from '../services/slot.service';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
 import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
 import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+import { PatologiaService } from '../services/patologia.service';
+import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
+import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
 
 
 
@@ -59,10 +62,12 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
     LegislationsComponent,
     UsefulNumbersComponent,
     IntestazioneComponent,
-    ManagementSlotComponent,
-    ReadPatologiaComponent,
-    InsertPatologiaComponent,
-    DeletePatologiaComponent
+    ManagementSlotComponent
+    //ReadPatologiaComponent,
+    //InsertPatologiaComponent,
+   // DeletePatologiaComponent,
+   // UpdatePatologiaComponent,
+    //GestionePatologieComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,14 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
       libraries: ["places"]
     })
   ],
-  providers: [UserService, ReportService, CarService, PaymentService, GoogleMapService, SlotService],
+  providers: [UserService,
+     ReportService, 
+     CarService,
+     PaymentService, 
+     GoogleMapService, 
+     SlotService],
+     //PatologiaService,
+
   bootstrap: [AppComponent]
 })
 
