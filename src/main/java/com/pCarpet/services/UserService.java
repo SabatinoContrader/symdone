@@ -1,7 +1,6 @@
 package com.pCarpet.services;
 
 import com.pCarpet.converter.UserConverter;
-import com.pCarpet.dao.StatoRepository;
 import com.pCarpet.dao.UserRepository;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.model.Stato;
@@ -12,22 +11,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Service
 public class UserService {
 
     private UserRepository userRepository;
-    private StatoRepository statoRepository;
-    //private UserAssetDAO userAssetDAO;
     
     
     @Autowired
-    public UserService(UserRepository userRepository,StatoRepository sta) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.statoRepository = sta;
     }
      
     
@@ -35,17 +28,18 @@ public class UserService {
     	return this.userRepository;
     }
     
-    public String login (String username, String password) {
-    	List<User> l=(List<User>) this.userRepository.findAll();
-    	for(User u: l) {
-    		if(username.equals(u.getUsername()) && password.equals(u.getPassword())) {
-    			
+    public UserDTO login (String username, String password) {
+    	//List<User> listUser=(List<User>) this.userRepository.findAll();
+    	User user = userRepository.findByUsernameAndPassword(username,password);
+    	UserDTO userDTO = UserConverter.covertToDTO(user);
+    	/*for(User u: listUser) {
+    		if(username.equals(u.getUsername()) && password.equals(u.getPassword())) {   			
     			return u.getRuolo();
     		}
     		
-    	}
+    	}*/
     	
-    	return "";
+    	return userDTO;
     }
 
     public List<UserDTO> getAllUsers () {
@@ -67,40 +61,10 @@ public class UserService {
     
     }
     
-//    public UserDTO getLoggedUser (String username, String password) {
-//    	
-//    	
-//    	User u = this.userRepository.getLoggedUser(username, password);
-//    	
-//    	UserDTO uDTO = UserConverter.covertToDTO(u);
-//    	
-//        return uDTO;
-//        
-//    	
-//    }
-    
-    public UserDTO getUser (long id) {
-    	
-    
-        User u = this.userRepository.findById(id).get();
-        
-        
-        return UserConverter.covertToDTO(u);
-        
-    
+    public UserDTO getUser (long id) {  
+        User u = this.userRepository.findById(id).get();        
+        return UserConverter.covertToDTO(u); 
     }
-    
-   
-    /*
-    public List<User> getAllClienti () {
-        return this.userDAO.getAllClienti();
-    }
-    
-    public List<User> getAllClientiAss(){
-    	return this.userDAO.getAllClientiAss();
-    }
-    */
-   
     
     public boolean insertUser (UserDTO userDTO) {
     
@@ -114,25 +78,8 @@ public class UserService {
     	Stato a = new Stato();
     	a.setFlag(2);
     	a.setValore("eliminato");
-    	this.userRepository.save(u);
-    	
-    	
-    	
-    	
+    	this.userRepository.save(u);   	
     }
-    
-    /*
-    public List<User> getAllUsersN(){
-    	return this.userAssetDAO.getAllUsersN();
-    }
-    */
-    
-//    public boolean updateUser(HttpServletRequest request) {
-//    	
-//    	return this.userRepository.updateUser(request);
-//    	
-//    	
-//    }
     
     public boolean updateUser(UserDTO userDTO) {
     	return this.userRepository.save(UserConverter.converToEntity(userDTO))!=null;

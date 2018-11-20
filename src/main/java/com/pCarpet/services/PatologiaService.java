@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 public class PatologiaService {
+	
 	private PatologiaDAO patologiaDAO;
 	
 	@Autowired
@@ -30,9 +31,10 @@ public class PatologiaService {
 
 	}	
 	
-    public void insertPatologia(PatologiaDTO patologiaDTO) {
+    public PatologiaDTO insertPatologia(PatologiaDTO patologiaDTO) {
 		Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
 		this.patologiaDAO.save(patologia);
+		return PatologiaConverter.convertToDto(patologiaDAO.save(patologia));
     }
 		
     public void deletePatologia(Long idpatologia) {
@@ -40,15 +42,22 @@ public class PatologiaService {
 		patologiaDAO.delete(p);
 	}	
     
-    public void updatePatologia(PatologiaDTO patologiaDTO) {
+    public PatologiaDTO updatePatologia(PatologiaDTO patologiaDTO) {
 	    Patologia patologia = PatologiaConverter.convertToPatologia(patologiaDTO);
 	    this.patologiaDAO.save(patologia);
+	    return PatologiaConverter.convertToDto(patologiaDAO.save(patologia));
     }
+    
+    public PatologiaDTO findById(long idpatologia) {
+		PatologiaDTO patologiaDTO = PatologiaConverter.convertToDto(patologiaDAO.findById(idpatologia).get());
+		return patologiaDTO;
+	}
     
     public PatologiaDTO getIdpatologia(long idpatologia) {
 	    Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
 	    return PatologiaConverter.convertToDto(p);
     }
+ 
     
 	
 	

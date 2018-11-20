@@ -7,13 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pCarpet.converter.AssetConverter;
-import com.pCarpet.converter.BadgeReaderConverter;
 import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.PatologiaDAO;
 import com.pCarpet.dao.SintomoDAO;
-import com.pCarpet.dto.AssetDTO;
-import com.pCarpet.dto.BadgeReaderDTO;
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Asset;
