@@ -1,0 +1,30 @@
+
+
+<form #f="ngForm">
+    <h1>Modifica Esame</h1>
+    <table class="updateEsame">
+        <tr>
+            <td><h2>Nome Esame:</h2></td>
+            <td><input type="text" class="form-control" id="esame" value="{{esame}}" name="esame" placeholder="Inserisci Nome Esame"[(ngModel)]="esame"></td>
+        </tr>
+        <tr>
+            <td><h2>Descrizione:</h2></td>
+            <td><input type="text" value= "{{descrizione}}" class="form-control" id="descrizione" name="descrizione"
+                placeholder="Inserisci Descrizione Esame"[(ngModel)]="descrizione"></td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr><td>
+           <button class="updateButton"  type = "submit" (click)="updateEsame(f, idesame)"> Effettua Modifica</button>
+         </td><td>
+         <a class="btn lg btn-primary" 
+           routerLink="/esame">Indietro</a><br>
+         </td>
+         </tr>
+         </table> 
+  <!--  <button (click) = "register(f)" >Inserisci</button>-->
+    
+
+
+    </form>

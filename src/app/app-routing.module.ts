@@ -27,6 +27,12 @@ import { ReadPatologiaComponent } from '../components/readPatologia/readPatologi
 //import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
 //import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
 
+import { EsameComponent } from '../components/esame/esame.component';
+import { InsertEsameComponent } from '../components/home-dim/insertEsame/insertEsame.component';
+import { UpdateEsameComponent } from '../components/updateEsame/updateEsame.component';
+import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsame.component';
+
+
 
 
 const routes: Routes = [
@@ -56,6 +62,11 @@ const routes: Routes = [
   //{path: 'deletePatologia', component: DeletePatologiaComponent},
  // {path: 'updatePatologia', component: UpdatePatologiaComponent},
  // {path: 'gestionePatologie', component: GestionePatologieComponent},
+  {path: 'esame', component: EsameComponent},
+  {path: 'insertEsame', component: InsertEsameComponent},
+  {path: 'updateEsame', component: UpdateEsameComponent},
+  {path: 'gestioneEsame', component: GestioneEsameComponent}
+  
 ];
 
 @NgModule({

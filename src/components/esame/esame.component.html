@@ -1,0 +1,64 @@
+<!--<form class="form-signin" action="/HomeEsameController/showEsame" method="get">-->
+
+	<h1 class="element-margin-left">Ecco tutti gli Esami clinici</h1>
+
+		
+		
+		
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>ESAMI CLINICI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+
+        
+         <th>
+             ID ESAME
+         </th>
+
+         <th>
+             ESAME
+         </th>
+         
+         <th>
+         	DESCRIZIONE
+          </th>
+         <th>
+          </th>
+
+     </tr>
+	
+     <tr *ngFor="let e of esameList">
+        <td>{{e.idesame}}</td>
+        <td>{{e.esame}}</td>
+        <td>{{e.descrizione}}</td>
+        <td>
+            <button class="btn lg btn-primary" type = "submit" (click)="deleteEsame(e.idesame)">Elimina</button>
+        </td>
+
+        <td>
+            <button
+                class = "btn lg btn-primary"
+                [routerLink]="['/updateEsame']"
+                [queryParams]="{
+                    idesame: e.idesame,
+                    esame: e.esame,
+                    descrizione: e.descrizione
+                }">Modifica</button>
+        </td>
+    </tr>
+	
+		
+		
+		
+     
+     
+     
+</table>
+
+ 
+
+		<a class="btn lg btn-primary"
+ 		routerLink="/gestioneEsame">Indietro</a><br> 
+
+
