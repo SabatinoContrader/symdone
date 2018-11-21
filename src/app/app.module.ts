@@ -80,13 +80,11 @@ import { GestionePatologieComponent } from '../components/GestionePatologie/Gest
     })
   ],
   providers: [UserService,
-     ReportService, 
-     CarService,
-     PaymentService, 
-     GoogleMapService, 
-     SlotService],
-     //PatologiaService,
-
+       ReportService,
+       CarService,
+       PaymentService, 
+       GoogleMapService, 
+       SlotService],
   bootstrap: [AppComponent]
 })
 

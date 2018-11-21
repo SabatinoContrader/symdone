@@ -11,7 +11,7 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 
 export class SignupComponent implements OnInit {
-  feedback: string;
+  //feedback: string;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -21,15 +21,14 @@ export class SignupComponent implements OnInit {
 
   }
 
-  signup(f: NgForm): void{
-    var user = new User(f.value.username, f.value.password, 1, f.value.iduser, f.value.ruolo);
-    this.userService.signup(user).subscribe((response) => {
-      if(response)
-        this.feedback = "Registrazione effettuata con successo";
-      else
-        this.feedback = "Registrazione non andata a buon fine";
-    this.userService.changeFeedback(this.feedback);
-    this.router.navigateByUrl("/login");
+  signup(f: NgForm){
+    this.userService.signup(f.value.username, f.value.password, f.value.ruolo, f.value.name, f.value.surname, f.value.phone,f.value.email).subscribe((response) => {
+      console.log("sei entrato qui!!" + f.value.username);
+      if (response != null) {
+        
+        this.router.navigateByUrl("/login");
+      }
+
     });
   }
 

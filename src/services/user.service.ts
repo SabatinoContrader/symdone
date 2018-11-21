@@ -30,11 +30,20 @@ export class UserService {
     );
   }
 
-  signup(user: User): Observable <boolean> {
-    return this.http.post<boolean>('http://localhost:58708/api/signupUser', user)
+  signup2(user: User): Observable <boolean> {
+    return this.http.post<boolean>('http://localhost:8080/Login/register', user)  //sistemare i collegamenti
     .pipe(tap((response) => console.log("Utente"), catchError(this.handleError("login error", {})))
   );
   }
+
+  signup(username:string, password:string, 
+    ruolo:string, name:string, surname:string, phone:string, email:string): Observable<User>{
+      console.log("sei entrato qui??"+ username);
+       const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '1').
+       set('name', name).set('surname', surname).set('phone',phone).set('email', email);
+       return this.http.post<User>('http://localhost:8080/Login/register', params);
+
+}
 
   changeFeedback(message: string){
     this.feedback = message;
