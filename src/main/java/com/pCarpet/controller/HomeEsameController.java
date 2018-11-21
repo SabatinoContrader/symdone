@@ -7,14 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.pCarpet.dto.EsameDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.services.EsameService;
 
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/HomeEsame")
 public class HomeEsameController {
 	
@@ -25,109 +29,59 @@ public class HomeEsameController {
 		this.esameService =  esameService;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/ShowEsame", method = RequestMethod.GET)
-	public String HomeEsame(HttpServletRequest request, Model model) {
-		List<EsameDTO> listaEsame = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame);
-		return "esameView";
+	//public String HomeEsame(HttpServletRequest request, Model model) {
+	public List<EsameDTO> getAll(){	
+	List<EsameDTO> listaEsame = esameService.getAll();
+		return listaEsame;
 	}
 	
-	@RequestMapping(value="/insertForm", method=RequestMethod.GET)
-	public String insertForm(HttpServletRequest request) {
-		return "insertEsame";
-	}
 	
+	
+	@CrossOrigin
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	public String insert(HttpServletRequest request, Model model) {
+	public EsameDTO insertEsame(
+			@RequestParam(value="esame") String esame,
+			@RequestParam(value="descrizione") String descrizione) {
+		
+		System.out.println(esame+" "+descrizione);
 		EsameDTO esameDTO = new EsameDTO();
-		esameDTO.setEsame(request.getParameter("esame"));
-		esameDTO.setDescrizione(request.getParameter("descrizione"));
+		esameDTO.setEsame(esame);
+		esameDTO.setDescrizione(descrizione);
 		esameService.insertEsame(esameDTO);
-		List<EsameDTO> listaEsame = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame);
-		return "esameView";
-	} 
-	
-	@RequestMapping(value="/deleteForm", method=RequestMethod.GET)
-	public String deleteForm(HttpServletRequest request, Model model) {
-		List<EsameDTO> listaEsame = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame);
-		return "deleteEsame";
-	}
-	
-	@RequestMapping(value="/deleteEsame", method=RequestMethod.GET)
-		public String deleteEsame(HttpServletRequest request, Model model) {
-		Long idesame = Long.parseLong(request.getParameter("idesame"));
-		esameService.deleteEsame(idesame);
-		return "esameView";
-	} 
-	
-	/*@RequestMapping(value="/updateForm", method=RequestMethod.GET)
-	public String updateForm(HttpServletRequest request, Model model) {
-		List<EsameDTO> listaEsame = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame);
-		return "updateEsame";
-	}
-	
-	@RequestMapping(value="/updateEsame", method=RequestMethod.POST)
-		public String updateEsame(HttpServletRequest request, Model model) {
-		Long idesame = Long.parseLong(request.getParameter("idesame").toString());
-		model.addAttribute("idesame", idesame);
-		EsameDTO esameDTO = new EsameDTO();
-		esameDTO.setIdesame(Long.parseLong(request.getParameter("idesame").toString()));
-		esameDTO.setEsame(request.getParameter("esame"));
-		esameDTO.setDescrizione(request.getParameter("descrizione"));
-		esameService.updateEsame(esameDTO);
-		List<EsameDTO> listaEsame = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame);
-		return "esameView";
-	} */
-	
-	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
-	public String updateForm(HttpServletRequest request, Model model) {
-		
-		List<EsameDTO> listaEsame3 = this.esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame3);
-	    String scelta= request.getParameter("scelta");
-	    
-	    if (scelta.equals("update")) {
-	    	EsameDTO esame = this.esameService.getIdesame(Integer.parseInt(request.getParameter("idesame")));			
-			model.addAttribute("esame", esame);
-		    return "updateEsame";
-		}
-	    else if(scelta.equals("delete")) {
-            esameService.deleteEsame(Long.parseLong((request.getParameter("idesame"))));			
-            listaEsame3 = esameService.getAll();
-			model.addAttribute("listaEsame", listaEsame3);
-			return "esameView";
-	    }
-	    
-	    return "";
-	
-	}
-	
-	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
-	public String sintomoControlPost(HttpServletRequest request, Model model ) {
-		
-		List<EsameDTO> listaEsame3 = esameService.getAll();
-		model.addAttribute("listaEsame", listaEsame3);	
-		String scelta=request.getParameter("scelta");
-	
-		
-			switch(scelta) {
+		return esameDTO;
 				
-			case "update":
-				long idesame = Integer.parseInt(request.getParameter("idesame"));
-					String esame =request.getParameter("esame");
-					String descrizione =request.getParameter("descrizione");
-					EsameDTO edto =new EsameDTO(idesame, esame, descrizione);				
-					esameService.insertEsame(edto);
-					List<EsameDTO> listaEsame4 = esameService.getAll();
-					model.addAttribute("listaEsame", listaEsame4);	
-					return "esameView";
-			}
-		
+	} 
 	
-		return "esameView";
+	
+	@CrossOrigin
+	@RequestMapping(value="/deleteEsame", method=RequestMethod.GET)
+	public void delete(@RequestParam(value="idesame") long idesame) {
+		esameService.getIdesame(idesame);
+		esameService.deleteEsame(idesame);
+		
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/updateEsame", method= RequestMethod.POST)
+	public EsameDTO updateEsame(
+			@RequestParam(value="idesame") long idesame,
+			@RequestParam(value="esame", required=false)String esame,
+			@RequestParam(value="descrizione", required=false)String descrizione) {
+		EsameDTO edto = esameService.getIdesame(idesame);
+		
+		if(esame != null) {
+		edto.setEsame(esame);	
+		}
+
+		if(descrizione != null) {
+		edto.setDescrizione(descrizione);
+		}
+		
+		esameService.updateEsame(edto);
+		return edto;
+	}
+	
+
 }

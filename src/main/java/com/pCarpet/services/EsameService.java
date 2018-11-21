@@ -39,9 +39,11 @@ public class EsameService {
 		return EsamiPerPatologie;
 	}
 	
-	public void insertEsame(EsameDTO esame) {
+	public EsameDTO insertEsame(EsameDTO esameDTO) {
+		Esame esame = EsameConverter.convertToEsame(esameDTO);
 		System.out.println(esame.getIdesame() + esame.getEsame() + esame.getDescrizione());
-		esameDAO.save(EsameConverter.convertToEsame(esame));
+		this.esameDAO.save(esame);
+		return EsameConverter.convertToDto(esameDAO.save(esame));
 	}
 	
 	public void deleteEsame(Long idesame) {
