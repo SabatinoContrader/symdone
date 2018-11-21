@@ -1,4 +1,4 @@
-<form class="form-signin" action="/HomeUser/showUsers" method="get">
+<!--<form #f="ngForm" action="/HomePatologia/delete" method="GET">-->
 
 	<h1 class="element-margin-left">Ecco tutte le patologie</h1>
 
@@ -8,8 +8,8 @@
 
 <table class="bordo rcorners" >	
 	     <tr>
-     <th><h4>PATOLOGIE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
-     <tr>
+     <th><h4>PATOLOGIE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     
 	<tr>
         
          <th>
@@ -28,31 +28,33 @@
 
      </tr>
 	
-     <tr *ngFor="let patologia  of listaPatologia">	
-     <td>{{patologia.idpatologia}}</td>
-     <td >{{patologia.patologia}}</td>
-     <td>{{patologia.descrizione}}</td>
+     <tr *ngFor="let p of patologia">	<!--inserisci router link dentro il tr-->
+     <td>{{p.idpatologia}}</td>
+     <td >{{p.patologia}}</td>
+     <td>{{p.descrizione}}</td>
          
 	<td>
           
-         <a class="btn lg btn-primary"
-			href="/HomePatologia/update&idpatologia=${patologia.idpatologia}">Modifica</a>
+         <button class="btn lg btn-primary"
+        [routerLink]="['/updatePatologia']"
+        [queryParams]="{idpatologia: p.idpatologia,patologia:p.patologia, descrizione: p.descrizione}" >
+         Modifica</button>
          </td>
          <td>
-         <a class="btn lg btn-primary"
-			href="/HomePatologia/delete&idpatologia=${patologia.idpatologia}">Elimina</a>
+                <button  class="btn lg btn-primary" type="submit" (click)="delete(p.idpatologia)">Elimina</button> 
+      
+         
+        
          </td>
       
 		
 		
      </tr>
-     </c:forEach>	
+    
      
      
 </table> 
 
 <a class="btn lg btn-primary"
-		href="/HomePatologia/returnHomePatologia">Indietro</a></br> 
-
-</form>
+		href="/#/gestionePatologie">Indietro</a>
 

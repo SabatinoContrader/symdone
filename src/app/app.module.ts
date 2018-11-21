@@ -31,12 +31,14 @@ import { LegislationsComponent } from "../components/legislations/legislations.c
 import { UsefulNumbersComponent } from "../components/useful-numbers/useful-numbers.component";
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
 import { SlotService } from '../services/slot.service';
-import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
-import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
-import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia.component';
+import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia.component';
 import { PatologiaService } from '../services/patologia.service';
-import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
-import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
+import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
+import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+
+
 
 
 
@@ -62,12 +64,12 @@ import { GestionePatologieComponent } from '../components/GestionePatologie/Gest
     LegislationsComponent,
     UsefulNumbersComponent,
     IntestazioneComponent,
-    ManagementSlotComponent
-    //ReadPatologiaComponent,
-    //InsertPatologiaComponent,
-   // DeletePatologiaComponent,
-   // UpdatePatologiaComponent,
-    //GestionePatologieComponent
+    ManagementSlotComponent,
+    GestionePatologieComponent,
+    ReadPatologiaComponent,
+    InsertPatologiaComponent,
+   UpdatePatologiaComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { GestionePatologieComponent } from '../components/GestionePatologie/Gest
        CarService,
        PaymentService, 
        GoogleMapService, 
-       SlotService],
+       SlotService,
+      PatologiaService],
   bootstrap: [AppComponent]
 })
 

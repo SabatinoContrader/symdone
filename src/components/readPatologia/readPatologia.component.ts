@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { PatologiaService } from "src/services/patologia.service";
 import { Router } from "@angular/router";
 import { Patologia } from "src/models/Patologia";
+import { NgForm } from "@angular/forms";
 
 @Component({
     selector:'app-readPatologia',
@@ -21,6 +22,13 @@ export class ReadPatologiaComponent implements OnInit{
          this.patologiaService.readPatologia().subscribe((response) => {
              this.patologia = response;
          }) 
-
-     }
+        }
+         delete(idpatologia:string) {
+        
+            this.patologiaService.delete(idpatologia).subscribe(async(response) => {
+    ;
+    await this.ngOnInit();
+                
+            })
+        }
 }

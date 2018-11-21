@@ -3,11 +3,11 @@ import { PatologiaService } from "src/services/patologia.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
-/*@Component({
+@Component({
     selector:'app-insertPatologia',
-    templateUrl:'',
-    styleUrls:['']
-})*/
+    templateUrl:'./insertPatologia.component.html',
+    styleUrls:['./insertPatologia.component.css']
+})
 
 export class InsertPatologiaComponent implements OnInit{
 
@@ -19,12 +19,13 @@ export class InsertPatologiaComponent implements OnInit{
         
     }
 
-    register(f:NgForm){
+    register(f:NgForm) {
         
         this.patologiaService.newPatologia(f.value.patologia,f.value.descrizione).subscribe((response) => {
-            console.log("patologia2 = "+f.value.patologia);
+
+            console.log("patologia2 = "+f.value.patologia+ "descrizione2 = " + f.value.descrizione);
             if (response != null) {
-              this.router.navigateByUrl("/gestionePatologia");
+              this.router.navigateByUrl("/readPatologia");
             }
         })
     }

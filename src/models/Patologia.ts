@@ -1,9 +1,9 @@
 export class Patologia {
-idpatologia: number;
+idpatologia: string;
 patologia: string;
 descrizione: string;
 
-constructor(idpatologia: number, patologia: string, descrizione: string){
+constructor(idpatologia: string, patologia: string, descrizione: string){
     this.idpatologia = idpatologia;
     this.patologia = patologia;
     this.descrizione = descrizione;

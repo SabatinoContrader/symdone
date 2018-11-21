@@ -7,7 +7,6 @@ import { Patologia } from "src/models/Patologia";
 @Injectable({
     providedIn: 'root'
 })
-
 export class PatologiaService{
 
     constructor(private http : HttpClient){}
@@ -17,11 +16,12 @@ export class PatologiaService{
     }
     newPatologia(patologia:string, descrizione:string):Observable<Patologia>{
         const params = new HttpParams().set("patologia",patologia).set("descrizione",descrizione);
-        console.log("patologia ="+patologia);
+        console.log("patologia1!! ="+patologia + "descrizione1!! =" + descrizione);
         return this.http.post<Patologia>("http://localhost:8080/HomePatologia/InsertPatologia", params)
     }
     delete(idpatologia:string):Observable<boolean>{
-        return this.http.get<boolean>("http://localhost:8080/HomePatologia/delete")
+
+        return this.http.get<boolean>("http://localhost:8080/HomePatologia/delete?idpatologia="+idpatologia)
     }
     update(idpatologia:string ,patologia:string, descrizione:string):Observable<Patologia>{
         const params = new HttpParams().set("idpatologia",idpatologia).set("patologia",patologia).set("descrizione",descrizione);
