@@ -1,5 +1,4 @@
 package com.pCarpet.controller;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,48 +6,80 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.pCarpet.dao.SintomoDAO;
 
 import com.pCarpet.dto.SintomoDTO;
+import com.pCarpet.model.Sintomo;
 import com.pCarpet.services.SintomoService;
 
-@Controller
+
+@RestController
+@CrossOrigin
 @RequestMapping("/HomeSintomo")
 public class HomeSintomoController {
 	
 	private SintomoService sintomoService;
+
 
 	@Autowired
 	public HomeSintomoController (SintomoService sintomoService) {
 		this.sintomoService =  sintomoService;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/ShowSintomo", method = RequestMethod.GET)
-	public String HomeSintomo(HttpServletRequest request, Model model) {
-		List<SintomoDTO> listaSintomo = sintomoService.getAll();
-		model.addAttribute("listaSintomo", listaSintomo);
-		return "sintomoView";
+	public List<SintomoDTO> getAll(){
+		List<SintomoDTO> sintomo = sintomoService.getAll();
+		return sintomo;
 	}
 	
-	@RequestMapping(value = "/insertForm", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/insertForm", method = RequestMethod.GET)
 	public String insertForm(HttpServletRequest request, Model model) {
 		return "insertSintomo";
-	}
+	}*/
 	
-	@RequestMapping(value = "/insertSintomo", method = RequestMethod.GET)
-	public String insertSintomo(HttpServletRequest request, Model model) {
-		SintomoDTO sintomo = new SintomoDTO();
-		sintomo.setNomeSintomo(request.getParameter("nome"));
-		sintomoService.insertSintomo(sintomo);
-		List<SintomoDTO> listaSintomo2 = sintomoService.getAll();
-		model.addAttribute("listaSintomo", listaSintomo2);
-		return "sintomoView";
+	@RequestMapping(value = "/insertSintomo", method = RequestMethod.POST)
+	@CrossOrigin
+	public  SintomoDTO  newSintomo(
+		@RequestParam(value="nomeSintomo") String nomeSintomo) {
+		
+		SintomoDTO sintomoDTO = new SintomoDTO();
+		sintomoDTO.setNomeSintomo(nomeSintomo);
+		sintomoService.insertSintomo(sintomoDTO);
+		return sintomoDTO;
 	}
-	
-	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
+		 List<SintomoDTO> getAll1(){
+		List<SintomoDTO> sintomo = sintomoService.getAll();
+		return sintomo;
+}
+		 @CrossOrigin
+			@RequestMapping(value="/delete", method = RequestMethod.GET)
+			public boolean delete(@RequestParam(value="id") long id) {
+				sintomoService.deleteSintomo(id);
+				return true;
+				
+		 }
+				
+		 @CrossOrigin
+		 @RequestMapping (value ="/update", method= RequestMethod.POST)
+		 public SintomoDTO updateSintomo (
+				 @RequestParam(value = "id") long id,
+				 @RequestParam(value="nomeSintomo") String nomeSintomo) {
+			 SintomoDTO sintomoDTO = sintomoService.findById(id);
+			 sintomoDTO.setNomeSintomo(nomeSintomo);
+			 sintomoService.update(sintomoDTO);
+			return sintomoDTO ; 
+		 }
+		 
+		 
+		 
+		 /*@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
 		
 		List<SintomoDTO> listaSintomo3 = this.sintomoService.getAll();
@@ -92,7 +123,7 @@ public class HomeSintomoController {
 			}		
 	
 		return "sintomoView";
-	}
+	}*/
 	
 	
 	@RequestMapping(value = "/returnHomeSintomo", method = RequestMethod.GET)

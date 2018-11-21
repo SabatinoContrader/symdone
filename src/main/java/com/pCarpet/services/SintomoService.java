@@ -3,6 +3,7 @@ package com.pCarpet.services;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.pCarpet.converter.SintomoConverter;
 import com.pCarpet.dao.PatologiaDAO;
 import com.pCarpet.dao.SintomoDAO;
+
 import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.SintomoDTO;
 import com.pCarpet.model.Asset;
@@ -34,12 +36,16 @@ public class SintomoService {
 		return SintomoPerSintomoSet;
 	}
 	
-	public void insertSintomo(SintomoDTO sintomo) {
-		 this.sintomoDAO.save(SintomoConverter.convertToSintomo(sintomo));
+	public SintomoDTO insertSintomo(SintomoDTO sintomoDTO) {
+		 Sintomo sintomo = SintomoConverter.convertToSintomo(sintomoDTO);
+		 this.sintomoDAO.save(sintomo);
+		 return SintomoConverter.convertToDto(sintomoDAO.save(sintomo));
 	}
 	
-	public void updateSintomo(SintomoDTO sintomo) {
-		sintomoDAO.save(SintomoConverter.convertToSintomo(sintomo));
+	public SintomoDTO update(SintomoDTO sintomoDTO) {
+		Sintomo sintomo = SintomoConverter.convertToSintomo(sintomoDTO);
+		sintomoDAO.save(sintomo);
+		return SintomoConverter.convertToDto(sintomoDAO.save(sintomo));
 	}
 	
 	public SintomoDTO getSintomoID (long id) {
@@ -49,7 +55,8 @@ public class SintomoService {
 	
 	public void deleteSintomo(long id) {
     	Sintomo sintomo = sintomoDAO.findById(id).get();
-    	 this.sintomoDAO.delete(sintomo);
+    	this.sintomoDAO.delete(sintomo);
+    	 
     }
 	
 	public List<SintomoDTO> getListaPatologia(long id) {
@@ -67,5 +74,10 @@ public class SintomoService {
 		listaSintomo.forEach(i->SintomoPerSintomoSet.add(SintomoConverter.convertToDto(i)));
 		return SintomoPerSintomoSet;
 	}
+
+	public SintomoDTO findById(long id) {
+		return SintomoConverter.convertToDto(sintomoDAO.findById(id).get());
+	}
+
 	
 }
