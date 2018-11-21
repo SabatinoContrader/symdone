@@ -1,27 +1,32 @@
 package com.pCarpet.dto;
 
-import com.pCarpet.model.Abbonamento;
-import com.pCarpet.model.Stato;
-
 public class UserDTO {
 
 	private long iduser;
     private String username;
     private String password;
-    private int idRuolo;
+    private long idruolo;
     private String ruolo;
+    private String name;
+    private String surname;
+    private String phone;
+    private String email;
     
     public UserDTO() {
     	
     }
     
-	public UserDTO(long iduser, String username, String password, int idRuolo, String ruolo) {
+	public UserDTO(long iduser, String username, String password, long idruolo, String ruolo, String name, String surname, String phone, String email) {
 		this();
 		this.iduser = iduser;
 		this.username = username;
 		this.password = password;
-		this.idRuolo = idRuolo;
+		this.idruolo = idruolo;
 		this.ruolo = ruolo;
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		this.email = email;
 	}
 	
 	public UserDTO(String username, String ruolo) {
@@ -54,11 +59,11 @@ public class UserDTO {
 		this.password = password;
 	}
 	
-	public int getIdRuolo() {
-		return idRuolo;
+	public long getIdRuolo() {
+		return idruolo;
 	}
-	public void setIdRuolo(int idRuolo) {
-		this.idRuolo = idRuolo;
+	public void setIdRuolo(long idruolo) { 
+		this.idruolo = idruolo;
 	}
 	
 	public String getRuolo() {
@@ -67,4 +72,38 @@ public class UserDTO {
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 }
