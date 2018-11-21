@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { PatologiaService } from "src/services/patologia.service";
 import { Router } from "@angular/router";
 
-/*@Component({
+@Component({
     selector:'app-gestionePatologie',
-    templateUrl:'',
-    styleUrls:['']
-})*/
+    templateUrl:'./gestionePatologie.component.html',
+    styleUrls:['./gestionePatologie.component.css']
+})
 
 export class GestionePatologieComponent implements OnInit{
 

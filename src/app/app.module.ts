@@ -30,11 +30,22 @@ import { ManagementParkComponent } from "../components/management-park/managemen
 import { LegislationsComponent } from "../components/legislations/legislations.component";
 import { UsefulNumbersComponent } from "../components/useful-numbers/useful-numbers.component";
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
-import { SlotService } from '../services/slot.service';import { EsameComponent } from '../components/esame/esame.component';
+import { SlotService } from '../services/slot.service';
+import { EsameComponent } from '../components/esame/esame.component';
 import { EsameService } from '../services/esame.service';
 import { InsertEsameComponent } from '../components/home-dim/insertEsame/insertEsame.component';
 import { UpdateEsameComponent } from '../components/updateEsame/updateEsame.component';
 import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsame.component';
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia.component';
+import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia.component';
+import { PatologiaService } from '../services/patologia.service';
+import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
+import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
+import { SintomoService } from '../services/sintomo.service';
+import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
+import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
+import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
 
 
@@ -66,7 +77,17 @@ import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsam
     EsameComponent,
      InsertEsameComponent,
      UpdateEsameComponent,
-     GestioneEsameComponent
+     GestioneEsameComponent,
+    GestionePatologieComponent,
+    ReadPatologiaComponent,
+    InsertPatologiaComponent,
+   UpdatePatologiaComponent,
+    GestioneSintomoComponent,
+    ReadSintomoComponent,
+    InsertSintomoComponent,
+    UpdateSintomoComponent,
+  
+   
   ],
   imports: [
     BrowserModule,
@@ -84,9 +105,14 @@ import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsam
      PaymentService, 
      GoogleMapService, 
      SlotService,
-    EsameService],
-     //PatologiaService,
-
+    EsameService,
+    ReportService,
+       CarService,
+       PaymentService, 
+       GoogleMapService, 
+       SlotService,
+       PatologiaService,
+       SintomoService],
   bootstrap: [AppComponent]
 })
 

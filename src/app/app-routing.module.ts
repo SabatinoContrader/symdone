@@ -21,11 +21,17 @@ import { ManagementParkComponent } from '../components/management-park/managemen
 import { UsefulNumbersComponent } from '../components/useful-numbers/useful-numbers.component';
 import { LegislationsComponent } from '../components/legislations/legislations.component';
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
+import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
-//import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
-//import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
-//import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
-//import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia.component';
+import { UpdatePatologiaComponent } from 'src/components/updatePatologia/updatePatologia.component';
+
+
+
+import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
+import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
+import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
+import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
 import { EsameComponent } from '../components/esame/esame.component';
 import { InsertEsameComponent } from '../components/home-dim/insertEsame/insertEsame.component';
@@ -57,15 +63,23 @@ const routes: Routes = [
   {path: 'legislations', component: LegislationsComponent},
   {path: 'intestazione', component: IntestazioneComponent},
   {path: 'managementSlot', component: ManagementSlotComponent},
-  //{path: 'readPatologia', component: ReadPatologiaComponent},
-  //{path: 'insertPatologia', component: InsertPatologiaComponent},
-  //{path: 'deletePatologia', component: DeletePatologiaComponent},
- // {path: 'updatePatologia', component: UpdatePatologiaComponent},
- // {path: 'gestionePatologie', component: GestionePatologieComponent},
   {path: 'esame', component: EsameComponent},
   {path: 'insertEsame', component: InsertEsameComponent},
   {path: 'updateEsame', component: UpdateEsameComponent},
-  {path: 'gestioneEsame', component: GestioneEsameComponent}
+  {path: 'gestioneEsame', component: GestioneEsameComponent},
+  {path: 'gestionePatologie', component: GestionePatologieComponent},
+  {path: 'readPatologia', component: ReadPatologiaComponent},
+  {path: 'insertPatologia', component: InsertPatologiaComponent},
+ {path: 'updatePatologia', component: UpdatePatologiaComponent},
+
+  {path: 'gestioneSintomo', component: GestioneSintomoComponent},
+  {path: 'readSintomo', component: ReadSintomoComponent},
+  {path: 'insertSintomo', component: InsertSintomoComponent},
+  {path: 'updateSintomo', component: UpdateSintomoComponent},
+
+  
+  
+ 
   
 ];
 
