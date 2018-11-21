@@ -37,6 +37,11 @@ import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePa
 import { PatologiaService } from '../services/patologia.service';
 import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
+import { SintomoService } from '../services/sintomo.service';
+import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
+import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
+import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
 
 
@@ -69,6 +74,11 @@ import { ReadPatologiaComponent } from '../components/readPatologia/readPatologi
     ReadPatologiaComponent,
     InsertPatologiaComponent,
    UpdatePatologiaComponent,
+    GestioneSintomoComponent,
+    ReadSintomoComponent,
+    InsertSintomoComponent,
+    UpdateSintomoComponent,
+  
    
   ],
   imports: [
@@ -87,7 +97,8 @@ import { ReadPatologiaComponent } from '../components/readPatologia/readPatologi
        PaymentService, 
        GoogleMapService, 
        SlotService,
-      PatologiaService],
+       PatologiaService,
+       SintomoService],
   bootstrap: [AppComponent]
 })
 

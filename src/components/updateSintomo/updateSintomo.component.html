@@ -1,0 +1,23 @@
+
+
+    <form #f="ngForm">
+        <table class="updateTable">
+ 
+            <tr>
+                <td><h2>Nome Sintomo:</h2></td>
+                <td><input type="text"  class="form-control" id='nomeSintomo' value="{{nomeSintomo}}"
+                    name="nomeSintomo" placeholder="Modifica Nome Sintomo" [(ngModel)]="nomeSintomo"></td>
+            </tr>
+        
+       
+        
+        <td>
+            <input type="hidden" name="idsintomo" [(ngModel)]="idsintomo">        
+      
+            <button class=" btn lg btn-primary " type = "submit" (click)="update(f)">Modifica</button>
+        </td>		
+        <a class=" btn lg btn-primary "
+        href="/#/readSintomo">Indietro</a>
+    </table>
+    </form>
+    

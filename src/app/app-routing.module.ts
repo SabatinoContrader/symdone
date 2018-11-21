@@ -28,6 +28,10 @@ import { UpdatePatologiaComponent } from 'src/components/updatePatologia/updateP
 
 
 
+import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
+import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
+import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
+import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
 
 
@@ -58,6 +62,15 @@ const routes: Routes = [
   {path: 'insertPatologia', component: InsertPatologiaComponent},
  {path: 'updatePatologia', component: UpdatePatologiaComponent},
 
+  {path: 'gestioneSintomo', component: GestioneSintomoComponent},
+  {path: 'readSintomo', component: ReadSintomoComponent},
+  {path: 'insertSintomo', component: InsertSintomoComponent},
+  {path: 'updateSintomo', component: UpdateSintomoComponent},
+
+  
+  
+ 
+  
 ];
 
 @NgModule({
