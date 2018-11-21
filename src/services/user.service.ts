@@ -30,20 +30,29 @@ export class UserService {
     );
   }
 
-  signup2(user: User): Observable <boolean> {
-    return this.http.post<boolean>('http://localhost:8080/Login/register', user)  //sistemare i collegamenti
-    .pipe(tap((response) => console.log("Utente"), catchError(this.handleError("login error", {})))
-  );
-  }
-
   signup(username:string, password:string, 
     ruolo:string, name:string, surname:string, phone:string, email:string): Observable<User>{
-      console.log("sei entrato qui??"+ username);
-       const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '1').
-       set('name', name).set('surname', surname).set('phone',phone).set('email', email);
-       return this.http.post<User>('http://localhost:8080/Login/register', params);
+      if(ruolo == "admin" || ruolo == "Admin"){
+        console.log("sei entrato qui??"+ username);
+        const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '1').
+        set('name', name).set('surname', surname).set('phone',phone).set('email', email);
+        return this.http.post<User>('http://localhost:8080/Login/register', params);
+      }
+      else if(ruolo == "doctor" || ruolo == "Doctor"){
+        console.log("sei entrato qui??"+ username);
+        const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '2').
+        set('name', name).set('surname', surname).set('phone',phone).set('email', email);
+        return this.http.post<User>('http://localhost:8080/Login/register', params);
+      }
+      else if(ruolo == "patient" || ruolo == "Patient"){
+        console.log("sei entrato qui??"+ username);
+        const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '3').
+        set('name', name).set('surname', surname).set('phone',phone).set('email', email);
+        return this.http.post<User>('http://localhost:8080/Login/register', params);
+      }     
 
-}
+  }
+
 
   changeFeedback(message: string){
     this.feedback = message;

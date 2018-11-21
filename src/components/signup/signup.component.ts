@@ -12,6 +12,7 @@ import { Router, NavigationExtras } from '@angular/router';
 
 export class SignupComponent implements OnInit {
   //feedback: string;
+  public allruolo: Array<User>;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -20,6 +21,9 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  //Dichiaro un'Array di tre elementi
+  ruoloUser = [{id:0,ruolo:"Seleziona il Ruolo..."},{id:1,ruolo:"Admin"},{id:2,ruolo:"Doctor"},{id:3,ruolo:"Patient"}];
 
   signup(f: NgForm){
     this.userService.signup(f.value.username, f.value.password, f.value.ruolo, f.value.name, f.value.surname, f.value.phone,f.value.email).subscribe((response) => {
@@ -31,6 +35,7 @@ export class SignupComponent implements OnInit {
 
     });
   }
+
 
   
 }
