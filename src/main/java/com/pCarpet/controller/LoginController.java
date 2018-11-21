@@ -28,8 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Login")
 public class LoginController {
 
-	private UserService userService;
-	private UserDTO user;	
+	private UserService userService;	
 	private HttpSession session;
 	
 	
@@ -49,34 +48,32 @@ public class LoginController {
 		return userDTO;
 	}
 
-	/*@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request, Model model ) {
-		
-		this.session = request.getSession();
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String ruolo = this.userService.login(username, password);
-		if (ruolo!="") {
-			//session.setAttribute("user", this.user);
-			if (ruolo.equals("doctor")) {
-				return "homeDoctor";
-			}	
-			else if (ruolo.equals("patient")) {
-				return "homeDIM";
-			}
-			else if (ruolo.equals("admin")) {
-				return "homeAdmin";
-			}	
-			else {
-				//return "index";
-			}	
-		}
-		else {
-			model.addAttribute("feedback", "wrong");
-			//return "index";
-		}
-		return "index";
-	}*/
+	@CrossOrigin
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public UserDTO newUser(
+			
+			
+			
+			@RequestParam(value = "iduser") String iduser,
+			@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password,
+			@RequestParam(value = "idRuolo") String idRuolo,
+			@RequestParam(value = "ruolo") String ruolo,
+			@RequestParam(value = "name") String name,			
+			@RequestParam(value = "surname") String surname,
+			@RequestParam(value = "phone") String phone,
+			@RequestParam(value = "email") String email		
+			
+	) {
+
+		System.out.println("Sono qui");
+		long idRole = Integer.parseInt(idRuolo);
+		long idUser = Integer.parseInt(iduser);
+		UserDTO  userDTO = new UserDTO(idUser,  username, password, idRole, ruolo, name, surname, phone, email);
+		userDTO = userService.newUser(userDTO);
+		return userDTO;
+
+	}
 	
 	@RequestMapping(value = "/logoutControl", method = RequestMethod.GET)
 	public String logoutControl(HttpServletRequest request, Model model ) {

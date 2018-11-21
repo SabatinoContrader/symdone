@@ -29,13 +29,15 @@ public class User {
         this.username=username;
     }
 	
-	public User(long idutente, String username, String password, int idRuolo, String ruolo) {
+	public User(long idutente, String username, String password, int idRuolo, String ruolo, String name, String surname, String phone, String email) {
 		this();
 		this.iduser=idutente;
 		this.username=username;
 		this.password=password;
 		this.idRuolo=idRuolo;
 		this.ruolo=ruolo;
+		this.name=name;
+		this.surname=surname;
 	}
 	
 	@Id
@@ -58,6 +60,18 @@ public class User {
 	@Column
 	@NotNull
     private String ruolo;
+	
+	@Column
+	private String name;
+	
+	@Column
+	private String surname;
+	
+	@Column
+	private String phone;
+	
+	@Column
+	private String email;
 	
 }
 

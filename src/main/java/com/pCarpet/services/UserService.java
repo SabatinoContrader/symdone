@@ -44,11 +44,8 @@ public class UserService {
 
     public List<UserDTO> getAllUsers () {
     	
-        List<User> listU = (List<User>)this.userRepository.findAll();
-        
-        List<User> ll=new LinkedList<User>();
-       
-        
+        List<User> listU = (List<User>)this.userRepository.findAll();       
+        List<User> ll=new LinkedList<User>();             
         List<UserDTO> listDTO=new ArrayList<>();
         
         for(User u: ll) 
@@ -72,6 +69,10 @@ public class UserService {
         return this.userRepository.save(user)!=null;
      
     }
+    
+    public UserDTO newUser(UserDTO userDTO) {
+		return UserConverter.covertToDTO(userRepository.save(UserConverter.converToEntity(userDTO)));
+	}
     
     public void deleteUser(int idUser) {
     	User u = this.userRepository.findById(Long.valueOf(idUser)).get();
