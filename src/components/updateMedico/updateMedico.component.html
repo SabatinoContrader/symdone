@@ -1,0 +1,51 @@
+<form #f="ngForm">
+    <body>
+    <div class="nav">
+        <nav class="navbar navbar-light bg-dark nav justify-content-end" id="nav">
+                <li class="nav-item">
+                        <a class="nav-link" href="/#/gestioneMedico">Indietro</a>
+                    </li>    
+            <li class="nav-item">
+                <a class="nav-link" (click) = "logout()">Logout</a>
+            </li>
+        </nav>
+    </div>
+
+    <div class="updateTable"> 
+        <table class = "table">
+              
+                <tr>
+                    <td>nome</td>
+                    <td><input type="text" class="form-control" id='nomeMedico' value="{{medici.nome}}" name="nomeMedico" [(ngModel)]="medici.nome"></td>
+                </tr>
+                
+                <tr>
+                    <td>Cognome</td>
+                    <td><input type="text" class="form-control" id='cognomeMedico' value="{{medici.cognome}}" name="cognomeMedico" [(ngModel)]="medici.cognome"></td>
+                </tr>
+                
+                <tr>
+                    <td>Specializzazione</td>
+                    <td><input type="text" class="form-control" id='specializzazioneMedico' value="{{medici.specializzazione}}" name="specializzazioneMedico" [(ngModel)]="medici.specializzazione"></td>
+                </tr>
+                
+                <tr>
+                    <td>Indirizzo</td>
+                    <td><input type="text" class="form-control" id='indirizzoMedico' value="{{medici.indirizzo}}" name="indirizzoMedico" [(ngModel)]="medici.indirizzo"></td>
+                </tr>
+                
+                <tr>
+                    <td>Mail</td>
+                    <td><input type="text" class="form-control" id='mailMedico' value="{{medici.mail}}" name="mailMedico" [(ngModel)]="medici.mail"></td>
+                </tr>    
+
+                <td>
+                    <input type="hidden" name="idmed" value="{{medici.idmedico}}" [(ngModel)]="medici.idmedico">
+                    <button class="btn lg btn-primary" type="submit" (click)="update(f)">Modifica</button>
+                </td>
+    
+        </table>
+    </div>
+    
+</body>
+</form>

@@ -1,6 +1,9 @@
 import * as intestazioneComponent from '../components/intestazione/intestazione.component';
 import { LoginComponent } from "../components/login/login.component";
 import { HomeAdminComponent } from "../components/home-admin/home-admin.component";
+import { GestioneMedicoComponent } from "../components/gestioneMedico/gestioneMedico.component";
+import { UpdateMedicoComponent } from "../components/updateMedico/updateMedico.component";
+import { NewMedicoComponent } from '../components/newMedico/newMedico.component';
 import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -52,6 +55,7 @@ import { InsertSintomoComponent } from '../components/insertSintomo/insertSintom
 import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
 
+import { MedicoService } from 'src/services/medico.service';
 
 
 
@@ -62,6 +66,9 @@ import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintom
     HomeAdminComponent,
     HomeDoctorComponent,
     HomeDimComponent,
+    GestioneMedicoComponent,
+    UpdateMedicoComponent,
+    NewMedicoComponent,
     SignupComponent,
     ReportDriverComponent,
     CarComponent,

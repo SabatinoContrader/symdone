@@ -1,0 +1,50 @@
+<form #f="ngForm" method="POST">
+    <body>
+    <div class="nav">
+        <nav class="navbar navbar-light bg-dark nav justify-content-end" id="nav">
+                <li class="nav-item">
+                        <a class="nav-link" href="/#/gestioneMedico">Indietro</a>
+                    </li>    
+            <li class="nav-item">
+                <a class="nav-link" (click) = "logout()">Logout</a>
+            </li>
+        </nav>
+    </div>
+
+    <div class="updateTable"> 
+        <table class = "table">
+              
+                <tr>
+                    <td>Nome Medico</td>
+                    <td><input type="text" id='nomeMedico' name="nomeMedico" ngModel></td>
+                </tr>
+                
+                <tr>
+                    <td>Cognome</td>
+                    <td><input type="text" id='cognomeMedico' name="cognomeMedico" ngModel></td>
+                </tr>
+                
+                <tr>
+                    <td>Specializzazione</td>
+                    <td><input type="text" id='specializzazioneMedico' name="specializzazioneMedico" ngModel></td>
+                </tr>
+                
+                <tr>
+                    <td>Indirizzo</td>
+                    <td><input type="text" id='indirizzoMedico' name="indirizzoMedico" ngModel></td>
+                </tr>
+                
+                <tr>
+                    <td>Mail</td>
+                    <td><input type="text" id='mailMedico' name="mailMedico" ngModel></td>
+                </tr>    
+
+                <td>
+                    <button class="btn lg btn-primary" type="submit" (click)="insert(f)">Crea</button>
+                </td>
+    
+        </table>
+    </div>
+    
+</body>
+</form>

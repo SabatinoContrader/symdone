@@ -43,6 +43,9 @@ import { ErbaComponent } from '../components/erba/erba.component';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
 import { UpdateErbaComponent } from 'src/components/updateErba/updateErba.component';
 
+import { GestioneMedicoComponent } from '../components/gestioneMedico/gestioneMedico.component';
+import { UpdateMedicoComponent } from '../components/updateMedico/updateMedico.component';
+import { NewMedicoComponent } from '../components/newMedico/newMedico.component';
 
 
 const routes: Routes = [
@@ -88,6 +91,9 @@ const routes: Routes = [
   
  
   
+  {path: 'gestioneMedico', component: GestioneMedicoComponent},
+  {path: 'updateMedico', component: UpdateMedicoComponent},
+  {path: 'newMedico', component: NewMedicoComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,51 @@
+<body>
+    <div class="nav">
+        <nav class="navbar navbar-light bg-dark nav justify-content-end" id="nav">
+                <li class="nav-item">
+                        <a class="nav-link" href="/#/newMedico">Crea Nuovo Medico</a>
+                    </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="/#/homeAdmin">Indietro</a>
+                    </li>    
+            <li class="nav-item">
+                <a class="nav-link" (click) = "logout()">Logout</a>
+            </li>
+        </nav>
+    </div>
+
+    <div class="readTable">
+        <table class = "table">
+            <thead>
+    
+                <tr></tr>
+                <tr>
+                    <td>Id Medico</td>
+                    <td>nome</td>
+                    <td>Cognome</td>
+                    <td>Specializzazione</td>
+                    <td>Indirizzo</td>
+                    <td>Mail</td>
+                    <td>Azioni</td>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let medico of medici">
+                <td>{{medico.idmedico}}</td>
+                <td>{{medico.nome}}</td>
+                <td>{{medico.cognome}}</td>
+                <td>{{medico.specializzazione}}</td>
+                <td>{{medico.indirizzo}}</td>
+                <td>{{medico.mail}}</td>
+                <td>
+                    <tr><button class = "btn lg btn-primary" [routerLink]="['/updateMedico']" [queryParams]="{idmed: medico.idmedico}">Modifica</button></tr>
+                
+                    <tr><button class="btn lg btn-primary" type = "submit" (click)="delete(medico.idmedico)">Elimina</button></tr>
+                </td>
+            </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    
+</body>

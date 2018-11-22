@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
-import { CarService } from "../../services/car.service";
+import { MedicoService } from "../../services/medico.service";
 
 @Component({
   selector: "app-home-admin",
@@ -10,10 +10,10 @@ import { CarService } from "../../services/car.service";
 
 export class HomeAdminComponent implements OnInit {
   
-  constructor(private carService: CarService, private router: Router) { }
+  constructor(private medicoService: MedicoService, private router: Router) { }
 
   ngOnInit() {
-    this.carService.deleteFeedback();
+    this.medicoService.deleteFeedback();
   }
 
   logout(){
