@@ -31,16 +31,27 @@ import { LegislationsComponent } from "../components/legislations/legislations.c
 import { UsefulNumbersComponent } from "../components/useful-numbers/useful-numbers.component";
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
 import { SlotService } from '../services/slot.service';
-
 import { ErbaComponent } from '../components/erba/erba.component';
 import { ErbaService } from '../services/erba.service';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
 import { UpdateErbaComponent } from '../components/updateErba/updateErba.component';
+import { EsameComponent } from '../components/esame/esame.component';
+import { EsameService } from '../services/esame.service';
+import { InsertEsameComponent } from '../components/home-dim/insertEsame/insertEsame.component';
+import { UpdateEsameComponent } from '../components/updateEsame/updateEsame.component';
+import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsame.component';
+import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia.component';
+import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia.component';
+import { PatologiaService } from '../services/patologia.service';
+import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
+import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
+import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
+import { SintomoService } from '../services/sintomo.service';
+import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
+import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
+import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
 
-//import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
-//import { PatologiaService } from '../services/patologia.service';
-//import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
-//import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
+
 
 
 
@@ -65,16 +76,25 @@ import { UpdateErbaComponent } from '../components/updateErba/updateErba.compone
     ManagementParkComponent,
     LegislationsComponent,
     UsefulNumbersComponent,
-    ManagementSlotComponent,
     intestazioneComponent.IntestazioneComponent,
-   ErbaComponent,
-   AddErbaComponent,
-   UpdateErbaComponent
-    //ReadPatologiaComponent,
-    //InsertPatologiaComponent,
-   // DeletePatologiaComponent,
-   // UpdatePatologiaComponent,
-    //GestionePatologieComponent
+    ErbaComponent,
+    AddErbaComponent,
+    UpdateErbaComponent,
+    ManagementSlotComponent,
+    EsameComponent,
+     InsertEsameComponent,
+     UpdateEsameComponent,
+     GestioneEsameComponent,
+    GestionePatologieComponent,
+    ReadPatologiaComponent,
+    InsertPatologiaComponent,
+   UpdatePatologiaComponent,
+    GestioneSintomoComponent,
+    ReadSintomoComponent,
+    InsertSintomoComponent,
+    UpdateSintomoComponent,
+  
+   
   ],
   imports: [
     BrowserModule,
@@ -86,14 +106,21 @@ import { UpdateErbaComponent } from '../components/updateErba/updateErba.compone
       libraries: ["places"]
     })
   ],
-  providers: [UserService, 
-    ReportService, 
-    CarService, 
-    PaymentService, 
-    GoogleMapService, 
-    SlotService, 
-   ErbaService
-  ],
+  providers: [UserService,
+     ReportService, 
+     CarService,
+     PaymentService, 
+     GoogleMapService, 
+     SlotService,
+     EsameService,
+     ErbaService,
+     ReportService,
+     CarService,
+     PaymentService, 
+     GoogleMapService, 
+     SlotService,
+     PatologiaService,
+     SintomoService],
   bootstrap: [AppComponent]
 })
 

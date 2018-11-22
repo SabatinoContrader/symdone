@@ -1,0 +1,24 @@
+<div class="insertEsame">
+		
+    <h1>Inserisci Esame</h1>
+</div>
+<form #f="ngForm" action="/HomeEsame/insert" method="POST">
+    <table class="insertEsame">
+        <tr>
+            <td><h2>Nome Esame:</h2></td>
+            <td><input type="text" class="form-control" id="esame"
+                name="esame" placeholder="Inserisci Nome Esame"ngModel></td>
+        </tr>
+        <tr>
+            <td><h2>Descrizione:</h2></td>
+            <td><input type="text" class="form-control" id="descrizione" name="descrizione"
+                placeholder="Inserisci Descrizione Esame"ngModel></td>
+        </tr>
+    </table>
+    
+    <button class="btn lg btn-primary" (click) = "register(f)" >Inserisci</button><br><br>
+    
+    <a class="btn lg btn-primary"
+ 		routerLink="/gestioneEsame">Indietro</a><br> 
+
+    </form>

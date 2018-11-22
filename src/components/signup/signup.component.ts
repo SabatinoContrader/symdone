@@ -11,7 +11,8 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 
 export class SignupComponent implements OnInit {
-  feedback: string;
+  //feedback: string;
+  public allruolo: Array<User>;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -21,17 +22,20 @@ export class SignupComponent implements OnInit {
 
   }
 
-  signup(f: NgForm): void{
-    var user = new User(f.value.username, f.value.password, 1, f.value.iduser, f.value.ruolo);
-    this.userService.signup(user).subscribe((response) => {
-      if(response)
-        this.feedback = "Registrazione effettuata con successo";
-      else
-        this.feedback = "Registrazione non andata a buon fine";
-    this.userService.changeFeedback(this.feedback);
-    this.router.navigateByUrl("/login");
+  //Dichiaro un'Array di tre elementi
+  ruoloUser = [{id:0,ruolo:"Seleziona il Ruolo..."},{id:1,ruolo:"Admin"},{id:2,ruolo:"Doctor"},{id:3,ruolo:"Patient"}];
+
+  signup(f: NgForm){
+    this.userService.signup(f.value.username, f.value.password, f.value.ruolo, f.value.name, f.value.surname, f.value.phone,f.value.email).subscribe((response) => {
+      console.log("sei entrato qui!!" + f.value.username);
+      if (response != null) {
+        
+        this.router.navigateByUrl("/login");
+      }
+
     });
   }
+
 
   
 }

@@ -1,0 +1,20 @@
+
+
+    <form action="/HomeSintomo/insertSintomo" #f="ngForm"  method="POST">
+       <table class="insertTable">
+
+           <tr>
+               <td><h2>Nome Sintomo:</h2></td>
+               <td><input type="text"  id="nome"
+                   name="nome" placeholder="Inserisci Nome Sintomo" ngModel></td>
+           </tr>
+
+       </table>
+
+       <button class=" btn lg btn-primary" (click)="register(f)">Inserisci</button>
+       
+       <a class=" btn lg btn-primary"
+       href="/#/gestioneSintomo">Indietro</a>
+      
+   </form>
+   
