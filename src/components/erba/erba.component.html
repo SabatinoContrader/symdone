@@ -1,16 +1,16 @@
 
-<form class="form-signin" action="/HomeUser/showUsers" method="post">
+<form class="form-group" #f="ngForm">
 
-	<h1 class="element-margin-left">Ecco tutti gli utenti</h1>
+	<h1 class="element" >GESTIONE ERBE</h1>
 
 		
 		
 		
 
-<table class="bordo rcorners" >	
+<table >	
 	     <tr>
-     <th><h4>ERBE</h4></th><td></td><td></td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
-     <tr>
+     <th  ><h4>ERBE</h4>
+     
 	<tr>
         
          <th>
@@ -25,7 +25,11 @@
          	DESCRIZIONE
           </th>
          <th>
+             DELETE
           </th>
+          <th>
+            MODIFICA
+         </th>
 
      </tr>
 	
@@ -37,25 +41,36 @@
 
 	
 		<td>
-          
-          <a class="btn lg btn-primary"
-			href="/HomeErbaC//updateErba?&id=${erba.iderba}">Modifica</a>
+          <button class="btn lg btn-primary"  type = "submit" (click)="deleteErba(erba.iderba)"> Elimina</button>
+        
          </td>
          <td>
-             <a class="btn lg btn-primary"
-			href="/HomeErbaC/deleteErba?&id=${erba.iderba}">Elimina</a>
+            <button 
+                class ="btn lg btn-primary" 
+                [routerLink]="['/updateErba']" 
+                [queryParams]="{
+                    iderba: erba.iderba,
+                    descrizione: erba.descrizione,
+                    erba: erba.erba
+                }"
+            >
+                modifica
+            </button>
+             
          </td>
-		
+         
 		
      </tr>
      
      
      
-</table>
+</table><br> <br> <br> 
+<a  class ="btn lg btn-primary"
+		href="/#/addErba">Inserisci Erba</a><br> <br> 
 
 
-
-<a class="btn lg btn-primary"
-		href="/Home/homeErba">Indietro</a></br> 
+         
+<a  class ="btn lg btn-primary"
+		routerLink="/homeDoctor">Indietro</a><br> 
 
 </form>

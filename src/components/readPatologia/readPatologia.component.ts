@@ -3,11 +3,11 @@ import { PatologiaService } from "src/services/patologia.service";
 import { Router } from "@angular/router";
 import { Patologia } from "src/models/Patologia";
 
-@Component({
+/*@Component({
     selector:'app-readPatologia',
     templateUrl:'./',
-  //  styleUrls:['./']
-})
+    styleUrls:['./']
+})*/
 
 export class ReadPatologiaComponent implements OnInit{
     

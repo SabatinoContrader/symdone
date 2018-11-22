@@ -21,12 +21,15 @@ import { ManagementParkComponent } from '../components/management-park/managemen
 import { UsefulNumbersComponent } from '../components/useful-numbers/useful-numbers.component';
 import { LegislationsComponent } from '../components/legislations/legislations.component';
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
-import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
-import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
-import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+//import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
+//import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+//import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
+//import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
 
 import { ErbaComponent } from '../components/erba/erba.component';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
+import { UpdateErbaComponent } from 'src/components/updateErba/updateErba.component';
+
 
 
 const routes: Routes = [
@@ -51,11 +54,9 @@ const routes: Routes = [
   {path: 'legislations', component: LegislationsComponent},
   {path: 'intestazione', component: IntestazioneComponent},
   {path: 'managementSlot', component: ManagementSlotComponent},
-  {path: 'readPatologia', component: ReadPatologiaComponent},
-  {path: 'insertPatologia', component: InsertPatologiaComponent},
-  {path: 'deletePatologia', component: DeletePatologiaComponent},
+  {path: 'addErba', component: AddErbaComponent},
   {path: 'erba', component: ErbaComponent},
-  {path: 'addErba', component: AddErbaComponent}
+  {path: 'updateErba', component: UpdateErbaComponent}
 
 
   

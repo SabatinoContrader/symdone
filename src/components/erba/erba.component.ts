@@ -20,28 +20,20 @@ export class ErbaComponent implements OnInit{
 ngOnInit(){
     this.erbaService.readErba().subscribe(response => {
 console.log("marti sei mitica");
+this.erbaList=response;
 console.log(response);
     });
 }
-delete(f: NgForm){
-    this.erbaService.deleteErba(f.value.iderba).subscribe((Response)=>{   
-if(Response != null){
-    this.router.navigateByUrl(" ")
-}else{
-    console.log("no");
-}
+deleteErba(id:string){
+    console.log("---------"+id);
+    this.erbaService.deleteErba(id).subscribe(async(Response)=>{   
+    await this.ngOnInit();
+
 
     })
     
 }
 
-updateErba(f: NgForm){
-    this.erbaService.updateErba(f.value.iderba, f.value.erba, f.value.descrizione).subscribe((response) => {
-        if(response != null){
-            this.router.navigateByUrl("/gestioneListino");
-        }
 
-        
-    });
 }
-}
+

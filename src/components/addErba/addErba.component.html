@@ -1,21 +1,21 @@
-     <form action="/HomeErbaC/insertErba" method="post">
+     <form action="/HomeErbaC/insertErba" #f ="ngForm" method="post">
 		<table class="insertTable">
 
 			<tr>
 				<td><h2>Nome Erba:</h2></td>
-				<td><input type="text"  id="erba"
-					name="erba" placeholder="Inserisci Nome Erba"></td>
+				<td><input type="text" class="form-control" id="erba"
+					name="erba" placeholder="Inserisci Nome Erba" ngModel></td>
 			</tr>
 			
 			<tr>
 				<td><h2>Descrizione:</h2></td>
-				<td><input type="text"  id="descrizione"
-					name="descrizione" placeholder="Inserisci Descrizione Erba"></td>
+				<td><input type="text"  class="form-control" id="descrizione"
+					name="descrizione" placeholder="Inserisci Descrizione Erba"ngModel></td>
 			</tr>
 
 		</table>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Crea</button>
+		<button (click)="insertErba(f)">Crea</button>
 		<a class="btn btn-lg btn-primary btn-block" 
-		href="/Home/homeErba">Indietro</a><br>
+		href="/#/erba">Indietro</a><br>
 	</form>
 	

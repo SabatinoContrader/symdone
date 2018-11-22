@@ -31,13 +31,16 @@ import { LegislationsComponent } from "../components/legislations/legislations.c
 import { UsefulNumbersComponent } from "../components/useful-numbers/useful-numbers.component";
 import { ManagementSlotComponent } from '../components/management-slot/management-slot.component';
 import { SlotService } from '../services/slot.service';
-import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
-import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia';
 
 import { ErbaComponent } from '../components/erba/erba.component';
 import { ErbaService } from '../services/erba.service';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
-import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+import { UpdateErbaComponent } from '../components/updateErba/updateErba.component';
+
+//import { DeletePatologiaComponent } from '../components/deletePatologia/deletePatologia';
+//import { PatologiaService } from '../services/patologia.service';
+//import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia';
+//import { GestionePatologieComponent } from '../components/GestionePatologie/GestionePatologie';
 
 
 
@@ -63,12 +66,15 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
     LegislationsComponent,
     UsefulNumbersComponent,
     ManagementSlotComponent,
-    ReadPatologiaComponent,
-    InsertPatologiaComponent,
-    ManagementSlotComponent,
-    ErbaComponent,
-    AddErbaComponent,
-    DeletePatologiaComponent
+    intestazioneComponent.IntestazioneComponent,
+   ErbaComponent,
+   AddErbaComponent,
+   UpdateErbaComponent
+    //ReadPatologiaComponent,
+    //InsertPatologiaComponent,
+   // DeletePatologiaComponent,
+   // UpdatePatologiaComponent,
+    //GestionePatologieComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +86,14 @@ import { DeletePatologiaComponent } from '../components/deletePatologia/deletePa
       libraries: ["places"]
     })
   ],
-  providers: [UserService, ReportService, CarService, PaymentService, GoogleMapService, SlotService, ErbaService],
+  providers: [UserService, 
+    ReportService, 
+    CarService, 
+    PaymentService, 
+    GoogleMapService, 
+    SlotService, 
+   ErbaService
+  ],
   bootstrap: [AppComponent]
 })
 

@@ -22,18 +22,19 @@ export class ErbaService{
         insertErba(erba: string, descrizione: string,): Observable<Erba> {
             const params = new HttpParams().set('erba', erba).set('descrizione', descrizione);
             console.log(erba+" "+descrizione);
-            return this.http.post<Erba>('http://localhost:4200/HomeErbaC/insertErba', params);
+            return this.http.post<Erba>('http://localhost:8080/HomeErbaC/insertErba', params);
         }
         readErba():Observable<Array<Erba>>{
-            return this.http.get<Array<Erba>>("http://localhost:4200/HomeErbaC/ShowErba")
+            return this.http.get<Array<Erba>>("http://localhost:8080/HomeErbaC/ShowErba")
         }
         updateErba(iderba: string, erba: string, descrizione: string,): Observable<Erba>{
-        const params = new HttpParams().set('erba', erba).set('descrizione', descrizione);
-        return this.http.post<Erba>('http://localhost:4200/HomeErbaC/updateErba', params);
+        const params = new HttpParams().set('iderba',iderba).set('erba', erba).set('descrizione', descrizione);
+        return this.http.post<Erba>('http://localhost:8080/HomeErbaC/updateErba', params);
         }
         deleteErba(iderba: string):Observable<boolean>{
+            console.log("sono arrivato"+iderba);
         const params =new HttpParams().set("iderba",iderba);
-        return this.http.post<boolean>('http://localhost:4200/HomeErbaC/deleteErba', params);
+        return this.http.post<boolean>('http://localhost:8080/HomeErbaC/deleteErba', params);
 
         }
 }  

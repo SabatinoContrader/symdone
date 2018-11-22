@@ -1,0 +1,59 @@
+<form class="form-signin" #f="ngForm" >
+
+	<h1 class="element-margin-left">Lista delle erbe che puoi modificare </h1>
+	
+
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     <tr>
+	
+          
+          
+       <tr>
+            <td><h2> Nome Erba:</h2></td>
+            <td><input 
+                type="text" 
+                class="form-control" 
+                id="erba"
+                value="{{erba}}"
+                name="erba" 
+                placeholder="Modifica Nome Erba" 
+                [(ngModel)]="erba" 
+            ></td>
+        </tr>
+        
+        <tr>
+            <td><h2>Descrizione:</h2></td>
+            <td>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="descrizione"
+                    value="{{descrizione}}"
+                    name="descrizione" 
+                    placeholder="Modifica Descrizione Erba" 
+                    [(ngModel)]="descrizione"
+                >
+            </td>
+        </tr>
+
+  </table>
+
+    <br>
+		
+    <br>
+
+
+     
+         <table>
+     <tr><td>
+        <button class="btn lg btn-primary"  type = "submit" (click)="updateErba(f, iderba)"> Effettua Modifica</button>
+	  </td><td>
+      <a class="btn lg btn-primary" 
+		href="/#/erba">Indietro</a><br>
+      </td>
+	  </tr>
+      </table>  
+      </form>
