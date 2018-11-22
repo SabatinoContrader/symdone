@@ -7,15 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pCarpet.dao.MedicoDAO;
 import com.pCarpet.dto.MedicoDTO;
 import com.pCarpet.dto.UserDTO;
 import com.pCarpet.services.MedicoService;
 
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/HomeMedico")
 public class HomeMedicoController {
 	
@@ -26,96 +30,75 @@ public class HomeMedicoController {
 		this.medicoService =  medicoService;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/ShowMedico", method = RequestMethod.GET)
-	public String HomeMedicoGet (HttpServletRequest request, Model model) {
+	public List<MedicoDTO> HomeMedicoGet () {
 		List<MedicoDTO> listaMedico = medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico);
-		
-		String scelta=request.getParameter("scelta");
-		
-		if (scelta!=null)
-		{
-			switch(scelta)
-			{
-				case "visualizza":
-					return "medicoView";
-			
-				case "inserisci":
-					return "insertMedico";
-				
-				case "indietroMain":
-					return "homeAdmin";
-					
-				case "update":
-					return "medicoView";	
-					
-				case "delete":
-					return "medicoView"; 
-			}
-		}
-		return "homeMedico";
+		return listaMedico;
 	}
 	
-	@RequestMapping(value = "/indietroMedico", method = RequestMethod.GET)
-	public String IndietroMedico (HttpServletRequest request) {
-		return "homeMedico";
-	}
-	
-	@RequestMapping(value = "/insertMedico", method = RequestMethod.GET)
-	public String InsertMedico (HttpServletRequest request, Model model) {	
-		
-		//MedicoDTO medico= new MedicoDTO();
-		String nome=request.getParameter("nome");
-		String cognome=request.getParameter("cognome");					
-		String specializzazione=request.getParameter("specializzazione");
-		String indirizzo=request.getParameter("indirizzo");
-		String mail=request.getParameter("mail");
-		MedicoDTO m=new MedicoDTO(0,nome,cognome,specializzazione,indirizzo, mail);
-		medicoService.insertMed(m);
-		
-		List<MedicoDTO> listaMedico2 = medicoService.getAll();
-		
-		model.addAttribute("listaMedico", listaMedico2);
-		return "medicoView";
-		}
-	
+	@CrossOrigin
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
-	public String UpdateForm (HttpServletRequest request, Model model) {
+	public MedicoDTO UpdateForm (String id) {
 		
-		List<MedicoDTO> listaMedico3 = medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico3);
-		MedicoDTO m= this.medicoService.getMedicoID(Integer.parseInt(request.getParameter("id")));
-		model.addAttribute("medico", m);
-		return "updateMedico";
+		MedicoDTO m= this.medicoService.getMedicoID(Integer.parseInt(id));
+		return m;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/updateMedico", method = RequestMethod.POST)
-	public String UpdateMedico (HttpServletRequest request, Model model) {
+	public MedicoDTO UpdateMedico (
+			@RequestParam (value="idMedico") long id,
+			@RequestParam (value="nomeMedico") String nome,
+			@RequestParam (value="cognomeMedico") String cognome,
+			@RequestParam (value="specializzazioneMedico") String specializzazione,
+			@RequestParam (value="indirizzoMedico") String indirizzo,
+			@RequestParam (value="mailMedico") String mail) {
 		
-		List<MedicoDTO> listaMedico3 = medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico3);
-		long idMed=Long.parseLong(request.getParameter("id"));
-		String nome=request.getParameter("nome");
-		String cognome=request.getParameter("cognome");					
-		String specializzazione=request.getParameter("specializzazione");
-		String indirizzo=request.getParameter("indirizzo");
-		String mail=request.getParameter("mail");
-		
-		MedicoDTO m=new MedicoDTO(idMed,nome,cognome,specializzazione,indirizzo, mail);
-		medicoService.insertMed(m);
-		List<MedicoDTO> listaMedico4 = medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico4);
-		return "medicoView";
+		MedicoDTO medicoDTO=medicoService.getMedicoID(id);
+		medicoDTO.setNome(nome);
+		medicoDTO.setCognome(cognome);
+		medicoDTO.setSpecializzazione(specializzazione);
+		medicoDTO.setIndirizzo(indirizzo);
+		medicoDTO.setMail(mail);
+		medicoService.updateMedico(medicoDTO);
+		return medicoDTO;
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/insertMedico", method = RequestMethod.POST)
+	public MedicoDTO InsertMedico (
+			@RequestParam (value="nomeMedico") String nome,
+			@RequestParam (value="cognomeMedico") String cognome,
+			@RequestParam (value="specializzazioneMedico") String specializzazione,
+			@RequestParam (value="indirizzoMedico") String indirizzo,
+			@RequestParam (value="mailMedico") String mail) {	
+		
+		MedicoDTO medicoDTO= new MedicoDTO();
+		medicoDTO.setNome(nome);
+		medicoDTO.setCognome(cognome);
+		medicoDTO.setSpecializzazione(specializzazione);
+		medicoDTO.setIndirizzo(indirizzo);
+		medicoDTO.setMail(mail);
+		//MedicoDTO m=new MedicoDTO(0,nome,cognome,specializzazione,indirizzo, mail);
+		medicoService.insertMed(medicoDTO);
+		
+		//List<MedicoDTO> listaMedico2 = medicoService.getAll();
+		
+		//model.addAttribute("listaMedico", listaMedico2);
+		return medicoDTO;
+		}
+	
+	
 	
 	@RequestMapping(value = "/deleteMedico", method = RequestMethod.GET)
-	public String DeleteMedico (HttpServletRequest request, Model model) {
+	public boolean DeleteMedico (String id) {
 		
-		List<MedicoDTO> listaMedico4 = medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico4);
-		medicoService.deleteMedico(Long.parseLong(request.getParameter("id")));
-		listaMedico4= medicoService.getAll();
-		model.addAttribute("listaMedico", listaMedico4);
-		return "medicoView";
+		//List<MedicoDTO> listaMedico4 = medicoService.getAll();
+		//model.addAttribute("listaMedico", listaMedico4);
+		medicoService.deleteMedico(Long.parseLong(id));
+		//listaMedico4= medicoService.getAll();
+		//model.addAttribute("listaMedico", listaMedico4);
+		return true;
 	}
 }	
