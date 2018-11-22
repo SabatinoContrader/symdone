@@ -53,6 +53,11 @@ import { SintomoService } from '../services/sintomo.service';
 import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
 import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
 import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
+import { GestioneDatiBiomediciComponent } from '../components/gestioneDatiBiomedici/gestioneDatiBiomedici.component';
+import { DatiBiomediciService } from '../services/datiBiomedici.service';
+import { ReadDatiBiomediciComponent } from '../components/readDatiBiomedici/readDatiBiomedici.component';
+import { InsertDatiBiomediciComponent } from '../components/insertDatiBiomedici/insertDatiBiomedici.component';
+import { UpdateDatiBiomediciComponent } from '../components/updateDatiBiomedici/updateDatiBiomedici.component';
 
 
 import { MedicoService } from 'src/services/medico.service';
@@ -100,7 +105,10 @@ import { MedicoService } from 'src/services/medico.service';
     ReadSintomoComponent,
     InsertSintomoComponent,
     UpdateSintomoComponent,
-  
+   GestioneDatiBiomediciComponent,
+   ReadDatiBiomediciComponent,
+   InsertDatiBiomediciComponent,
+   UpdateDatiBiomediciComponent
    
   ],
   imports: [
@@ -127,6 +135,7 @@ import { MedicoService } from 'src/services/medico.service';
      GoogleMapService, 
      SlotService,
      PatologiaService,
+     DatiBiomediciService,
      SintomoService],
   bootstrap: [AppComponent]
 })

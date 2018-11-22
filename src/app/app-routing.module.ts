@@ -24,29 +24,25 @@ import { ManagementSlotComponent } from '../components/management-slot/managemen
 import { GestionePatologieComponent } from '../components/gestionePatologie/gestionePatologie.component';
 import { ReadPatologiaComponent } from '../components/readPatologia/readPatologia.component';
 import { InsertPatologiaComponent } from '../components/insertPatologia/insertPatologia.component';
-import { UpdatePatologiaComponent } from 'src/components/updatePatologia/updatePatologia.component';
-
-
-
+import { UpdatePatologiaComponent } from '../components/updatePatologia/updatePatologia.component';
+import { GestioneDatiBiomediciComponent } from '../components/gestioneDatiBiomedici/gestioneDatiBiomedici.component';
+import { ReadDatiBiomediciComponent } from '../components/readDatiBiomedici/readDatiBiomedici.component';
+import { InsertDatiBiomediciComponent } from '../components/insertDatiBiomedici/insertDatiBiomedici.component';
+import { UpdateDatiBiomediciComponent } from '../components/updateDatiBiomedici/updateDatiBiomedici.component';
 import { GestioneSintomoComponent} from '../components/gestioneSintomo/gestioneSintomo.component';
 import { ReadSintomoComponent } from '../components/readSintomo/readSintomo.component';
 import { InsertSintomoComponent } from '../components/insertSintomo/insertSintomo.component';
 import { UpdateSintomoComponent } from '../components/updateSintomo/updateSintomo.component';
-
 import { EsameComponent } from '../components/esame/esame.component';
 import { InsertEsameComponent } from '../components/home-dim/insertEsame/insertEsame.component';
 import { UpdateEsameComponent } from '../components/updateEsame/updateEsame.component';
 import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsame.component';
-
-
 import { ErbaComponent } from '../components/erba/erba.component';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
 import { UpdateErbaComponent } from 'src/components/updateErba/updateErba.component';
-
 import { GestioneMedicoComponent } from '../components/gestioneMedico/gestioneMedico.component';
 import { UpdateMedicoComponent } from '../components/updateMedico/updateMedico.component';
 import { NewMedicoComponent } from '../components/newMedico/newMedico.component';
-
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -81,19 +77,17 @@ const routes: Routes = [
   {path: 'readPatologia', component: ReadPatologiaComponent},
   {path: 'insertPatologia', component: InsertPatologiaComponent},
  {path: 'updatePatologia', component: UpdatePatologiaComponent},
-
   {path: 'gestioneSintomo', component: GestioneSintomoComponent},
   {path: 'readSintomo', component: ReadSintomoComponent},
   {path: 'insertSintomo', component: InsertSintomoComponent},
   {path: 'updateSintomo', component: UpdateSintomoComponent},
-
-  
-  
- 
-  
   {path: 'gestioneMedico', component: GestioneMedicoComponent},
   {path: 'updateMedico', component: UpdateMedicoComponent},
-  {path: 'newMedico', component: NewMedicoComponent}
+  {path: 'newMedico', component: NewMedicoComponent},
+ {path: 'gestioneDatiBiomedici', component: GestioneDatiBiomediciComponent},
+ {path: 'readDatiBiomedici', component: ReadDatiBiomediciComponent},
+ {path: 'insertDatiBiomedici', component: InsertDatiBiomediciComponent},
+ {path: 'updateDatiBiomedici', component: UpdateDatiBiomediciComponent},
 ];
 
 @NgModule({

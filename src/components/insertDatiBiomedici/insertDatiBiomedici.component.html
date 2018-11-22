@@ -1,0 +1,29 @@
+<body>
+
+
+    <form #f="ngForm" action="/HomeDatiBiomedici/InsertDatiBiomedici" method="POST">
+                <table class="insertTable">
+    
+                    <tr>
+                        <td><h2>Risultato:</h2></td>
+                        <td><input type="file" id="risultato" name="risultato"
+                            placeholder="Inserisci il risultato" ngModel> </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><h2>Data:</h2></td>
+                        <td><input type="date" id="data" name="data"
+                            placeholder="Inserisci la data" ngModel ></td>
+                    </tr>
+                    
+            </table>
+            
+                <button class="btn lg btn-primary" (click)="insert(f)">Inserisci</button>
+          
+            
+              <a class="btn lg btn-primary"
+     href="/#/gestionePatologie">Indietro</a> 
+            
+            </form>
+    </body>
+    

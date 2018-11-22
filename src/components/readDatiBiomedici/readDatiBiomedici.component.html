@@ -1,0 +1,66 @@
+<h1 class="element-margin-left">Ecco tutti i dati biomedici</h1>
+
+		
+		
+		
+
+<table class="bordo rcorners" >	
+	     <tr>
+     <th><h4>DATI BIOMEDICI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+     
+	<tr>
+        
+         <th>
+             ID CARTELLA
+         </th>
+         
+         <th>
+             ID PAZIENTE
+         </th>
+         
+         <th>ID MEDICO
+         
+          </th>
+
+         <th>ID SENSORE
+          </th>
+
+          <th>RISULTATO
+            </th>
+
+            <th>DATA
+            </th>
+     </tr>
+	
+     <tr *ngFor="let d of datiBiomedici">	
+     <td>{{d.idcartella}}</td>
+     <td>{{d.idpaziente}}</td>
+     <td>{{d.idmedico}}</td>
+     <td>{{d.idsensore}}</td>
+     <td >{{d.risultato}}</td>
+     <td>{{d.data}}</td>
+	<td>
+          
+         <button class="btn lg btn-primary"
+        [routerLink]="['/updateDatiBiomedici']"
+        [queryParams]="{idcartella:d.idcartella,idpaziente:d.idpaziente, idcartella: d.idmedico, idsensore: d.idsensore, risultato: d.risultato, data:d.data}" >
+         Modifica</button>
+         </td>
+         <td>
+                <button  class="btn lg btn-primary" type="submit" (click)="delete(d.idcartella)">Elimina</button> 
+      
+         
+        
+         </td>
+   
+		
+		
+     </tr>
+    
+     
+     
+</table> 
+
+<a class="btn lg btn-primary"
+		href="/#/gestioneDatiBiomedici">Indietro</a>
+
