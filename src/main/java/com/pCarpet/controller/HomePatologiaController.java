@@ -17,6 +17,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/HomePatologia")

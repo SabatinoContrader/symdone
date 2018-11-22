@@ -50,9 +50,7 @@ public class LoginController {
 
 	@CrossOrigin
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public UserDTO newUser(
-			
-			
+	public UserDTO newUser(		
 			
 			@RequestParam(value = "iduser") String iduser,
 			@RequestParam(value = "username") String username,
