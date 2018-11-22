@@ -49,8 +49,7 @@ export class UserService {
         const params = new HttpParams().set('iduser', '0').set('username', username).set('password', password).set('ruolo', ruolo).set('idRuolo', '3').
         set('name', name).set('surname', surname).set('phone',phone).set('email', email);
         return this.http.post<User>('http://localhost:8080/Login/register', params);
-      }     
-
+      }
   }
 
 
