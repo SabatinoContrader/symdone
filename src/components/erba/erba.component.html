@@ -24,12 +24,8 @@
          <th>
          	DESCRIZIONE
           </th>
-         <th>
-             DELETE
-          </th>
-          <th>
-            MODIFICA
-         </th>
+
+         
 
      </tr>
 	
@@ -39,11 +35,7 @@
             <td> {{erba.descrizione}}</td>
             
 
-	
-		<td>
-          <button class="btn lg btn-primary"  type = "submit" (click)="deleteErba(erba.iderba)"> Elimina</button>
-        
-         </td>
+           
          <td>
             <button 
                 class ="btn lg btn-primary" 
@@ -54,23 +46,27 @@
                     erba: erba.erba
                 }"
             >
-                modifica
+                Modifica
             </button>
              
          </td>
+         <td>
+                <button class="btn lg btn-primary"  type = "submit" (click)="deleteErba(erba.iderba)"> Elimina</button>
+              
+               </td>
+
+    
+
          
 		
      </tr>
      
      
      
-</table><br> <br> <br> 
-<a  class ="btn lg btn-primary"
-		href="/#/addErba">Inserisci Erba</a><br> <br> 
-
+</table>
 
          
 <a  class ="btn lg btn-primary"
-		routerLink="/homeDoctor">Indietro</a><br> 
+		routerLink="/gestioneErbe">Indietro</a>
 
 </form>

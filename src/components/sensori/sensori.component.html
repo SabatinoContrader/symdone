@@ -1,0 +1,69 @@
+
+<form class="form-group" #f="ngForm">
+
+    <h1 class="element" >GESTIONE SENSORI</h1>
+  
+      
+      
+      
+  
+  <table >	
+         <tr>
+       <th  ><h4>SENSORI</h4>
+       
+    <tr>
+          
+           <th>
+               ID SENSORE
+           </th>
+  
+           <th>
+               TIPO SENSORE
+           </th>
+           
+           <th>
+             SPECIFICHE SENSORE
+            </th>
+          
+  
+       </tr>
+    
+          <tr *ngFor="let sensore of sensoreList">
+              <td>{{sensore.idsensore}}</td>
+              <td>{{sensore.tipoSensore}}</td>
+              <td> {{sensore.specificheSensore}}</td>
+              
+  
+    
+      
+           <td>
+              <button 
+                  class ="btn lg btn-primary" 
+                  [routerLink]="['/updateSensore']" 
+                  [queryParams]="{
+                      idsensore: sensore.idsensore,
+                      tipoSensore: sensore.tipoSensore,
+                      specificheSensore: sensore.specificheSensore
+                  }"
+              >
+                  Modifica
+              </button>
+               
+           </td>
+           <td>
+                <button class="btn lg btn-primary"  type = "submit" (click)="deleteSensore(sensore.idsensore)"> Elimina</button>
+              
+               </td>
+      
+       </tr>
+       
+       
+       
+  </table>
+  
+           
+  <a  class ="btn lg btn-primary"
+      routerLink="/gestioneSensori">Indietro</a><br> 
+  
+  </form>
+  

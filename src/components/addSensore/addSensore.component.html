@@ -1,0 +1,21 @@
+<form  #f ="ngForm" >
+    <table class="insertTable">
+
+        <tr>
+            <td><h2>Nome Sensore:</h2></td>
+            <td><input type="text" class="form-control" id="tipoSensore"
+                name="tipoSensore" placeholder="Inserisci tipo Sensore" ngModel></td>
+        </tr>
+        
+        <tr>
+            <td><h2>Specifiche Sensore:</h2></td>
+            <td><input type="text"  class="form-control" id="specificheSensore"
+                name="specificheSensore" placeholder="Inserisci Specifiche Sensore "ngModel></td>
+        </tr>
+
+    </table>
+    <button class="btn lg btn-primary" (click)="insertSensore(f)">Inserisci</button>
+    <a class="btn lg btn-primary"  
+    href="/#/gestioneSensori">Indietro</a>
+</form>
+

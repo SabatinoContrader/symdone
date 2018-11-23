@@ -43,6 +43,13 @@ import { UpdateErbaComponent } from 'src/components/updateErba/updateErba.compon
 import { GestioneMedicoComponent } from '../components/gestioneMedico/gestioneMedico.component';
 import { UpdateMedicoComponent } from '../components/updateMedico/updateMedico.component';
 import { NewMedicoComponent } from '../components/newMedico/newMedico.component';
+import { SensoreComponent } from '../components/sensori/sensori.component';
+import { AddSensoreComponent } from '../components/addSensore/addSensore.component';
+import { UpdateSensoreComponent } from '../components/updateSensore/updateSensore.component';
+import { GestioneErbeComponent } from '../components/gestioneErbe/gestioneErbe.component';
+import { GestioneSensoriComponent } from '../components/gestioneSensori/gestioneSensori.component';
+
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -88,6 +95,12 @@ const routes: Routes = [
  {path: 'readDatiBiomedici', component: ReadDatiBiomediciComponent},
  {path: 'insertDatiBiomedici', component: InsertDatiBiomediciComponent},
  {path: 'updateDatiBiomedici', component: UpdateDatiBiomediciComponent},
+  {path: 'sensori', component: SensoreComponent},
+  {path: 'addSensore', component: AddSensoreComponent},
+  {path: 'updateSensore', component: UpdateSensoreComponent},
+  {path: 'gestioneErbe', component: GestioneErbeComponent},
+  {path: 'gestioneSensori', component: GestioneSensoriComponent},
+  
 ];
 
 @NgModule({

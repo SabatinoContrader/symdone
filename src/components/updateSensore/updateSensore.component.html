@@ -1,0 +1,59 @@
+<form class="form-signin" #f="ngForm" >
+
+        <h1 class="element-margin-left">Modifica Sensore </h1>
+        
+    
+    
+    <table class="bordo rcorners" >	
+             <tr>
+         <th><h4>SENSORE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td></tr>
+         <tr>
+        
+              
+              
+           <tr>
+                <td><h2> Tipo Sensore:</h2></td>
+                <td><input 
+                    type="text" 
+                    class="form-control" 
+                    id="tipoSensore"
+                    value="{{tipoSensore}}"
+                    name="tipoSensore" 
+                    placeholder="Modifica Tipo Sensore" 
+                    [(ngModel)]="tipoSensore" 
+                ></td>
+            </tr>
+            
+            <tr>
+                <td><h2>Specifiche Sensore:</h2></td>
+                <td>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="specificheSensore"
+                        value="{{specificheSensore}}"
+                        name="specificheSensore" 
+                        placeholder="Modifica Specifiche Sensore" 
+                        [(ngModel)]="specificheSensore"
+                    >
+                </td>
+            </tr>
+    
+      </table>
+    
+        <br>
+            
+        <br>
+    
+    
+         
+             <table>
+         <tr><td>
+            <button class="btn lg btn-primary"  type = "submit" (click)="updateSensore(f, idsensore)"> Effettua Modifica</button>
+          </td><td>
+          <a class="btn lg btn-primary" 
+            href="/#/sensori">Indietro</a><br>
+          </td>
+          </tr>
+          </table>  
+          </form>

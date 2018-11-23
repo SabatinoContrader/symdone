@@ -58,6 +58,14 @@ import { DatiBiomediciService } from '../services/datiBiomedici.service';
 import { ReadDatiBiomediciComponent } from '../components/readDatiBiomedici/readDatiBiomedici.component';
 import { InsertDatiBiomediciComponent } from '../components/insertDatiBiomedici/insertDatiBiomedici.component';
 import { UpdateDatiBiomediciComponent } from '../components/updateDatiBiomedici/updateDatiBiomedici.component';
+import { SensoreComponent } from '../components/sensori/sensori.component';
+import { AddSensoreComponent } from '../components/addSensore/addSensore.component';
+import { SensoreService } from '../services/sensore.service';
+import { UpdateSensoreComponent } from '../components/updateSensore/updateSensore.component';
+import { GestioneErbeComponent } from '../components/gestioneErbe/gestioneErbe.component';
+import { GestioneSensoriComponent } from '../components/gestioneSensori/gestioneSensori.component';
+
+
 
 
 import { MedicoService } from 'src/services/medico.service';
@@ -108,7 +116,13 @@ import { MedicoService } from 'src/services/medico.service';
    GestioneDatiBiomediciComponent,
    ReadDatiBiomediciComponent,
    InsertDatiBiomediciComponent,
-   UpdateDatiBiomediciComponent
+   UpdateDatiBiomediciComponent,
+    SensoreComponent,
+    AddSensoreComponent,
+    UpdateSensoreComponent,
+    GestioneErbeComponent,
+    GestioneSensoriComponent,
+  
    
   ],
   imports: [
@@ -136,6 +150,7 @@ import { MedicoService } from 'src/services/medico.service';
      SlotService,
      PatologiaService,
      DatiBiomediciService,
+     SensoreService,
      SintomoService],
   bootstrap: [AppComponent]
 })
