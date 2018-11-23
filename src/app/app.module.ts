@@ -67,6 +67,12 @@ import { GestioneSensoriComponent } from '../components/gestioneSensori/gestione
 
 
 
+import { KitService } from '../services/kit.service';
+import { GestioneKitComponent } from '../components/gestioneKit/gestioneKit.component';
+import { ReadKitComponent } from '../components/readKit/readKit.component';
+import { InsertKitComponent } from '../components/insertKit/insertKit.component';
+import { UpdateKitComponent } from '../components/updateKit/updateKit.component';
+
 
 import { MedicoService } from 'src/services/medico.service';
 
@@ -122,6 +128,10 @@ import { MedicoService } from 'src/services/medico.service';
     UpdateSensoreComponent,
     GestioneErbeComponent,
     GestioneSensoriComponent,
+    GestioneKitComponent,
+    ReadKitComponent,
+    InsertKitComponent,
+    UpdateKitComponent,
   
    
   ],
@@ -151,7 +161,8 @@ import { MedicoService } from 'src/services/medico.service';
      PatologiaService,
      DatiBiomediciService,
      SensoreService,
-     SintomoService],
+     SintomoService,
+      KitService],
   bootstrap: [AppComponent]
 })
 

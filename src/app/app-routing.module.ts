@@ -48,6 +48,10 @@ import { AddSensoreComponent } from '../components/addSensore/addSensore.compone
 import { UpdateSensoreComponent } from '../components/updateSensore/updateSensore.component';
 import { GestioneErbeComponent } from '../components/gestioneErbe/gestioneErbe.component';
 import { GestioneSensoriComponent } from '../components/gestioneSensori/gestioneSensori.component';
+import { GestioneKitComponent } from '../components/gestioneKit/gestioneKit.component';
+import { ReadKitComponent } from '../components/readKit/readKit.component';
+import { InsertKitComponent } from '../components/insertKit/insertKit.component';
+import { UpdateKitComponent } from '../components/updateKit/updateKit.component';
 
 
 
@@ -100,6 +104,14 @@ const routes: Routes = [
   {path: 'updateSensore', component: UpdateSensoreComponent},
   {path: 'gestioneErbe', component: GestioneErbeComponent},
   {path: 'gestioneSensori', component: GestioneSensoriComponent},
+  {path: 'gestioneKit', component: GestioneKitComponent},
+  {path: 'readKit', component: ReadKitComponent},
+  {path: 'insertKit', component: InsertKitComponent},
+  {path: 'updateKit', component: UpdateKitComponent},
+
+  
+  
+ 
   
 ];
 
