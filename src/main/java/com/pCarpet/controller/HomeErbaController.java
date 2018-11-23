@@ -58,54 +58,36 @@ public class HomeErbaController {
 	}*/
 	@CrossOrigin
 	@RequestMapping(value = "/insertErba", method = RequestMethod.POST)
-	public ErbaDTO insertErba(@RequestParam(value="erba")String descrizione,
+	public ErbaDTO insertErba(@RequestParam(value="descrizione")String descrizione,
 								 @RequestParam(value="erba")String erba) {
+		System.out.println("DESCRIZIONE:"+descrizione);
+		System.out.println("ERBA:"+erba);
 		ErbaDTO erbaDTO = new ErbaDTO();
-		erbaDTO.setErba("erba");
-		erbaDTO.setDescrizione("descrizione");
+		erbaDTO.setErba(erba);
+		erbaDTO.setDescrizione(descrizione);
 		erbaService.insertErba(erbaDTO);
 		//List<ErbaDTO> listaErba = erbaService.getAll();
 		
 		return erbaDTO;
 	}
-	/*
-	@RequestMapping(value = "/operationForm", method = RequestMethod.GET)
-	public String updateForm(HttpServletRequest request, Model model) {
-		
-		List<ErbaDTO> listaErba = this.erbaService.getAll();
-		model.addAttribute("listaErba", listaErba);
-	    String scelta= request.getParameter("scelta");
-	   
-	    if (scelta.equals("update")) {
-	    	ErbaDTO erba = this.erbaService.getErbaID(Integer.parseInt(request.getParameter("id")))	;		
-			model.addAttribute("erba", erba);
-		    return "updateErba";
-		}
-	    else if(scelta.equals("delete")) {
-            erbaService.deleteErba(Long.parseLong((request.getParameter("id"))));			
-            listaErba = erbaService.getAll();
-			model.addAttribute("listaErba", listaErba);
-			return "erbaView";
-	    }
-            
-	    return "";
-	
-	}
-	*/
 	
 	@CrossOrigin
 	@RequestMapping(value="/updateErba", method= RequestMethod.POST)
 	public ErbaDTO updateErba (
+			
 			@RequestParam(value="iderba") long iderba,
 			@RequestParam(value="erba", required=false) String erba,
-			@RequestParam(value="descizione", required=false)String descrizione) {
+			@RequestParam(value="descrizione", required=false)String descrizione) {
+
+
 	ErbaDTO erbaDTO = erbaService.getErbaID(iderba);
 	if (erba != null) {
 		erbaDTO.setErba(erba);
 		}
-	if (descrizione != null) {
+		if (descrizione != null) {
 		erbaDTO.setDescrizione(descrizione);
 		}
+	
 	erbaService.updateErba(erbaDTO);
 	return erbaDTO;
 	}
@@ -114,36 +96,9 @@ public class HomeErbaController {
 	@CrossOrigin
 	@RequestMapping(value="/deleteErba", method = RequestMethod.POST)
 	public void delete(@RequestParam(value="iderba") long iderba) {
-		erbaService.getErbaID(iderba);
-		erbaService.deleteErba(iderba);
+					erbaService.deleteErba(iderba);
 			
 	}
-	/*
-	@RequestMapping(value = "/operationForm", method = RequestMethod.POST)
-	public String erbaControlPost(HttpServletRequest request, Model model ) {
-		
-		List<ErbaDTO> listaErba2= erbaService.getAll();
-		model.addAttribute("listaErba", listaErba2);	
-		String scelta=request.getParameter("scelta");
 	
-		
-			switch(scelta) {
-				
-			case "update":
-				long iderba = Integer.parseInt(request.getParameter("id"));
-					String erba = request.getParameter("erba");
-					String descrizione = request.getParameter("descrizione");
-					ErbaDTO ErbaDTO =new ErbaDTO(iderba,erba,descrizione);				
-					erbaService.insertErba(ErbaDTO);
-					List<ErbaDTO> listaErba3 = erbaService.getAll();
-					model.addAttribute("listaErba", listaErba3);	
-					return "erbaView";
-			}
-		
-	
-		return "erbaView";
-	}
-	*/
-
 	
 }
