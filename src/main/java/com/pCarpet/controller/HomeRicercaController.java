@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pCarpet.dto.ErbaDTO;
@@ -53,12 +54,170 @@ public class HomeRicercaController {
 	    this.esameService = esameService;
 	}
 	
+	
 	@RequestMapping(value = "/searchViewForm", method = RequestMethod.GET)
 	public List<SintomoDTO> searchView() {
 		List<SintomoDTO> listSintomi = sintomoService.getAll();
 		return listSintomi;
 	}
 	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdForm", method = RequestMethod.GET)
+	public List<SintomoDTO> searchViewWithValue(
+			
+			@RequestParam(value = "iduser") String iduser
+			
+			) {
+		
+		long idUser = Integer.parseInt(iduser);
+		List<SintomoDTO> listNewSintomi = sintomoService.getListaPatologia(idUser);
+		return listNewSintomi;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormErba", method = RequestMethod.GET)
+	public List<ErbaDTO> searchViewWithErbaValue(
+			
+			@RequestParam(value = "iderba") String iderba
+			
+			) {
+		
+		long iderba1 = Integer.parseInt(iderba);
+		List<ErbaDTO> listErba = erbaService.getListaResultErba(iderba1);
+		System.out.println(listErba.size());
+		return listErba;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormEsame", method = RequestMethod.GET)
+	public List<EsameDTO> searchViewWithEsameValue(
+			
+			@RequestParam(value = "idesame") String idesame
+			
+			) {
+		
+		long esame = Integer.parseInt(idesame);
+		List<EsameDTO> listEsame = esameService.getListaResultEsame(esame);
+		return listEsame;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormTwoElem", method = RequestMethod.GET)
+	public List<SintomoDTO> searchViewWithTwoValue(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond
+			
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		List<SintomoDTO> listNewSintomi = sintomoService.getListaPatologiaDue(first,second);
+		return listNewSintomi;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormTwoElemHerbs", method = RequestMethod.GET)
+	public List<ErbaDTO> searchViewWithTwoValueErbe(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond
+			
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		List<ErbaDTO> listErba = erbaService.getListaResultErbaDue(first,second);
+		return listErba;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormTwoElemExame", method = RequestMethod.GET)
+	public List<EsameDTO> searchViewWithTwoValueEsame(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond
+			
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		List<EsameDTO> listEsame = esameService.getListaResultEsameDue(first,second);
+		return listEsame;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormThreeElem", method = RequestMethod.GET)
+	public List<PatologiaDTO> searchViewWithThreeValue(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond,
+			@RequestParam(value = "idthird") String idthird
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		long third = Integer.parseInt(idthird);
+		List<PatologiaDTO> listPatologie = patologiaService.getListaResultPatologiaTre(first,second,third);
+		return listPatologie;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormThreeElemHerbs", method = RequestMethod.GET)
+	public List<ErbaDTO> searchViewWithThreeValueErbe(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond,
+			@RequestParam(value = "idthird") String idthird
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		long third = Integer.parseInt(idthird);
+		List<ErbaDTO> listErba = erbaService.getListaResultErbaTre(first,second,third);
+		return listErba;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormThreeElemExame", method = RequestMethod.GET)
+	public List<EsameDTO> searchViewWithThreeValueEsame(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond,
+			@RequestParam(value = "idthird") String idthird
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		long third = Integer.parseInt(idthird);
+		List<EsameDTO> listEsame = esameService.getListaResultEsameTre(first,second,third);
+		return listEsame;
+	}
+	
+	@RequestMapping(value = "/searchViewResultForm", method = RequestMethod.GET)
+	public List<PatologiaDTO> searchResultView(
+			
+		@RequestParam(value = "iduser") String iduser
+		
+		) {
+	
+	    long idUser = Integer.parseInt(iduser);
+		List<PatologiaDTO> listPatologie = patologiaService.getListaResultPatologia(idUser);
+		return listPatologie;
+	}
+	
+	@RequestMapping(value = "/searchViewResultTwoForm", method = RequestMethod.GET)
+	public List<PatologiaDTO> searchResultTwoView(
+			
+		@RequestParam(value = "iduser1") String iduser1,
+		@RequestParam(value = "iduser2") String iduser2
+		) {
+	
+	    long idfirst = Integer.parseInt(iduser1);
+	    long idsecond = Integer.parseInt(iduser2);
+		List<PatologiaDTO> listPatologie = patologiaService.getListaResultPatologiaDue(idfirst,idsecond);
+		return listPatologie;
+	}
 	/*@RequestMapping(value = "/operationSearchForm", method = RequestMethod.GET)
 	public String updateForm(HttpServletRequest request, Model model) {
 		
@@ -108,7 +267,7 @@ public class HomeRicercaController {
 			
 		case "result":
 			if(count == 1) {
-				listaPatologia = patologiaService.getListaResultPatologia(idsintomo);
+				listaPatologia = patologiaService.getListaResultPatologia(idsintomo); 1
 				model.addAttribute("listaPatologia", listaPatologia);
 				listaMedici = medicoService.getListaResultMedici(idsintomo);
 				model.addAttribute("listaMedici", listaMedici);

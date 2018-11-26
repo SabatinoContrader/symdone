@@ -55,8 +55,7 @@ public class SintomoService {
 	
 	public void deleteSintomo(long id) {
     	Sintomo sintomo = sintomoDAO.findById(id).get();
-    	this.sintomoDAO.delete(sintomo);
-    	 
+    	this.sintomoDAO.delete(sintomo);   	 
     }
 	
 	public List<SintomoDTO> getListaPatologia(long id) {
