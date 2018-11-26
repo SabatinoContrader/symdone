@@ -8,13 +8,13 @@ public class DatiBiomediciDTO {
 	private long idpaziente;
 	private long idmedico;
 	private long idsensore;
-	private Blob risultato;
+	private String risultato;
 	private Date data;
 	
 	public DatiBiomediciDTO() {
 }
 	
-	public DatiBiomediciDTO(long idcartella,long idpaziente, long idmedico, long idsensore,Blob risultato, Date data) {
+	public DatiBiomediciDTO(long idcartella,long idpaziente, long idmedico, long idsensore,String risultato, Date data) {
 		this.idcartella = idcartella;
 		this.idpaziente= idpaziente;
 		this.idmedico= idmedico;
@@ -55,11 +55,11 @@ public class DatiBiomediciDTO {
 		this.idsensore = idsensore;
 	}
 
-	public Blob getRisultato() {
+	public String getRisultato() {
 		return risultato;
 	}
 
-	public void setRisultato(Blob risultato) {
+	public void setRisultato(String risultato) {
 		this.risultato = risultato;
 	}
 

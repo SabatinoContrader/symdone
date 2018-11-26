@@ -37,9 +37,15 @@ public class HomeDatiBiomediciController {
 	@CrossOrigin
 	@RequestMapping(value = "/InsertDatiBiomedici", method = RequestMethod.POST)
 	public DatiBiomediciDTO newDatiBiomedici(
-			@RequestParam(value="risultato") Blob risultato,
+			@RequestParam(value="idpaziente") Long idpaziente,
+			@RequestParam(value="idmedico") Long idmedico,
+			@RequestParam(value="idsensore") Long idsensore,
+			@RequestParam(value="risultato") String risultato,
 			@RequestParam(value="data") Date data){
 		DatiBiomediciDTO datiBiomediciDTO = new DatiBiomediciDTO();
+		datiBiomediciDTO.setIdpaziente(idpaziente);
+		datiBiomediciDTO.setIdmedico(idmedico);
+		datiBiomediciDTO.setIdsensore(idsensore);
 		datiBiomediciDTO.setRisultato(risultato);
 		datiBiomediciDTO.setData(data);
 		datiBiomediciDTO = datiBiomediciService.insertDatiBiomedici(datiBiomediciDTO);
@@ -56,10 +62,16 @@ public class HomeDatiBiomediciController {
 		@RequestMapping(value="/update", method = RequestMethod.POST)
 	 public DatiBiomediciDTO updateDatiBiomedici(
 			 @RequestParam(value="idcartella") Long idcartella,
-				@RequestParam(value="risultato") Blob risultato,
+			 @RequestParam(value="idpaziente") Long idpaziente,
+			 @RequestParam(value="idmedico") Long idmedico,
+			 @RequestParam(value="idsensore") Long idsensore,
+			//	@RequestParam(value="risultato") String risultato,
 				@RequestParam(value="data") Date data){
 		 DatiBiomediciDTO datiBiomediciDTO = datiBiomediciService.findById(idcartella);
-			datiBiomediciDTO.setRisultato(risultato);
+		 datiBiomediciDTO.setIdpaziente(idpaziente);
+			datiBiomediciDTO.setIdmedico(idmedico);
+			datiBiomediciDTO.setIdsensore(idsensore);
+			//datiBiomediciDTO.setRisultato(risultato);
 			datiBiomediciDTO.setData(data);
 		 datiBiomediciService.updateDatiBiomedici(datiBiomediciDTO);
 		return datiBiomediciDTO;

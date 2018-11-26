@@ -43,7 +43,7 @@ public class DatiBiomedici {
 		private long idsensore;
 		
 		@Column
-		private Blob risultato; 
+		private String risultato; 
 		
 		@Column
 		private Date data; 
