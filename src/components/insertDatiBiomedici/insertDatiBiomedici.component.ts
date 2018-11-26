@@ -21,7 +21,7 @@ export class InsertDatiBiomediciComponent implements OnInit{
 
     insert(f:NgForm) {
         
-        this.datiBiomediciService.newDatiBiomedici(f.value.risultato,f.value.data).subscribe((response) => {
+        this.datiBiomediciService.newDatiBiomedici(f.value.idpaziente, f.value.idmedico, f.value.idsensore,f.value.risultato,f.value.data).subscribe((response) => {
             if (response != null) {
               this.router.navigateByUrl("/readDatiBiomedici");
             }

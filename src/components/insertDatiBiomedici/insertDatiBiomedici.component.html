@@ -1,8 +1,29 @@
 <body>
 
-
     <form #f="ngForm" action="/HomeDatiBiomedici/InsertDatiBiomedici" method="POST">
                 <table class="insertTable">
+                    
+                    <!--<form action="upload.asp" method="post" enctype="multipart/form-data">
+  CAMPO TESTO <input type="text" name="testo1">
+  FILE <input type="file" name="file1">
+  <input type="submit" value="Upload">
+</form>-->
+                    <tr>
+                        <td><h2>Idpaziente:</h2></td>
+                         <td><input type="text" id="idpaziente" name="idpaziente"
+                        placeholder="Inserisci l'id del paziente" ngModel> </td>
+                    </tr>
+
+                    <tr>
+                        <td><h2>Idmedico:</h2></td>
+                         <td><input type="text" id="idmedico" name="idmedico"
+                        placeholder="Inserisci l'id del medico" ngModel> </td>
+                    </tr>
+                    <tr>
+                        <td><h2>Idsensore:</h2></td>
+                         <td><input type="text" id="idsensore" name="idsensore"
+                        placeholder="Inserisci l'id delsensore" ngModel> </td>
+                    </tr>
     
                     <tr>
                         <td><h2>Risultato:</h2></td>
@@ -22,7 +43,7 @@
           
             
               <a class="btn lg btn-primary"
-     href="/#/gestionePatologie">Indietro</a> 
+     href="/#/gestioneDatiBiomedici">Indietro</a> 
             
             </form>
     </body>

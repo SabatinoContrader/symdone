@@ -15,7 +15,9 @@ export class UpdateDatiBiomediciComponent implements OnInit{
 
    // public patologia : Array<Patologia>;
     public idcartella: string;
-     risultato: string="";
+    idpaziente: string="";
+    idmedico: string="";
+    idsensore: string=" ";
      data: string="";
 
 
@@ -26,15 +28,16 @@ export class UpdateDatiBiomediciComponent implements OnInit{
     ngOnInit(){
     
             this.idcartella=this.route.snapshot.queryParams.idcartella;
-            this.risultato=this.route.snapshot.queryParams.risultato;
+            this.idpaziente=this.route.snapshot.queryParams.idpaziente;
+            this.idmedico=this.route.snapshot.queryParams.idmedico;
+            this.idsensore=this.route.snapshot.queryParams.idsensore;
             this.data=this.route.snapshot.queryParams.data;
-            console.log(this.idcartella)
        }
 
     
 
     update(f:NgForm){
-        this.datiBiomediciService.update(f.value.idcartella, f.value.risultato, f.value.data).subscribe((response) => {
+        this.datiBiomediciService.update(f.value.idcartella,f.value.idpaziente, f.value.idmedico, f.value.idsensore, f.value.data).subscribe((response) => {
             if(response != null){
                 this.router.navigateByUrl("/readDatiBiomedici");
             }

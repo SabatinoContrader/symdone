@@ -3,12 +3,28 @@
 
     <form #f="ngForm">
                 <table class="insertTable">
-    
                     <tr>
-                        <td><h2>Risultato:</h2></td>
-                        <td><input type="file" class="form-control" id='risultato'  value="{{risultato}}"
-                           name="risultato" placeholder="Inserisci il risultato" [(ngModel)]="risultato"> </td>
+                        <td><h2>Idpaziente:</h2></td>
+                         <td><input type="text" id="idpaziente" value="{{idpaziente}}" name="idpaziente"
+                        placeholder="Inserisci l'id del paziente" [(ngModel)]="idpaziente"> </td>
                     </tr>
+
+                    <tr>
+                        <td><h2>Idmedico:</h2></td>
+                         <td><input type="text" id="idmedico" value="{{idmedico}}" name="idmedico"
+                        placeholder="Inserisci l'id del medico" [(ngModel)]="idmedico"> </td>
+                    </tr>
+                    <tr>
+                        <td><h2>Idsensore:</h2></td>
+                        <td><input type="text" id="idsensore" value="{{idsensore}}" name="idsensore"
+                        placeholder="Inserisci l'id del sensore" [(ngModel)]="idsensore"> </td>
+                    </tr>
+    
+              <!--      <tr>
+                        <td><h2>Risultato:</h2></td>
+                        <td><input type="file" class="form-control" id="risultato"  value="{{risultato}}"
+                           name="risultato" placeholder="Inserisci il risultato" [(ngModel)]="risultato"> </td>
+                    </tr>-->
                     
                     <tr>
                         <td><h2>Data:</h2></td>

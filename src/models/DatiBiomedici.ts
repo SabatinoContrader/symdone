@@ -3,10 +3,10 @@ export class DatiBiomedici {
     idpaziente: string;
     idmedico: string;
     idsensore: string;
-    risultato: Blob;
+    risultato: string;
     data: Date;
     
-    constructor(idcartella: string,idpaziente: string,  idmedico: string, idsensore: string, risultato: Blob, data: Date ){
+    constructor(idcartella: string,idpaziente: string,  idmedico: string, idsensore: string, risultato: string, data: Date ){
         this.idcartella = idcartella;
         this.idpaziente = idpaziente;
         this.idmedico = idmedico;
