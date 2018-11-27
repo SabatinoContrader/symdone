@@ -46,7 +46,9 @@ public class DatiBiomedici {
 		private String risultato; 
 		
 		@Column
-		private Date data; 
+		private Date data;
+
+	
 
 	}
 
