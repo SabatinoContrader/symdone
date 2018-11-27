@@ -60,10 +60,10 @@ export class LoginComponent implements OnInit {
            this.router.navigateByUrl("/login");
            else if(response.idRuolo==1)
            this.router.navigateByUrl("/homeAdmin");
-            else if(response.idRuolo==2)
-            this.router.navigateByUrl("/homeDoctor");
-            else if(response.idRuolo==3)
-            this.router.navigateByUrl("/homeDim");
+           else if(response.idRuolo==2)
+           this.router.navigateByUrl("/homeDoctor");
+           else if(response.idRuolo==3)
+           this.router.navigateByUrl("/homeDim");
 
       }
 

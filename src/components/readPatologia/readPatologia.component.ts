@@ -23,12 +23,10 @@ export class ReadPatologiaComponent implements OnInit{
              this.patologia = response;
          }) 
         }
-         delete(idpatologia:string) {
-        
+
+     delete(idpatologia:string) {        
             this.patologiaService.delete(idpatologia).subscribe(async(response) => {
-    ;
-    await this.ngOnInit();
-                
+            await this.ngOnInit();   
             })
         }
 }

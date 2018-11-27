@@ -64,18 +64,15 @@ import { SensoreService } from '../services/sensore.service';
 import { UpdateSensoreComponent } from '../components/updateSensore/updateSensore.component';
 import { GestioneErbeComponent } from '../components/gestioneErbe/gestioneErbe.component';
 import { GestioneSensoriComponent } from '../components/gestioneSensori/gestioneSensori.component';
-
-
-
 import { KitService } from '../services/kit.service';
 import { GestioneKitComponent } from '../components/gestioneKit/gestioneKit.component';
 import { ReadKitComponent } from '../components/readKit/readKit.component';
 import { InsertKitComponent } from '../components/insertKit/insertKit.component';
 import { UpdateKitComponent } from '../components/updateKit/updateKit.component';
-
-
 import { MedicoService } from 'src/services/medico.service';
-
+import { SearchPatologieComponent } from '../components/searchPatologie/searchPatologie.component';
+import { SearchPatologiaService } from '../services/searchPatologia.service';
+import { SearchResultComponent } from '../components/searchResult/searchResult.component';
 
 
 @NgModule({
@@ -132,8 +129,8 @@ import { MedicoService } from 'src/services/medico.service';
     ReadKitComponent,
     InsertKitComponent,
     UpdateKitComponent,
-  
-   
+    SearchPatologieComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -162,7 +159,8 @@ import { MedicoService } from 'src/services/medico.service';
      DatiBiomediciService,
      SensoreService,
      SintomoService,
-      KitService],
+     KitService,
+    SearchPatologiaService],
   bootstrap: [AppComponent]
 })
 

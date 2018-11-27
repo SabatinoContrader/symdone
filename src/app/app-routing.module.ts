@@ -39,7 +39,6 @@ import { UpdateEsameComponent } from '../components/updateEsame/updateEsame.comp
 import { GestioneEsameComponent } from '../components/gestioneEsame/gestioneEsame.component';
 import { ErbaComponent } from '../components/erba/erba.component';
 import { AddErbaComponent } from '../components/addErba/addErba.component';
-import { UpdateErbaComponent } from 'src/components/updateErba/updateErba.component';
 import { GestioneMedicoComponent } from '../components/gestioneMedico/gestioneMedico.component';
 import { UpdateMedicoComponent } from '../components/updateMedico/updateMedico.component';
 import { NewMedicoComponent } from '../components/newMedico/newMedico.component';
@@ -52,6 +51,9 @@ import { GestioneKitComponent } from '../components/gestioneKit/gestioneKit.comp
 import { ReadKitComponent } from '../components/readKit/readKit.component';
 import { InsertKitComponent } from '../components/insertKit/insertKit.component';
 import { UpdateKitComponent } from '../components/updateKit/updateKit.component';
+import { UpdateErbaComponent } from '../components/updateErba/updateErba.component';
+import { SearchPatologieComponent } from '../components/searchPatologie/searchPatologie.component';
+import { SearchResultComponent } from '../components/searchResult/searchResult.component';
 
 
 
@@ -87,7 +89,7 @@ const routes: Routes = [
   {path: 'gestionePatologie', component: GestionePatologieComponent},
   {path: 'readPatologia', component: ReadPatologiaComponent},
   {path: 'insertPatologia', component: InsertPatologiaComponent},
- {path: 'updatePatologia', component: UpdatePatologiaComponent},
+  {path: 'updatePatologia', component: UpdatePatologiaComponent},
   {path: 'gestioneSintomo', component: GestioneSintomoComponent},
   {path: 'readSintomo', component: ReadSintomoComponent},
   {path: 'insertSintomo', component: InsertSintomoComponent},
@@ -108,11 +110,9 @@ const routes: Routes = [
   {path: 'readKit', component: ReadKitComponent},
   {path: 'insertKit', component: InsertKitComponent},
   {path: 'updateKit', component: UpdateKitComponent},
+  {path: 'searchPatologie', component: SearchPatologieComponent},  
+  {path: 'searchResult/:idsintomo/:idsintomo2/:idsintomo3', component: SearchResultComponent},
 
-  
-  
- 
-  
 ];
 
 @NgModule({

@@ -1,0 +1,227 @@
+<body>
+
+   <script>
+      function exportTableToExcel(tableID, filename = ''){
+         var downloadLink;
+         var dataType = 'application/vnd.ms-excel';
+         var tableSelect = document.getElementById(tableID);
+         var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+         
+         filename = filename?filename+'.xls':'excel_data.xls';
+         
+         downloadLink = document.createElement("a");
+         
+         
+         document.body.appendChild(downloadLink);
+         
+         if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTML], {type: dataType 
+               });
+            navigator.msSaveOrOpenBlob(blob, filename);
+         }else{
+            downloadLink.href = 'data:' + dataType + ',' + tableHTML;
+            downloadLink.download = filename;
+            
+            downloadLink.click();
+         }
+      }
+      
+      </script>
+
+    <form class="form-signin" #f="ngForm">
+    
+        <h1 class="element-margin-left">Ecco tutte le Patologie</h1>
+    
+      <table id="first" class="bordo rcorners" >	
+         <tr>
+              <th><h4>PATOLOGIE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td>
+         </tr>
+           
+          <tr>
+             <th>
+                 ID PATOLOGIE
+             </th>
+    
+             <th>
+                 NOME PATOLOGIE
+             </th>
+             
+             <th>
+                 DESCRIZIONE
+           </th>
+             <th>
+              </th>
+             <th>
+              </th>
+           </tr>
+        
+           
+          <tr *ngFor = "let p of listPatologie">
+             
+             <td>           
+                {{p.idpatologia}}            
+             </td>
+             <td>
+                {{p.patologia}}
+             </td>
+             <td>
+                {{p.descrizione}}
+             </td>
+
+          </tr>
+      </table>
+
+      <button class="btn lg btn-primary" (click)="exportTableToExcel('first')" >Download Excel</button>
+
+      <h2>------------------------------------------------------------------</h2>
+      <table id="second" class="bordo rcorners" >	
+         <tr>
+              <th><h4>ERBE</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td>
+         </tr>
+           
+          <tr>
+             <th>
+                 ID ERBE
+             </th>
+    
+             <th>
+                 NOME ERBA
+             </th>
+             
+             <th>
+                 DESCRIZIONE
+           </th>
+             <th>
+              </th>
+             <th>
+              </th>
+           </tr>
+        
+           
+          <tr *ngFor = "let e of listErbe">
+             
+             <td>           
+                {{e.iderba}}            
+             </td>
+             <td>
+                {{e.erba}}
+             </td>
+             <td>
+                {{e.descrizione}}
+             </td>
+
+          </tr>
+      </table>
+      <input type="hidden" name="idsintomo" [(ngModel)]="idsintomo">
+
+      <button class="btn lg btn-primary" (click)="exportTableToExcel('second')" >Download Excel</button>
+
+      <h2>------------------------------------------------------------------</h2>
+      <table id="third" class="bordo rcorners" >	
+         <tr>
+              <th><h4>ESAME</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td>
+         </tr>
+           
+          <tr>
+             <th>
+                 ID ESAME
+             </th>
+    
+             <th>
+                 NOME ESAME
+             </th>
+             
+             <th>
+                 DESCRIZIONE
+           </th>
+             <th>
+              </th>
+             <th>
+              </th>
+           </tr>
+        
+           
+          <tr *ngFor = "let e of listEsame">
+             
+             <td>           
+                {{e.idesame}}            
+             </td>
+             <td>
+                {{e.esame}}
+             </td>
+             <td>
+                {{e.descrizione}}
+             </td>
+
+          </tr>
+      </table>
+      <input type="hidden" name="idsintomo" [(ngModel)]="idsintomo">
+
+      <button class="btn lg btn-primary" (click)="exportTableToExcel('third')" >Download Excel</button>
+
+      <h2>------------------------------------------------------------------</h2>
+      <table id="fourth" class="bordo rcorners" >	
+         <tr>
+              <th><h4>MEDICO</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td>
+         </tr>
+           
+          <tr>
+             <th>
+                 ID MEDICO
+             </th>
+    
+             <th>
+                 NOME MEDICO
+             </th>
+             
+             <th>
+               COGNOME MEDICO
+           </th>
+
+             <th>
+                 INDIRIZZO
+           </th>
+           <th>
+                 MAIL
+           </th>
+           <th>
+                 SPECIALIZZAZIONE
+           </th>
+             <th>
+              </th>
+             <th>
+              </th>
+           </tr>
+        
+           
+          <tr *ngFor = "let m of listMedico">
+             
+             <td>           
+                {{m.idmedico}}            
+             </td>
+             <td>
+                {{m.nome}}
+             </td>
+             <td>
+                {{m.cognome}}
+             </td>
+             <td>
+               {{m.indirizzo}}
+            </td>
+            <td>
+               {{m.mail}}
+            </td>
+            <td>
+               {{m.specializzazione}}
+            </td>
+          </tr>
+      </table>
+
+      <button class="btn lg btn-primary" (click)="exportTableToExcel('fourth')" >Download Excel</button>
+      
+    <a class="btn lg btn-primary"
+            href="/#/searchPatologie">Indietro</a>
+   
+    </form>
+    
+    </body>

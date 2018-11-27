@@ -1,0 +1,62 @@
+<body>
+
+
+    <form class="form-signin" #f="ngForm">
+    
+        <h1 class="element-margin-left">Ecco tutti i Sintomi</h1>
+    
+            
+           
+    
+      <table class="bordo rcorners" >	
+         <tr>
+              <th><h4>SINTOMI</h4></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="userimg"></td>
+         </tr>
+           
+          <tr>
+             <th>
+                 ID SINTOMO
+             </th>
+    
+             <th>
+                 NOME SINTOMO
+             </th>
+             
+             <th>
+              </th>
+             <th>
+              </th>
+           </tr>
+        
+           
+          <tr *ngFor = "let s of listSintomo">
+             
+             <td>           
+                {{s.idsintomo}}            
+             </td>
+             <td>
+                {{s.nomeSintomo}}
+             </td>
+
+          </tr>
+      </table>
+      
+      <table class="insertTable">
+    
+        <tr>
+            <td><h3>Scegli un SINTOMO:</h3></td>
+            <td><input type="text" id="idsintomo" name="idsintomo"
+                placeholder="Inserisci l'ID " [(ngModel)]="idsintomo"> </td>
+        </tr>   
+        
+      </table>
+
+    <button class="btn lg btn-primary" (click)="register(f)" >Go Next</button>
+
+    <button class="btn lg btn-primary" (click)="searchResult(f,idsintomo)">Go Result</button>
+    <a class="btn lg btn-primary"
+            href="/#/homeDim">Indietro</a>
+   
+    </form>
+    
+    </body>
