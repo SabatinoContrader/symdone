@@ -1,8 +1,11 @@
 package com.pCarpet.services;
 
+import com.pCarpet.converter.PatologiaConverter;
 import com.pCarpet.converter.UserConverter;
 import com.pCarpet.dao.UserRepository;
+import com.pCarpet.dto.PatologiaDTO;
 import com.pCarpet.dto.UserDTO;
+import com.pCarpet.model.Patologia;
 import com.pCarpet.model.Stato;
 import com.pCarpet.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,4 +88,12 @@ public class UserService {
     public boolean updateUser(UserDTO userDTO) {
     	return this.userRepository.save(UserConverter.converToEntity(userDTO))!=null;
     }
+    
+    public List<UserDTO> findAllListUser(){
+		List<User> listaPazienti = (List<User>) userRepository.findAllListUser();
+		List<UserDTO> pazienti= new ArrayList<>();
+		listaPazienti.forEach(i->pazienti.add(UserConverter.covertToDTO(i)));
+		return pazienti;
+
+	}	
 }

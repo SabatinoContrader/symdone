@@ -12,7 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pCarpet.dto.DatiBiomediciDTO;
+import com.pCarpet.dto.MedicoDTO;
+import com.pCarpet.dto.SensoriDTO;
+import com.pCarpet.dto.UserDTO;
 import com.pCarpet.services.DatiBiomediciService;
+import com.pCarpet.services.MedicoService;
+import com.pCarpet.services.SensoriService;
+import com.pCarpet.services.UserService;
+
 
 
 @RestController
@@ -21,10 +28,16 @@ import com.pCarpet.services.DatiBiomediciService;
 public class HomeDatiBiomediciController {
 	
 	private DatiBiomediciService datiBiomediciService;
+	private UserService userService;
+	private MedicoService medicoService;
+	private SensoriService sensoriService;
 	
 	@Autowired
-	public HomeDatiBiomediciController(DatiBiomediciService datiBiomediciService) {
+	public HomeDatiBiomediciController(DatiBiomediciService datiBiomediciService, UserService userService, MedicoService medicoService, SensoriService sensoriService) {
 		this.datiBiomediciService = datiBiomediciService;
+		this.userService= userService;
+		this.medicoService=medicoService;
+		this.sensoriService=sensoriService;
 	}
 	
 	@CrossOrigin
@@ -76,4 +89,24 @@ public class HomeDatiBiomediciController {
 		 datiBiomediciService.updateDatiBiomedici(datiBiomediciDTO);
 		return datiBiomediciDTO;
 	 }
+	 
+	 @CrossOrigin
+	 @RequestMapping(value = "/ShowPazienti", method = RequestMethod.GET)
+		public List<UserDTO> findAllListUser(){
+		List<UserDTO> pazienti=userService.findAllListUser();
+			return pazienti;
+	 }
+	 @CrossOrigin
+	 @RequestMapping(value = "/ShowMedici", method = RequestMethod.GET)
+		public List<MedicoDTO> getAllMedici(){
+		List<MedicoDTO> medici=medicoService.getAll();
+			return medici;
+	 }
+	 @CrossOrigin
+	 @RequestMapping(value = "/ShowSensori", method = RequestMethod.GET)
+		public List<SensoriDTO> getAllSensori(){
+		List<SensoriDTO> sensori=sensoriService.getAll();
+			return sensori;
+	 }
+	 
 }
