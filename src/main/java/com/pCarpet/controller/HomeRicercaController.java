@@ -102,6 +102,19 @@ public class HomeRicercaController {
 	}
 	
 	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormDoctor", method = RequestMethod.GET)
+	public List<MedicoDTO> searchViewWithMedicoValue(
+			
+			@RequestParam(value = "idfirst") String idfirst
+			
+			) {
+		
+		long medico = Integer.parseInt(idfirst);
+		List<MedicoDTO> listMedico = medicoService.getListaResultMedici(medico);
+		return listMedico;
+	}
+	
+	@CrossOrigin
 	@RequestMapping(value = "/searchViewWithIdFormTwoElem", method = RequestMethod.GET)
 	public List<SintomoDTO> searchViewWithTwoValue(
 			
@@ -144,6 +157,21 @@ public class HomeRicercaController {
 		long second = Integer.parseInt(idsecond);
 		List<EsameDTO> listEsame = esameService.getListaResultEsameDue(first,second);
 		return listEsame;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormTwoElemDoctor", method = RequestMethod.GET)
+	public List<MedicoDTO> searchViewWithTwoValueDoctor(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond
+			
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		List<MedicoDTO> listMedico = medicoService.getListaResultMediciDue(first,second);
+		return listMedico;
 	}
 	
 	@CrossOrigin
@@ -192,6 +220,22 @@ public class HomeRicercaController {
 		long third = Integer.parseInt(idthird);
 		List<EsameDTO> listEsame = esameService.getListaResultEsameTre(first,second,third);
 		return listEsame;
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/searchViewWithIdFormThreeElemDoctor", method = RequestMethod.GET)
+	public List<MedicoDTO> searchViewWithThreeValueDoctor(
+			
+			@RequestParam(value = "idfirst") String idfirst,
+			@RequestParam(value = "idsecond") String idsecond,
+			@RequestParam(value = "idthird") String idthird
+			) {
+		
+		long first = Integer.parseInt(idfirst);
+		long second = Integer.parseInt(idsecond);
+		long third = Integer.parseInt(idthird);
+		List<MedicoDTO> listMedico = medicoService.getListaResultMediciTre(first,second,third);
+		return listMedico;
 	}
 	
 	@RequestMapping(value = "/searchViewResultForm", method = RequestMethod.GET)

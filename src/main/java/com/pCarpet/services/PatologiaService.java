@@ -58,9 +58,6 @@ public class PatologiaService {
 	    Patologia p=(Patologia)this.patologiaDAO.findById(idpatologia).get();
 	    return PatologiaConverter.convertToDto(p);
     }
- 
-    
-	
 	
     public List<PatologiaDTO> getListaResultPatologia(long idpatologia) {
     	System.out.println("IDReturn1: " + idpatologia);
