@@ -8,32 +8,75 @@
   FILE <input type="file" name="file1">
   <input type="submit" value="Upload">
 </form>-->
+<table class="bordo rcorners" >
+        <tr> <td class="ciao">IdUser</td>
+            <td class="ciao">Nome</td>
+            <td class="ciao">Cognome</td>
+        </tr>
+    
+        <tr *ngFor="let u of user">	
+                <td class="ciao">{{u.iduser}}</td>
+                <td class="ciao">{{u.name}}</td>
+                <td class="ciao">{{u.surname}}</td>
+    </table>
+    <br>
+
+    <table class="bordo rcorners" >
+            <tr> <td class="ciao">Idmedico</td>
+                <td class="ciao">Nome</td>
+                <td class="ciao">Cognome</td>
+                <td class="ciao">Specializzazione</td>
+            </tr>
+        
+            <tr *ngFor="let m of medico">	
+                    <td class="ciao">{{m.idmedico}}</td>
+                    <td class="ciao">{{m.nome}}</td>
+                    <td class="ciao">{{m.cognome}}</td>
+                    <td class="ciao">{{m.specializzazione}}</td>
+        </table>
+
+        <br>
+
+    <table class="bordo rcorners" >
+            <tr> <td class="ciao">Idsensore</td>
+                <td class="ciao">Tipo</td>
+                <td class="ciao">Specifiche</td>
+            </tr>
+        
+            <tr *ngFor="let s of sensore">	
+                    <td class="ciao">{{s.idsensore}}</td>
+                    <td class="ciao">{{s.tipoSensore}}</td>
+                    <td class="ciao">{{s.specificheSensore}}</td>
+                   
+        </table>
+    
+    
                     <tr>
-                        <td><h2>Idpaziente:</h2></td>
-                         <td><input type="text" id="idpaziente" name="idpaziente"
+                        <td class="ciao">Idpaziente:</td>
+                        <td class="ciao"><input type="text" id="idpaziente" name="idpaziente"
                         placeholder="Inserisci l'id del paziente" ngModel> </td>
                     </tr>
 
                     <tr>
-                        <td><h2>Idmedico:</h2></td>
-                         <td><input type="text" id="idmedico" name="idmedico"
+                        <td class="ciao">Idmedico:</td>
+                        <td class="ciao"><input type="text" id="idmedico" name="idmedico"
                         placeholder="Inserisci l'id del medico" ngModel> </td>
                     </tr>
                     <tr>
-                        <td><h2>Idsensore:</h2></td>
-                         <td><input type="text" id="idsensore" name="idsensore"
+                        <td class="ciao">Idsensore:</td>
+                        <td class="ciao"><input type="text" id="idsensore" name="idsensore"
                         placeholder="Inserisci l'id delsensore" ngModel> </td>
                     </tr>
     
                     <tr>
-                        <td><h2>Risultato:</h2></td>
-                        <td><input type="file" id="risultato" name="risultato"
+                         <td class="ciao">Risultato:</td>
+                         <td class="ciao"><input type="file" id="risultato" name="risultato"
                             placeholder="Inserisci il risultato" ngModel> </td>
                     </tr>
                     
                     <tr>
-                        <td><h2>Data:</h2></td>
-                        <td><input type="date" id="data" name="data"
+                        <td class="ciao">Data:</td>
+                        <td class="ciao"><input type="date" id="data" name="data"
                             placeholder="Inserisci la data" ngModel ></td>
                     </tr>
                     

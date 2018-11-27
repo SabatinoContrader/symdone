@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { DatiBiomediciService } from "src/services/datiBiomedici.service";
+import { User } from "src/models/User";
+import { Medico } from "src/models/Medico";
+import { Sensore } from "src/models/Sensore";
 
 @Component({
     selector:'app-insertDatiBiomedici',
@@ -10,14 +13,25 @@ import { DatiBiomediciService } from "src/services/datiBiomedici.service";
 })
 
 export class InsertDatiBiomediciComponent implements OnInit{
+    public user :Array<User>;
+    public medico:Array <Medico>;
+    public sensore:Array<Sensore>;
 
     constructor(private datiBiomediciService:DatiBiomediciService, private router:Router){
 
     }
 
     ngOnInit(){
-        
-    }
+        this.datiBiomediciService.readPazienti().subscribe((response)=>{
+            this.user= response;
+        })
+        this.datiBiomediciService.readMedici().subscribe((response)=>{
+            this.medico=response;
+    })
+        this.datiBiomediciService.readSensori().subscribe((response)=>{
+        this.sensore=response;
+})
+}
 
     insert(f:NgForm) {
         

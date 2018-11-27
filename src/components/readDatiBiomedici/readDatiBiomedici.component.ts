@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { DatiBiomedici } from "src/models/DatiBiomedici";
 import { DatiBiomediciService } from "src/services/datiBiomedici.service";
+import { User } from "src/models/User";
 
 @Component({
     selector:'app-readDatiBiomedici',
@@ -13,12 +14,15 @@ import { DatiBiomediciService } from "src/services/datiBiomedici.service";
 export class ReadDatiBiomediciComponent implements OnInit{
     
     public datiBiomedici : Array<DatiBiomedici>;
+   
+    
 
      constructor(private datiBiomediciService:DatiBiomediciService, private router: Router){
 
      }
 
      ngOnInit(){
+         
          this.datiBiomediciService.readDatiBiomedici().subscribe((response) => {
              this.datiBiomedici = response;
          }) 
@@ -26,10 +30,6 @@ export class ReadDatiBiomediciComponent implements OnInit{
          delete(idcartella:string) {
         
            this.datiBiomediciService.delete(idcartella).subscribe(async(response) => {
-
-await this.ngOnInit();
-                
-            }
-            )
+await this.ngOnInit();})
      }
 }

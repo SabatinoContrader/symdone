@@ -2,6 +2,46 @@
 
 
     <form #f="ngForm">
+        <table class="bordo rcorners" >
+        <tr><td class="ciao">IdUser</td>
+            <td class="ciao">Nome</td>
+            <td class="ciao">Cognome</td>
+        </tr>
+    
+        <tr *ngFor="let u of user">	
+                <td class="ciao">{{u.iduser}}</td>
+                <td class="ciao">{{u.name}}</td>
+                <td class="ciao">{{u.surname}}</td>
+    </table>
+    <br>
+    <table class="bordo rcorners" >
+            <tr><td class="ciao">Idmedico</td>
+                <td class="ciao">Nome</td>
+                <td class="ciao">Cognome</td>
+                <td class="ciao">Specializzazione</td>
+            </tr>
+        
+            <tr *ngFor="let m of medico">	
+                    <td class="ciao">{{m.idmedico}}</td>
+                    <td class="ciao">{{m.nome}}</td>
+                    <td class="ciao">{{m.cognome}}</td>
+                    <td class="ciao">{{m.specializzazione}}</td>
+        </table>
+
+        <br>
+
+        <table class="bordo rcorners" >
+                <tr><td class="ciao">Idsensore</td>
+                    <td class="ciao">Tipo</td>
+                    <td class="ciao">Specifiche</td>
+                </tr>
+            
+                <tr *ngFor="let s of sensore">	
+                        <td class="ciao">{{s.idsensore}}</td>
+                        <td class="ciao">{{s.tipoSensore}}</td>
+                        <td class="ciao">{{s.specificheSensore}}</td>
+                       
+            </table>
                 <table class="insertTable">
                     <tr>
                         <td><h2>Idpaziente:</h2></td>
